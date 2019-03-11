@@ -13,7 +13,7 @@
 <![endif]-->
 <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 	<header id="main-header">
 		<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
 			<a class="navbar-brand d-md-none d-lg-none" href="#">

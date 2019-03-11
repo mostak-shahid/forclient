@@ -1,1 +1,6 @@
+a {-webkit-transition: all .3s ease-out; -moz-transition: all .3s ease-out; -o-transition: all .3s ease-out; transition: all .3s ease-out; text-decoration: none; }
+a:visited, a:hover, a:active, a:focus {text-decoration: none; }
+.pagination {-webkit-box-pack: center!important; -ms-flex-pack: center!important; justify-content: center!important;margin-bottom: 20px;}
+.pagination .page-numbers {color: #000000;display: inline-block;text-align: center;padding: 5px;min-width: 42px;line-height: 30px;border: 1px solid #000000;text-decoration: none;}
+#main-header, header, section, footer, #footer {position: relative;}
 #section-banner .wrapper img{width: 100%;height: auto}
