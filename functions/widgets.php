@@ -1,7 +1,7 @@
 <?php
 //Add widgets area
 function forclient_widgets_init(){
-	/*register_sidebar(array(
+	register_sidebar(array(
 		'id' => 'sidebar',
 		'name' => __('Sidebar for Post', 'forclient'),
 		//'description' => __('Add widgets here to appear in your Left SideBar', 'forclient'),
@@ -18,7 +18,7 @@ function forclient_widgets_init(){
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 		'after_widget' => '</div>'
-	));	*/
+	));	
 	register_sidebar(array(
 		'id' => 'footer_1',
 		'name' => __('Footer Column 1', 'forclient'),

@@ -1,12 +1,33 @@
 jQuery(document).ready(function($){
+    var loader = $('#loader-status').val();
+    if (loader == 1) {
+        $('body').css({"height": "100%", "overflow": "hidden"})
+        $(window).load(function() {
+            // Animate loader off screen
+            $('body').removeAttr("style");
+            $(".se-pre-con").fadeOut("slow");
+        });
+    } 
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
             //$('.scrollup').fadeIn();
             $('#main-header').addClass('tiny');
+            $('.scrollup').fadeIn();
         } else {
             //$('.scrollup').fadeOut();
             $('#main-header').removeClass('tiny');
+            $('.scrollup').fadeOut();
         }
+    });
+    
+    $('.scrollup').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+    $(".navbar-nav > li:has('ul')").prepend("<span class='drop_down_icon fa fa-angle-down'></span>");
+    
+    $(".drop_down_icon").click(function() {
+        $(this).siblings("ul").slideToggle();
     }); 
     $('#section-banner-owl').owlCarousel({
         loop: true,

@@ -6,6 +6,7 @@ require_once('functions/setup.php');
 require_once('functions/shortcodes.php');
 require_once('functions/widgets.php');
 require_once('functions/custom-comments.php');
+require_once('functions/theme-filter-hooks.php');
 
 require_once('inc/theme-options/ReduxCore/framework.php'); 
 //require_once('inc/theme-options/sample/sample-config.php');

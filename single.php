@@ -1,7 +1,15 @@
-<?php get_header() ?>
-<section id="blogs" class="page-content">
+<?php 
+global $forclient_options;
+$sections = $forclient_options['archive-page-sections']['Enabled'];
+$layout = $forclient_options['archive-page-layout'];
+?><?php get_header() ?>
+<section id="blogs" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
 	<div class="content-wrap">
-		<div class="container">
+		<div class="container-fluid">
+		<?php if ($layout != 'ns') : ?>
+			<div class="row">
+				<div class="col-lg-8 <?php if ($layout == 'ls') echo 'order-lg-last'?>">
+		<?php endif; ?>
 			<?php if ( have_posts() ) :?>
 				<?php while ( have_posts() ) : the_post(); ?>		
 
@@ -23,12 +31,12 @@
 								<?php the_content(); ?>
 							</div>
 							<?php 
-							$gallery_images = get_post_meta( get_the_ID(), '_forclient_post_gallery_images', true );					
-							$layout = ( get_post_meta( get_the_ID(), '_forclient_post_gallery_layout', true ) ) ? get_post_meta( get_the_ID(), '_forclient_gallery_layout', true ) : '6';
-							$large_image_size =  get_post_meta( get_the_ID(), '_forclient_post_large_image_size', true );
-							$image_width =  get_post_meta( get_the_ID(), '_forclient_post_image_width', true );
-							$image_height =  get_post_meta( get_the_ID(), '_forclient_post_image_height', true );
-							$image_per_page =  get_post_meta( get_the_ID(), '_forclient_post_image_per_page', true );
+							$gallery_images = get_post_meta( get_the_ID(), '_appolo_post_gallery_images', true );					
+							$layout = ( get_post_meta( get_the_ID(), '_appolo_post_gallery_layout', true ) ) ? get_post_meta( get_the_ID(), '_appolo_gallery_layout', true ) : '6';
+							$large_image_size =  get_post_meta( get_the_ID(), '_appolo_post_large_image_size', true );
+							$image_width =  get_post_meta( get_the_ID(), '_appolo_post_image_width', true );
+							$image_height =  get_post_meta( get_the_ID(), '_appolo_post_image_height', true );
+							$image_per_page =  get_post_meta( get_the_ID(), '_appolo_post_image_per_page', true );
 							?>
 							<?php if($gallery_images) : ?>
 								<div id="gallery" class="row">
@@ -70,7 +78,14 @@
 				</div>
 			</div>
 			<?php if (comments_open() || '0' != get_comments_number()) : comments_template(); endif;?>			
-		</div>
+		<?php if ($layout != 'ns') : ?>		
+				</div>
+				<div class="col-lg-4 <?php if ($layout == 'ls') echo 'order-lg-first'?>">
+					<?php get_sidebar();?>
+				</div>
+			</div>
+			<?php endif; ?>
+		</div>	
 	</div>
 </section>
 <?php get_footer() ?>

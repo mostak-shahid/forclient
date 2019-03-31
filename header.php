@@ -14,6 +14,16 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<input id="loader-status" type="hidden" value="<?php echo $forclient_options['misc-page-loader'] ?>">
+<?php if ($forclient_options['misc-page-loader']) : ?>
+    <div class="se-pre-con">
+    <?php if ($forclient_options['misc-page-loader-image']['url']) : ?>
+        <img class="img-responsive animation <?php echo $forclient_options['misc-page-loader-image-animation'] ?>" src="<?php echo do_shortcode( $forclient_options['misc-page-loader-image']['url'] ); ?>">
+    <?php else : ?>
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    <?php endif; ?>
+    </div>
+<?php endif; ?>
 	<header id="main-header">
 		<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
 			<a class="navbar-brand d-md-none d-lg-none" href="#">
@@ -37,13 +47,13 @@
 				'menu_class'      => 'navbar-nav ml-auto',
 				'depth'           => 2,
 				'fallback_cb'     => 'bs4navwalker::fallback',
-				'walker'          => new bs4navwalker()
+				//'walker'          => new bs4navwalker()
 				]);
 			?>
 		</nav>
 	</header>
 	<?php if (!is_front_page()) : ?>
-		<section id="page-title">
+		<section id="page-title" <?php if(@$forclient_options['sections-title-background-type'] == 1) echo 'class="'.@$forclient_options['sections-title-background'].'"';?>>
 			<div class="content-wrap">
 				<div class="container">
 					<?php 
@@ -60,4 +70,13 @@
 				</div>
 			</div>
 		</section>
+		<?php if (@$forclient_options['sections-breadcrumbs-option']) : ?>
+		<section id="section-breadcrumbs" <?php if(@$forclient_options['sections-breadcrumbs-background-type'] == 1) echo 'class="'.@$forclient_options['sections-breadcrumbs-background'].'"';?>>
+			<div class="content-wrap">
+				<div class="container">
+					<?php mos_breadcrumbs(); ?>
+				</div>
+			</div>
+		</section>
+		<?php endif; ?>
 	<?php endif ?>

@@ -1,7 +1,15 @@
-<?php get_header() ?>
-<section id="archive" class="page-content">
+<?php 
+global $forclient_options;
+$sections = $forclient_options['archive-page-sections']['Enabled'];
+$layout = $forclient_options['archive-page-layout'];
+?><?php get_header() ?>
+<section id="archive" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
 	<div class="content-wrap">
-		<div class="container">
+		<div class="container-fluid">
+		<?php if ($layout != 'ns') : ?>
+			<div class="row">
+				<div class="col-lg-8 <?php if ($layout == 'ls') echo 'order-lg-last'?>">
+		<?php endif; ?>
 			<?php if ( have_posts() ) :?>
 				<div id="blogs" class="row">
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -23,7 +31,14 @@
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>
 			<?php endif;?>			
-		</div>
+		<?php if ($layout != 'ns') : ?>		
+				</div>
+				<div class="col-lg-4 <?php if ($layout == 'ls') echo 'order-lg-first'?>">
+					<?php get_sidebar();?>
+				</div>
+			</div>
+			<?php endif; ?>
+		</div>	
 	</div>
 </section>
 <?php get_footer() ?>

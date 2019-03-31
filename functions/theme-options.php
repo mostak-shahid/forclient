@@ -330,9 +330,9 @@
                 'default'  => 'ns'
             ),
             array(
-                'id'       => 'page-layout-settings',
+                'id'       => 'general-page-sections',
                 'type'     => 'sorter',
-                'title'    => 'General Page Layout',
+                'title'    => 'General Page Sections',
                 'subtitle' => 'You can add multiple drop areas or columns.',
                 'compiler' => 'true',
                 'options'  => array(
@@ -343,6 +343,49 @@
         )
     ) );
     //General Page 
+    //Archive Page  
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Archive Page', 'redux-framework-demo' ),
+        'id'               => 'archive-page',
+        //'subsection'       => true,
+        'desc'             => '',
+        'customizer_width' => '400px',
+        'icon'             => 'dashicons dashicons-admin-page',
+        'fields'     => array(
+            array(
+                'id'       => 'archive-page-layout',
+                'type'     => 'image_select',
+                'title'    => __( 'Archive Page Layout', 'redux-framework-demo' ),
+                'options'  => array(
+                    'ns' => array(
+                        'alt' => 'Full Width',
+                        'img' => ReduxFramework::$_url . 'assets/img/1col.png'
+                    ),
+                    'ls' => array(
+                        'alt' => 'Left Sidebar',
+                        'img' => ReduxFramework::$_url . 'assets/img/2cl.png'
+                    ),
+                    'rs' => array(
+                        'alt' => 'Right Sidebar',
+                        'img' => ReduxFramework::$_url . 'assets/img/2cr.png'
+                    )
+                ),
+                'default'  => 'ns'
+            ),
+            array(
+                'id'       => 'archive-page-sections',
+                'type'     => 'sorter',
+                'title'    => 'Archive Page Sections',
+                'subtitle' => 'You can add multiple drop areas or columns.',
+                'compiler' => 'true',
+                'options'  => array(
+                    'Enabled'  => array(),
+                    'Disabled' => array(),
+                ),
+            ),
+        )
+    ) );
+    //Archive Page 
     
     //Home Section
     Redux::setSection( $opt_name, array(
@@ -353,16 +396,17 @@
         'icon'             => 'el el-home',
         'fields'     => array(
             array(
-                'id'       => 'home-layout-settings',
+                'id'       => 'home-layout-sections',
                 'type'     => 'sorter',
-                'title'    => 'Home Page Layout',
+                'title'    => 'Home Page Sections',
                 'subtitle' => 'You can add multiple drop areas or columns.',
                 'compiler' => 'true',
                 'options'  => array(
                     'Enabled'  => array(
-                        'banner' => 'Banner',
                     ),
-                    'Disabled' => array()
+                    'Disabled' => array(
+                        'banner' => 'Banner',
+                    )
                 ),
             ),
 
@@ -515,46 +559,12 @@
                 'compiler' => 'true'
             ),
             array(
-                'id'       => 'misc-page-loader-background-type',
-                'type'     => 'button_set',
-                'title'    => __( 'Footer Background Type', 'redux-framework-demo' ),
-                'options'  => array(
-                    '1' => 'Gradient',
-                    '2' => 'Solid Color/Image',
-                    '3' => 'RGBA Color'
-                ),
-                'default'  => '2',
-            ),
-
-            array(
-                'id'     => 'misc-page-loader-background-start',
-                'type'   => 'section',
-                'indent' => true, // Indent all options below until the next 'section' option is set.
-            ),
-            array(
-                'id'       => 'misc-page-loader-background-gradient',
-                'type'     => 'color_gradient',
-                'title'    => __( 'Footer Background', 'redux-framework-demo' ),
-                'validate' => 'color',              
-                'required' => array( 'misc-page-loader-background-type', '=', '1' ),
-            ),
-            array(
-                'id'       => 'misc-page-loader-background-solid',
-                'type'     => 'background',                
-                'title'    => __( 'Footer Section Background', 'redux-framework-demo' ),
-                'required' => array( 'misc-page-loader-background-type', '=', '2' ),
-            ),
-            array(
                 'id'       => 'misc-page-loader-background-rgba',
                 'type'     => 'color_rgba',
-                'title'    => __( 'Footer Section Background', 'redux-framework-demo' ),
+                'mode'     => 'background',
+                'title'    => __( 'Page Loader Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
-                'required' => array( 'misc-page-loader-background-type', '=', '3' ),
-            ),
-            array(
-                'id'     => 'misc-page-loader-background-end',
-                'type'   => 'section',
-                'indent' => false, // Indent all options below until the next 'section' option is set.
+                'output'   => array( '.se-pre-con' ),
             ),
         )
     ) );
@@ -670,51 +680,49 @@
             array(
                 'id'       => 'sections-title-border',
                 'type'     => 'border',
-                'title'    => __( 'Page Title Border', 'redux-framework-demo' ),
+                'title'    => __( 'Section Border', 'redux-framework-demo' ),
                 'output'   => array( '#page-title .content-wrap' ),
                 'all'      => false,
             ), 
             array(
                 'id'       => 'sections-title-background-type',
                 'type'     => 'button_set',
-                'title'    => __( 'Page Title Background Type', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background Type', 'redux-framework-demo' ),
                 'options'  => array(
-                    '1' => 'Gradient',
-                    '2' => 'Solid Color/Image',
-                    '3' => 'RGBA Color'
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
                 ),
-                'default'  => '2',
-            ),
-
-            array(
-                'id'     => 'sections-title-background-start',
-                'type'   => 'section',
-                'indent' => true, // Indent all options below until the next 'section' option is set.
+                'default'  => '1',
             ),
             array(
-                'id'       => 'sections-title-background-gradient',
-                'type'     => 'color_gradient',
-                'title'    => __( 'Page Title Background', 'redux-framework-demo' ),
-                'validate' => 'color',              
+                'id'       => 'sections-title-background',
+                'type'     => 'select',
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    'bg-primary text-white' => 'Primary Background',
+                    'bg-secondary text-white' => 'Secondary Background',
+                    'bg-success text-white' => 'Success Background',
+                    'bg-danger text-white' => 'Danger Background',
+                    'bg-warning text-white' => 'Warning Background',
+                    'bg-info text-white' => 'Info Background',
+                    'bg-light text-dark' => 'Light Background',
+                    'bg-dark text-white' => 'Dark Background',
+                    'bg-white text-dark' => 'White Background',
+                    'bg-transparent text-dark' => 'Transparent Background',
+                ),
+                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-title-background-type', '=', '1' ),
-            ),
-            array(
-                'id'       => 'sections-title-background-solid',
-                'type'     => 'background',                
-                'title'    => __( 'Page Title Background', 'redux-framework-demo' ),
-                'required' => array( 'sections-title-background-type', '=', '2' ),
             ),
             array(
                 'id'       => 'sections-title-background-rgba',
                 'type'     => 'color_rgba',
-                'title'    => __( 'Page Title Background', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
-                'required' => array( 'sections-title-background-type', '=', '3' ),
-            ),
-            array(
-                'id'     => 'sections-title-background-end',
-                'type'   => 'section',
-                'indent' => false, // Indent all options below until the next 'section' option is set.
+                'required' => array( 'sections-title-background-type', '=', '2' ),
+                'output'         => array( '#page-title' ),
+                'mode'     => 'background',
+                'validate' => 'colorrgba',
             ),
         )
     ) );
@@ -736,6 +744,12 @@
                 'units_extended' => 'true',
                 'output'         => array( '#section-breadcrumbs .content-wrap' ),
                 'title'          => __( 'Section Padding', 'redux-framework-demo' ),
+                'default'        => array(
+                    'padding-top' => '12px', 
+                    'padding-right' => '', 
+                    'padding-bottom' => '12px', 
+                    'padding-left' => '', 
+                )
             ), 
             array(
                 'id'             => 'sections-breadcrumbs-margin',
@@ -750,14 +764,14 @@
             array(
                 'id'       => 'sections-breadcrumbs-border',
                 'type'     => 'border',
-                'title'    => __( 'Breadcrumbs Section Border', 'redux-framework-demo' ),
+                'title'    => __( 'Section Border', 'redux-framework-demo' ),
                 'output'   => array( '#section-breadcrumbs .content-wrap' ),
                 'all'      => false,
             ),
             array(
                 'id'       => 'sections-breadcrumbs-title',
                 'type'     => 'text',
-                'title'    => __( 'Breadcrumbs Section Title', 'redux-framework-demo' ),
+                'title'    => __( 'Section Title', 'redux-framework-demo' ),
                 'desc'     => 'You can use span tag ( &lt;span&gt;&lt;/span&gt;, &lt;strong&gt;&lt;/strong&gt;, &lt;em&gt;&lt;/em&gt;, &lt;br /&gt;) here.',
                 'validate'     => 'html_custom',
                 'allowed_html' => array(
@@ -794,48 +808,45 @@
                 //'options' => array('on', 'off'),
                 'default'  => false,
             ),
-
             array(
                 'id'       => 'sections-breadcrumbs-background-type',
                 'type'     => 'button_set',
-                'title'    => __( 'Breadcrumbs Background Type', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background Type', 'redux-framework-demo' ),
                 'options'  => array(
-                    '1' => 'Gradient',
-                    '2' => 'Solid Color/Image',
-                    '3' => 'RGBA Color'
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
                 ),
-                'default'  => '2',
-            ),
-
-            array(
-                'id'     => 'sections-breadcrumbs-background-start',
-                'type'   => 'section',
-                'indent' => true, // Indent all options below until the next 'section' option is set.
+                'default'  => '1',
             ),
             array(
-                'id'       => 'sections-breadcrumbs-background-gradient',
-                'type'     => 'color_gradient',
-                'title'    => __( 'Breadcrumbs Section Background', 'redux-framework-demo' ),
-                'validate' => 'color',              
+                'id'       => 'sections-breadcrumbs-background',
+                'type'     => 'select',
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    'bg-primary text-white' => 'Primary Background',
+                    'bg-secondary text-white' => 'Secondary Background',
+                    'bg-success text-white' => 'Success Background',
+                    'bg-danger text-white' => 'Danger Background',
+                    'bg-warning text-white' => 'Warning Background',
+                    'bg-info text-white' => 'Info Background',
+                    'bg-light text-dark' => 'Light Background',
+                    'bg-dark text-white' => 'Dark Background',
+                    'bg-white text-dark' => 'White Background',
+                    'bg-transparent text-dark' => 'Transparent Background',
+                ),
+                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-breadcrumbs-background-type', '=', '1' ),
-            ),
-            array(
-                'id'       => 'sections-breadcrumbs-background-solid',
-                'type'     => 'background',                
-                'title'    => __( 'Breadcrumbs Section Background', 'redux-framework-demo' ),
-                'required' => array( 'sections-breadcrumbs-background-type', '=', '2' ),
             ),
             array(
                 'id'       => 'sections-breadcrumbs-background-rgba',
                 'type'     => 'color_rgba',
-                'title'    => __( 'Breadcrumbs Section Background', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
-                'required' => array( 'sections-breadcrumbs-background-type', '=', '3' ),
-            ),
-            array(
-                'id'     => 'sections-breadcrumbs-background-end',
-                'type'   => 'section',
-                'indent' => false, // Indent all options below until the next 'section' option is set.
+                'required' => array( 'sections-breadcrumbs-background-type', '=', '2' ),
+                'output'         => array( '#section-breadcrumbs' ),
+                'mode'     => 'background',
+                'validate' => 'colorrgba',
             ),
         )
     ) );  
@@ -924,51 +935,49 @@
             array(
                 'id'       => 'sections-content-border',
                 'type'     => 'border',
-                'title'    => __( 'Content Border', 'redux-framework-demo' ),
+                'title'    => __( 'Section Border', 'redux-framework-demo' ),
                 'output'   => array( '.page-content .content-wrap' ),
                 'all'      => false,
             ), 
             array(
                 'id'       => 'sections-content-background-type',
                 'type'     => 'button_set',
-                'title'    => __( 'Content Background Type', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background Type', 'redux-framework-demo' ),
                 'options'  => array(
-                    '1' => 'Gradient',
-                    '2' => 'Solid Color/Image',
-                    '3' => 'RGBA Color'
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
                 ),
-                'default'  => '2',
-            ),
-
-            array(
-                'id'     => 'sections-content-background-start',
-                'type'   => 'section',
-                'indent' => true, // Indent all options below until the next 'section' option is set.
+                'default'  => '1',
             ),
             array(
-                'id'       => 'sections-content-background-gradient',
-                'type'     => 'color_gradient',
-                'title'    => __( 'Content Background', 'redux-framework-demo' ),
-                'validate' => 'color',              
+                'id'       => 'sections-content-background',
+                'type'     => 'select',
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    'bg-primary text-white' => 'Primary Background',
+                    'bg-secondary text-white' => 'Secondary Background',
+                    'bg-success text-white' => 'Success Background',
+                    'bg-danger text-white' => 'Danger Background',
+                    'bg-warning text-white' => 'Warning Background',
+                    'bg-info text-white' => 'Info Background',
+                    'bg-light text-dark' => 'Light Background',
+                    'bg-dark text-white' => 'Dark Background',
+                    'bg-white text-dark' => 'White Background',
+                    'bg-transparent text-dark' => 'Transparent Background',
+                ),
+                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-content-background-type', '=', '1' ),
-            ),
-            array(
-                'id'       => 'sections-content-background-solid',
-                'type'     => 'background',                
-                'title'    => __( 'Content Background', 'redux-framework-demo' ),
-                'required' => array( 'sections-content-background-type', '=', '2' ),
             ),
             array(
                 'id'       => 'sections-content-background-rgba',
                 'type'     => 'color_rgba',
-                'title'    => __( 'Content Background', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
-                'required' => array( 'sections-content-background-type', '=', '3' ),
-            ),
-            array(
-                'id'     => 'sections-content-background-end',
-                'type'   => 'section',
-                'indent' => false, // Indent all options below until the next 'section' option is set.
+                'required' => array( 'sections-content-background-type', '=', '2' ),
+                'output'         => array( '.page-content' ),
+                'mode'     => 'background',
+                'validate' => 'colorrgba',
             ),
         )
     ) ); 
@@ -1010,24 +1019,6 @@
                 'all'      => false,
             ),
             array(
-                'id'          => 'sections-blank-slides',
-                'type'        => 'mos_slides',
-                'title'       => __( 'Section Details', 'redux-framework-demo' ),              
-                'show' => array(
-                    'title' => true,
-                    'description' => false,
-                    'link_title' => true,
-                    'link_url' => true,
-                    'target' => true,
-                ),
-                'placeholder' => array(
-                    'title'       => __( 'This is a title', 'redux-framework-demo' ),
-                    'description' => __( 'Description Here', 'redux-framework-demo' ),
-                    'link_title'         => __( 'Date', 'redux-framework-demo' ),
-                    'url'         => __( 'Give us a link!', 'redux-framework-demo' ),
-                )
-            ),
-            array(
                 'id'       => 'sections-blank-title',
                 'type'     => 'text',
                 'title'    => __( 'Section Title', 'redux-framework-demo' ),
@@ -1060,13 +1051,65 @@
                 )
             ),
             array(
+                'id'          => 'sections-blank-slides',
+                'type'        => 'mos_slides',
+                'title'       => __( 'Section Details', 'redux-framework-demo' ),              
+                'show' => array(
+                    'title' => true,
+                    'description' => false,
+                    'link_title' => true,
+                    'link_url' => true,
+                    'target' => true,
+                ),
+                'placeholder' => array(
+                    'title'       => __( 'This is a title', 'redux-framework-demo' ),
+                    'description' => __( 'Description Here', 'redux-framework-demo' ),
+                    'link_title'         => __( 'Date', 'redux-framework-demo' ),
+                    'link_url'         => __( 'Give us a link!', 'redux-framework-demo' ),
+                )
+            ),
+            array(
+                'id'       => 'sections-blank-background-type',
+                'type'     => 'button_set',
+                'title'    => __( 'Breadcrumbs Background Type', 'redux-framework-demo' ),
+                'options'  => array(
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
+                ),
+                'default'  => '1',
+            ),
+            array(
                 'id'       => 'sections-blank-background',
-                'type'     => 'background',                
+                'type'     => 'select',
                 'title'    => __( 'Section Background', 'redux-framework-demo' ),
-                'output'   => array( '#section-blank' ),
-            )
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    'bg-primary text-white' => 'Primary Background',
+                    'bg-secondary text-white' => 'Secondary Background',
+                    'bg-success text-white' => 'Success Background',
+                    'bg-danger text-white' => 'Danger Background',
+                    'bg-warning text-white' => 'Warning Background',
+                    'bg-info text-white' => 'Info Background',
+                    'bg-light text-dark' => 'Light Background',
+                    'bg-dark text-white' => 'Dark Background',
+                    'bg-white text-dark' => 'White Background',
+                    'bg-transparent text-dark' => 'Transparent Background',
+                ),
+                'default'  => 'bg-dark text-white',
+                'required' => array( 'sections-blank-background-type', '=', '1' ),
+            ),
+            array(
+                'id'       => 'sections-blank-background-rgba',
+                'type'     => 'color_rgba',
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
+                'validate' => 'colorrgba',
+                'required' => array( 'sections-blank-background-type', '=', '2' ),
+                'output'         => array( '#section-blank' ),
+                'mode'     => 'background',
+                'validate' => 'colorrgba',
+            ),
         )
-    ) );   
+    ) );  
     //Widgets Section
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Widgets Section', 'redux-framework-demo' ),
@@ -1099,14 +1142,14 @@
             array(
                 'id'       => 'sections-widgets-border',
                 'type'     => 'border',
-                'title'    => __( 'Widgets Section Border', 'redux-framework-demo' ),
+                'title'    => __( 'Section Border', 'redux-framework-demo' ),
                 'output'   => array( '#section-widgets .content-wrap' ),
                 'all'      => false,
             ),
             array(
                 'id'       => 'sections-widgets-title',
                 'type'     => 'text',
-                'title'    => __( 'Widgets Section Title', 'redux-framework-demo' ),
+                'title'    => __( 'Section Title', 'redux-framework-demo' ),
                 'desc'     => 'You can use span tag ( &lt;span&gt;&lt;/span&gt;, &lt;strong&gt;&lt;/strong&gt;, &lt;em&gt;&lt;/em&gt;, &lt;br&gt;&lt;/br&gt;) here.',
                 'validate'     => 'html_custom',
                 'allowed_html' => array(
@@ -1157,48 +1200,46 @@
                     )
                 ),
                 'default'  => '3'
-            ), 
+            ),           
             array(
                 'id'       => 'sections-widgets-background-type',
                 'type'     => 'button_set',
-                'title'    => __( 'Widgets Background Type', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background Type', 'redux-framework-demo' ),
                 'options'  => array(
-                    '1' => 'Gradient',
-                    '2' => 'Solid Color/Image',
-                    '3' => 'RGBA Color'
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
                 ),
-                'default'  => '2',
-            ),
-
-            array(
-                'id'     => 'sections-widgets-background-start',
-                'type'   => 'section',
-                'indent' => true, // Indent all options below until the next 'section' option is set.
+                'default'  => '1',
             ),
             array(
-                'id'       => 'sections-widgets-background-gradient',
-                'type'     => 'color_gradient',
-                'title'    => __( 'Widgets Background', 'redux-framework-demo' ),
-                'validate' => 'color',              
+                'id'       => 'sections-widgets-background',
+                'type'     => 'select',
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    'bg-primary text-white' => 'Primary Background',
+                    'bg-secondary text-white' => 'Secondary Background',
+                    'bg-success text-white' => 'Success Background',
+                    'bg-danger text-white' => 'Danger Background',
+                    'bg-warning text-white' => 'Warning Background',
+                    'bg-info text-white' => 'Info Background',
+                    'bg-light text-dark' => 'Light Background',
+                    'bg-dark text-white' => 'Dark Background',
+                    'bg-white text-dark' => 'White Background',
+                    'bg-transparent text-dark' => 'Transparent Background',
+                ),
+                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-widgets-background-type', '=', '1' ),
-            ),
-            array(
-                'id'       => 'sections-widgets-background-solid',
-                'type'     => 'background',                
-                'title'    => __( 'Widgets Section Background', 'redux-framework-demo' ),
-                'required' => array( 'sections-widgets-background-type', '=', '2' ),
             ),
             array(
                 'id'       => 'sections-widgets-background-rgba',
                 'type'     => 'color_rgba',
-                'title'    => __( 'Widgets Section Background', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
-                'required' => array( 'sections-widgets-background-type', '=', '3' ),
-            ),
-            array(
-                'id'     => 'sections-widgets-background-end',
-                'type'   => 'section',
-                'indent' => false, // Indent all options below until the next 'section' option is set.
+                'required' => array( 'sections-widgets-background-type', '=', '2' ),
+                'output'         => array( '#section-widgets' ),
+                'mode'     => 'background',
+                'validate' => 'colorrgba',
             ),
         )
     ) ); 
@@ -1234,7 +1275,7 @@
             array(
                 'id'       => 'sections-footer-border',
                 'type'     => 'border',
-                'title'    => __( 'Footer Section Border', 'redux-framework-demo' ),
+                'title'    => __( 'Section Border', 'redux-framework-demo' ),
                 'output'   => array( '#footer .content-wrap' ),
                 'all'      => false,
             ), 
@@ -1261,47 +1302,46 @@
                     //'quicktags'     => false,
                 )
             ),
+            
             array(
                 'id'       => 'sections-footer-background-type',
                 'type'     => 'button_set',
-                'title'    => __( 'Footer Background Type', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background Type', 'redux-framework-demo' ),
                 'options'  => array(
-                    '1' => 'Gradient',
-                    '2' => 'Solid Color/Image',
-                    '3' => 'RGBA Color'
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
                 ),
-                'default'  => '2',
-            ),
-
-            array(
-                'id'     => 'sections-footer-background-start',
-                'type'   => 'section',
-                'indent' => true, // Indent all options below until the next 'section' option is set.
+                'default'  => '1',
             ),
             array(
-                'id'       => 'sections-footer-background-gradient',
-                'type'     => 'color_gradient',
-                'title'    => __( 'Footer Background', 'redux-framework-demo' ),
-                'validate' => 'color',              
+                'id'       => 'sections-footer-background',
+                'type'     => 'select',
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    'bg-primary text-white' => 'Primary Background',
+                    'bg-secondary text-white' => 'Secondary Background',
+                    'bg-success text-white' => 'Success Background',
+                    'bg-danger text-white' => 'Danger Background',
+                    'bg-warning text-white' => 'Warning Background',
+                    'bg-info text-white' => 'Info Background',
+                    'bg-light text-dark' => 'Light Background',
+                    'bg-dark text-white' => 'Dark Background',
+                    'bg-white text-dark' => 'White Background',
+                    'bg-transparent text-dark' => 'Transparent Background',
+                ),
+                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-footer-background-type', '=', '1' ),
-            ),
-            array(
-                'id'       => 'sections-footer-background-solid',
-                'type'     => 'background',                
-                'title'    => __( 'Footer Section Background', 'redux-framework-demo' ),
-                'required' => array( 'sections-footer-background-type', '=', '2' ),
             ),
             array(
                 'id'       => 'sections-footer-background-rgba',
                 'type'     => 'color_rgba',
-                'title'    => __( 'Footer Section Background', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
-                'required' => array( 'sections-footer-background-type', '=', '3' ),
-            ),
-            array(
-                'id'     => 'sections-footer-background-end',
-                'type'   => 'section',
-                'indent' => false, // Indent all options below until the next 'section' option is set.
+                'required' => array( 'sections-footer-background-type', '=', '2' ),
+                'output'         => array( '#footer' ),
+                'mode'     => 'background',
+                'validate' => 'colorrgba',
             ),
         )
     ) );     	

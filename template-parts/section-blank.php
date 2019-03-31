@@ -5,7 +5,7 @@ $content = $forclient_options['sections-blank-content'];
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 do_action( 'action_avobe_blank', $page_details ); 
 ?>
-<section id="section-blank">
+<section id="section-blank" <?php if(@$forclient_options['sections-blank-background-type'] == 1) echo 'class="'.@$forclient_options['sections-blank-background'].'"';?>>
 	<div class="content-wrap">
 		
 		<?php 
