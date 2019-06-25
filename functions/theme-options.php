@@ -634,17 +634,99 @@
                 'output'   => array( '#main-header .content-wrap' ),
                 'all'      => false,
             ),
+
+
+
             array(
-                'id'       => 'header-background-rgba',
+                'id'       => 'sections-header-color-type',
+                'type'     => 'button_set',
+                'title'    => __( 'Section text color', 'redux-framework-demo' ),
+                'options'  => array(
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
+                ),
+                'default'  => '1',
+            ),
+            array(
+                'id'       => 'sections-header-color',
+                'type'     => 'select',
+                'title'    => __( 'Select Color', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    "text-primary" => 'Text primary',
+                    "text-secondary" => 'Text secondary',
+                    "text-success" => 'Text success',
+                    "text-danger" => 'Text danger',
+                    "text-warning" => 'Text warning',
+                    "text-info" => 'Text info',
+                    "text-light" => 'Text light',
+                    "text-dark" => 'Text dark',
+                    "text-body" => 'Text body',
+                    "text-muted" => 'Text muted',
+                    "text-white" => 'Text white',
+                    "text-black-50" => 'Text black-50',
+                    "text-white-50" => 'Text white-50',
+                ),
+                'default'  => 'bg-dark text-white',
+                'required' => array( 'sections-header-color-type', '=', '1' ),
+            ),
+            array(
+                'id'       => 'sections-header-color-rgba',
+                'type'     => 'color_rgba',
+                'title'    => __( 'Select Color', 'redux-framework-demo' ),
+                'validate' => 'colorrgba',
+                'required' => array( 'sections-header-color-type', '=', '2' ),
+                'output'         => array( '#header' ),
+                'mode'     => 'color',
+                'validate' => 'colorrgba',
+            ),
+            array(
+                'id'       => 'sections-header-link-color',
+                'type'     => 'link_color',
+                'title'    => __('Links Color Option', 'redux-framework-demo'),
+                'validate' => 'color',
+                'output'         => array( '#header a' ),
+            ),
+            array(
+                'id'       => 'sections-header-background-type',
+                'type'     => 'button_set',
+                'title'    => __( 'Section Background Type', 'redux-framework-demo' ),
+                'options'  => array(
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
+                ),
+                'default'  => '1',
+            ),
+            array(
+                'id'       => 'sections-header-background',
+                'type'     => 'select',
+                'title'    => __( 'Section Background', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    'bg-primary' => 'Primary Background',
+                    'bg-secondary' => 'Secondary Background',
+                    'bg-success' => 'Success Background',
+                    'bg-danger' => 'Danger Background',
+                    'bg-warning' => 'Warning Background',
+                    'bg-info' => 'Info Background',
+                    'bg-light' => 'Light Background',
+                    'bg-dark' => 'Dark Background',
+                    'bg-white' => 'White Background',
+                    'bg-transparent' => 'Transparent Background',
+                ),
+                'default'  => 'bg-dark',
+                'required' => array( 'sections-header-background-type', '=', '1' ),
+            ),
+            array(
+                'id'       => 'sections-header-background-rgba',
                 'type'     => 'color_rgba',
                 'title'    => __( 'Section Background', 'redux-framework-demo' ),
-                'validate' => 'colorrgba',    
-                'default'   => array(
-                    'color'     => '#000000',
-                    'alpha'     => .5
-                ),
-                'output' => array('background-color' => '.navbar-custom-bg')
-            )
+                'validate' => 'colorrgba',
+                'required' => array( 'sections-header-background-type', '=', '2' ),
+                'output'         => array( '#header' ),
+                'mode'     => 'background',
+                'validate' => 'colorrgba',
+            ),
 
         )
     ) );    
