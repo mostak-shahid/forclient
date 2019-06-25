@@ -634,9 +634,6 @@
                 'output'   => array( '#main-header .content-wrap' ),
                 'all'      => false,
             ),
-
-
-
             array(
                 'id'       => 'sections-header-color-type',
                 'type'     => 'button_set',
