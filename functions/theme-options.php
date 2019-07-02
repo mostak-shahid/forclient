@@ -1148,9 +1148,58 @@
                 )
             ),
             array(
+                'id'       => 'sections-blank-color-type',
+                'type'     => 'button_set',
+                'title'    => __( 'Section text color', 'redux-framework-demo' ),
+                'options'  => array(
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
+                ),
+                'default'  => '1',
+            ),
+            array(
+                'id'       => 'sections-blank-color',
+                'type'     => 'select',
+                'title'    => __( 'Select Color', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    "text-primary" => 'Text primary',
+                    "text-secondary" => 'Text secondary',
+                    "text-success" => 'Text success',
+                    "text-danger" => 'Text danger',
+                    "text-warning" => 'Text warning',
+                    "text-info" => 'Text info',
+                    "text-light" => 'Text light',
+                    "text-dark" => 'Text dark',
+                    "text-body" => 'Text body',
+                    "text-muted" => 'Text muted',
+                    "text-white" => 'Text white',
+                    "text-black-50" => 'Text black-50',
+                    "text-white-50" => 'Text white-50',
+                ),
+                'required' => array( 'sections-blank-color-type', '=', '1' ),
+            ),
+            array(
+                'id'       => 'sections-blank-color-rgba',
+                'type'     => 'color_rgba',
+                'title'    => __( 'Select Color', 'redux-framework-demo' ),
+                'validate' => 'colorrgba',
+                'required' => array( 'sections-blank-color-type', '=', '2' ),
+                'output'         => array( '#section-blank' ),
+                'mode'     => 'color',
+                'validate' => 'colorrgba',
+            ),
+            array(
+                'id'       => 'sections-blank-link-color',
+                'type'     => 'link_color',
+                'title'    => __('Links Color Option', 'redux-framework-demo'),
+                'validate' => 'color',
+                'output'         => array( '#section-blank a' ),
+            ),
+            array(
                 'id'       => 'sections-blank-background-type',
                 'type'     => 'button_set',
-                'title'    => __( 'Breadcrumbs Background Type', 'redux-framework-demo' ),
+                'title'    => __( 'Section Background Type', 'redux-framework-demo' ),
                 'options'  => array(
                     '1' => 'Default Colors',
                     '2' => 'Custom Colors'
@@ -1163,18 +1212,17 @@
                 'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 //Must provide key => value pairs for select options
                 'options'  => array(
-                    'bg-primary text-white' => 'Primary Background',
-                    'bg-secondary text-white' => 'Secondary Background',
-                    'bg-success text-white' => 'Success Background',
-                    'bg-danger text-white' => 'Danger Background',
-                    'bg-warning text-white' => 'Warning Background',
-                    'bg-info text-white' => 'Info Background',
-                    'bg-light text-dark' => 'Light Background',
-                    'bg-dark text-white' => 'Dark Background',
-                    'bg-white text-dark' => 'White Background',
-                    'bg-transparent text-dark' => 'Transparent Background',
+                    'bg-primary' => 'Primary Background',
+                    'bg-secondary' => 'Secondary Background',
+                    'bg-success' => 'Success Background',
+                    'bg-danger' => 'Danger Background',
+                    'bg-warning' => 'Warning Background',
+                    'bg-info' => 'Info Background',
+                    'bg-light' => 'Light Background',
+                    'bg-dark' => 'Dark Background',
+                    'bg-white' => 'White Background',
+                    'bg-transparent' => 'Transparent Background',
                 ),
-                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-blank-background-type', '=', '1' ),
             ),
             array(
