@@ -1,8 +1,8 @@
 <?php
 function site_identity_func( $atts = array(), $content = null ) {
-	global $forclient_options;
-	$logo_url = ($forclient_options['logo']['url']) ? $forclient_options['logo']['url'] : get_template_directory_uri(). '/images/logo.png';
-	$logo_option = $forclient_options['logo-option'];
+	global $seafood_options;
+	$logo_url = ($seafood_options['logo']['url']) ? $seafood_options['logo']['url'] : get_template_directory_uri(). '/images/logo.png';
+	$logo_option = $seafood_options['logo-option'];
 	$html = '';
 	$atts = shortcode_atts( array(
 		'class' => '',
@@ -48,8 +48,8 @@ function this_year_func() {
 }
 add_shortcode( 'this-year', 'this_year_func' );
 function email_func( $atts = array(), $content = '' ) {	
-	global $forclient_options;
-	$contact_email = $forclient_options['contact-email'];
+	global $seafood_options;
+	$contact_email = $seafood_options['contact-email'];
 	$html = '';	
 	$atts = shortcode_atts( array(
 		'offset' => 0,
@@ -83,7 +83,7 @@ function email_func( $atts = array(), $content = '' ) {
 add_shortcode( 'email', 'email_func' );
 
 function phone_func( $atts = array(), $content = '' ) {
-    global $forclient_options;
+    global $seafood_options;
     $html = '';
 	$atts = shortcode_atts( array(
 		'offset' => 0,
@@ -97,13 +97,13 @@ function phone_func( $atts = array(), $content = '' ) {
 		$i = $atts['index'] - 1;
 	    $html .= '<span class="phone-number">';
 	    $html .= '<a class="phoneToShow" href="tel:';
-	    $html .= preg_replace('/[^0-9]/', '', $forclient_options['contact-phone'][$i]);
+	    $html .= preg_replace('/[^0-9]/', '', $seafood_options['contact-phone'][$i]);
 	    $html .= '" >';
-	    $html .= $forclient_options['contact-phone'][$i];  
+	    $html .= $seafood_options['contact-phone'][$i];  
 	    $html .= '</a>';
 	    $html .= '</span>';		
 	else :
-		foreach ($forclient_options['contact-phone'] as $phone) :
+		foreach ($seafood_options['contact-phone'] as $phone) :
 			if ($n > $atts['offset']) :
 			    $html .= '<span class="phone-number">';
 			    $html .= '<a class="phoneToShow" href="tel:';
@@ -124,7 +124,7 @@ function phone_func( $atts = array(), $content = '' ) {
 add_shortcode( 'phone', 'phone_func' );
 
 function fax_func( $atts = array(), $content = '' ) {
-    global $forclient_options;
+    global $seafood_options;
     $html = '';
 	$atts = shortcode_atts( array(
 		'offset' => 0,
@@ -138,13 +138,13 @@ function fax_func( $atts = array(), $content = '' ) {
 		$i = $atts['index'] - 1;
 	    $html .= '<span class="fax-number">';
 	    $html .= '<a class="faxToShow" href="tel:';
-	    $html .= preg_replace('/[^0-9]/', '', $forclient_options['contact-fax'][$i]);
+	    $html .= preg_replace('/[^0-9]/', '', $seafood_options['contact-fax'][$i]);
 	    $html .= '" >';
-	    $html .= $forclient_options['contact-fax'][$i];  
+	    $html .= $seafood_options['contact-fax'][$i];  
 	    $html .= '</a>';
 	    $html .= '</span>';		
 	else :
-		foreach ($forclient_options['contact-fax'] as $fax) :
+		foreach ($seafood_options['contact-fax'] as $fax) :
 			if ($n > $atts['offset']) :
 			    $html .= '<span class="fax-number">';
 			    $html .= '<a class="faxToShow" href="tel:';
@@ -164,8 +164,8 @@ function fax_func( $atts = array(), $content = '' ) {
 }
 add_shortcode( 'fax', 'fax_func' );
 function address_func( $atts = array(), $content = '' ) {
-	global $forclient_options;
-	$contact_address = $forclient_options['contact-address'];
+	global $seafood_options;
+	$contact_address = $seafood_options['contact-address'];
 	$html = '';
 	$atts = shortcode_atts( array(
 		'offset' => 0,
@@ -203,10 +203,10 @@ function social_menu_fnc( $atts = array(), $content = '' ) {
 	if ( is_plugin_active( 'mos-image-alt/mos-image-alt.php' ) ) {
 		$alt_tag = mos_alt_generator(get_the_ID());
 	} 
-	global $forclient_options;
+	global $seafood_options;
 	$html = '';
-	$contact_social = $forclient_options['contact-social'];
-	$contact_address = $forclient_options['contact-address'];
+	$contact_social = $seafood_options['contact-social'];
+	$contact_address = $seafood_options['contact-address'];
 	$atts = shortcode_atts( array(
 		'display' => 'inline',
 		'title' => 0,

@@ -1,8 +1,8 @@
 <?php 
-global $forclient_options;
-$title = $forclient_options['sections-widgets-title'];
-$content = $forclient_options['sections-widgets-content'];
-$widget_layout = $forclient_options['sections-widgets-layout'];
+global $seafood_options;
+$title = $seafood_options['sections-widgets-title'];
+$content = $seafood_options['sections-widgets-content'];
+$widget_layout = $seafood_options['sections-widgets-layout'];
 if($widget_layout == '3') { $colsize = 4; }
 elseif($widget_layout == '4') { $colsize = 3; }
 elseif($widget_layout == '2') { $colsize = 6; }
@@ -10,7 +10,7 @@ else { $colsize = 12; }
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 do_action( 'action_avobe_widgets', $page_details ); 
 ?>
-<section id="section-widgets" <?php if(@$forclient_options['sections-widgets-background-type'] == 1) echo 'class="'.@$forclient_options['sections-widgets-background'].'"';?>>
+<section id="section-widgets" <?php if(@$seafood_options['sections-widgets-background-type'] == 1) echo 'class="'.@$seafood_options['sections-widgets-background'].'"';?>>
 	<div class="content-wrap">
 		
 		<?php do_action( 'action_before_widgets', $page_details ); ?>

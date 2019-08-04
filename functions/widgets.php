@@ -1,10 +1,10 @@
 <?php
 //Add widgets area
-function forclient_widgets_init(){
+function seafood_widgets_init(){
 	register_sidebar(array(
 		'id' => 'sidebar',
-		'name' => __('Sidebar for Post', 'forclient'),
-		//'description' => __('Add widgets here to appear in your Left SideBar', 'forclient'),
+		'name' => __('Sidebar for Post', 'seafood'),
+		//'description' => __('Add widgets here to appear in your Left SideBar', 'seafood'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
@@ -12,8 +12,8 @@ function forclient_widgets_init(){
 	));	
 	register_sidebar(array(
 		'id' => 'sidebar-page',
-		'name' => __('Sidebar for Page', 'forclient'),
-		//'description' => __('Add widgets here to appear in your Left SideBar', 'forclient'),
+		'name' => __('Sidebar for Page', 'seafood'),
+		//'description' => __('Add widgets here to appear in your Left SideBar', 'seafood'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
@@ -21,8 +21,8 @@ function forclient_widgets_init(){
 	));	
 	register_sidebar(array(
 		'id' => 'footer_1',
-		'name' => __('Footer Column 1', 'forclient'),
-		'description' => __('Add widgets here to appear in your Footer Column 1', 'forclient'),
+		'name' => __('Footer Column 1', 'seafood'),
+		'description' => __('Add widgets here to appear in your Footer Column 1', 'seafood'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
@@ -30,8 +30,8 @@ function forclient_widgets_init(){
 	));	
 	register_sidebar(array(
 		'id' => 'footer_2',
-		'name' => __('Footer Column 2', 'forclient'),
-		'description' => __('Add widgets here to appear in your Footer Column 2', 'forclient'),
+		'name' => __('Footer Column 2', 'seafood'),
+		'description' => __('Add widgets here to appear in your Footer Column 2', 'seafood'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
@@ -39,8 +39,8 @@ function forclient_widgets_init(){
 	));	
 	register_sidebar(array(
 		'id' => 'footer_3',
-		'name' => __('Footer Column 3', 'forclient'),
-		'description' => __('Add widgets here to appear in your Footer Column 3', 'forclient'),
+		'name' => __('Footer Column 3', 'seafood'),
+		'description' => __('Add widgets here to appear in your Footer Column 3', 'seafood'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
@@ -48,8 +48,8 @@ function forclient_widgets_init(){
 	));	
 	register_sidebar(array(
 		'id' => 'footer_4',
-		'name' => __('Footer Column 4', 'forclient'),
-		'description' => __('Add widgets here to appear in your Footer Column 4', 'forclient'),
+		'name' => __('Footer Column 4', 'seafood'),
+		'description' => __('Add widgets here to appear in your Footer Column 4', 'seafood'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
@@ -57,4 +57,4 @@ function forclient_widgets_init(){
 	));		
 
 }
-add_action('widgets_init', 'forclient_widgets_init');
+add_action('widgets_init', 'seafood_widgets_init');

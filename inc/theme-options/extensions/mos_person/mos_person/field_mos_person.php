@@ -54,12 +54,12 @@ if (!class_exists('ReduxFramework_mos_person')) {
                     'instagram' => true,
                     'youtube' => true,
                 ),
-                'content_title' => __ ( 'Person', 'forclient' )
+                'content_title' => __ ( 'Person', 'seafood' )
             );
 
              $this->field = wp_parse_args ( $this->field, $defaults );
 			/* translators: %s: slide */
-           	echo '<div class="redux-slides-accordion" data-new-content-title="' . esc_attr ( sprintf ( __ ( 'New %s', 'forclient' ), $this->field[ 'content_title' ] ) ) . '">';
+           	echo '<div class="redux-slides-accordion" data-new-content-title="' . esc_attr ( sprintf ( __ ( 'New %s', 'seafood' ), $this->field[ 'content_title' ] ) ) . '">';
 
             $x = 0;
 
@@ -121,52 +121,52 @@ if (!class_exists('ReduxFramework_mos_person')) {
 
                     echo '<div class="redux_slides_add_remove">';
 
-                    echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'forclient' ) . '</span>';
+                    echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'seafood' ) . '</span>';
 
                     $hide = '';
                     if ( empty ( $slide[ 'image' ] ) || $slide[ 'image' ] == '' ) {
                         $hide = ' hide';
                     }
 
-                    echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $slide[ 'attachment_id' ] ) . '">' . esc_html__( 'Remove', 'forclient' ) . '</span>';
+                    echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $slide[ 'attachment_id' ] ) . '">' . esc_html__( 'Remove', 'seafood' ) . '</span>';
 
                     echo '</div>' . "\n";
 
                     echo '<ul id="' . esc_attr( $this->field[ 'id' ] ) . '-ul" class="redux-slides-list">';
 
-                    echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="' . esc_attr($slide['title']) . '" placeholder="'.esc_html__('Title', 'forclient').'" class="full-text slide-title" /></li>';
+                    echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="' . esc_attr($slide['title']) . '" placeholder="'.esc_html__('Title', 'seafood').'" class="full-text slide-title" /></li>';
                     if ( $this->field[ 'show' ][ 'description' ] ) {
-                        echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][description]" id="' . esc_attr( $this->field['id'] ) . '-description_' . esc_attr( $x ) . '" placeholder="'.esc_attr__('Description', 'forclient').'" class="large-text" rows="6">' . esc_attr($slide['description']) . '</textarea></li>';
+                        echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][description]" id="' . esc_attr( $this->field['id'] ) . '-description_' . esc_attr( $x ) . '" placeholder="'.esc_attr__('Description', 'seafood').'" class="large-text" rows="6">' . esc_attr($slide['description']) . '</textarea></li>';
                     }
                     if ( $this->field[ 'show' ][ 'address' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-address_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][address]" value="' . esc_attr($slide['address']) . '" placeholder="'.esc_attr__('Address', 'forclient').'" class="full-text slide-address" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-address_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][address]" value="' . esc_attr($slide['address']) . '" placeholder="'.esc_attr__('Address', 'seafood').'" class="full-text slide-address" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'organization' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-organization_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][organization]" value="' . esc_attr($slide['organization']) . '" placeholder="'.esc_attr__('Organization', 'forclient').'" class="full-text slide-address" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-organization_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][organization]" value="' . esc_attr($slide['organization']) . '" placeholder="'.esc_attr__('Organization', 'seafood').'" class="full-text slide-address" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'phone' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-phone_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][phone]" value="' . esc_attr($slide['phone']) . '" placeholder="'.esc_attr__('Phone', 'forclient').'" class="full-text slide-phone" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-phone_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][phone]" value="' . esc_attr($slide['phone']) . '" placeholder="'.esc_attr__('Phone', 'seafood').'" class="full-text slide-phone" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'email' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-email_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][email]" value="' . esc_attr($slide['email']) . '" class="full-text slide-email" placeholder="'.esc_html__('Email', 'forclient').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-email_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][email]" value="' . esc_attr($slide['email']) . '" class="full-text slide-email" placeholder="'.esc_html__('Email', 'seafood').'" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'facebook' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-facebook_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][facebook]" value="' . esc_attr($slide['facebook']) . '" class="full-text slide-facebook" placeholder="'.esc_html__('Facebook', 'forclient').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-facebook_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][facebook]" value="' . esc_attr($slide['facebook']) . '" class="full-text slide-facebook" placeholder="'.esc_html__('Facebook', 'seafood').'" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'twitter' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-twitter_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][twitter]" value="' . esc_attr($slide['twitter']) . '" class="full-text slide-twitter" placeholder="'.esc_html__('Twitter', 'forclient').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-twitter_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][twitter]" value="' . esc_attr($slide['twitter']) . '" class="full-text slide-twitter" placeholder="'.esc_html__('Twitter', 'seafood').'" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'linkedin' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-linkedin_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][linkedin]" value="' . esc_attr($slide['linkedin']) . '" class="full-text slide-linkedin" placeholder="'.esc_html__('LinkedIn', 'forclient').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-linkedin_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][linkedin]" value="' . esc_attr($slide['linkedin']) . '" class="full-text slide-linkedin" placeholder="'.esc_html__('LinkedIn', 'seafood').'" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'google-plus' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-google-plus_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][google-plus]" value="' . esc_attr($slide['google-plus']) . '" class="full-text slide-google-plus" placeholder="'.esc_html__('Google Plus', 'forclient').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-google-plus_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][google-plus]" value="' . esc_attr($slide['google-plus']) . '" class="full-text slide-google-plus" placeholder="'.esc_html__('Google Plus', 'seafood').'" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'instagram' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-instagram_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][instagram]" value="' . esc_attr($slide['instagram']) . '" class="full-text slide-instagram" placeholder="'.esc_html__('Instagram', 'forclient').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-instagram_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][instagram]" value="' . esc_attr($slide['instagram']) . '" class="full-text slide-instagram" placeholder="'.esc_html__('Instagram', 'seafood').'" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'youtube' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-youtube' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][youtube]" value="' . esc_attr($slide['youtube']) . '" class="full-text slide-youtube" placeholder="'.esc_html__('Youtube', 'forclient').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-youtube' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][youtube]" value="' . esc_attr($slide['youtube']) . '" class="full-text slide-youtube" placeholder="'.esc_html__('Youtube', 'seafood').'" /></li>';
                     }
 
                     echo '<li><input type="hidden" class="slide-sort" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][sort]" id="' . esc_attr( $this->field['id'] ) . '-sort_' . esc_attr( $x ) . '" value="' . esc_attr( $slide['sort'] ) . '" />';
@@ -176,7 +176,7 @@ if (!class_exists('ReduxFramework_mos_person')) {
                     echo '<input type="hidden" class="upload-height" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][height]" id="' . esc_attr( $this->field['id'] ) . '-image_height_' . esc_attr( $x ) . '" value="' . esc_attr( $slide['height'] ) . '" />';
                     echo '<input type="hidden" class="upload-width" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][width]" id="' . esc_attr( $this->field['id'] ) . '-image_width_' . esc_attr( $x ) . '" value="' . esc_attr( $slide['width'] ) . '" /></li>';
                     
-                    echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Person', 'forclient') . '</a></li>';
+                    echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Person', 'seafood') . '</a></li>';
                     echo '</ul></div></fieldset></div>';
                     $x++;
                 
@@ -198,57 +198,57 @@ if (!class_exists('ReduxFramework_mos_person')) {
                 echo '<div class="upload_button_div">';
 
                 //If the user has WP3.5+ show upload/remove button
-                echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'forclient' ) . '</span>';
+                echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'seafood' ) . '</span>';
 
-                echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $this->parent->args[ 'opt_name' ] ) . '[' . esc_attr( $this->field[ 'id' ] ) . '][attachment_id]">' . esc_html__( 'Remove', 'forclient' ) . '</span>';
+                echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $this->parent->args[ 'opt_name' ] ) . '[' . esc_attr( $this->field[ 'id' ] ) . '][attachment_id]">' . esc_html__( 'Remove', 'seafood' ) . '</span>';
 
                 echo '</div>' . "\n";
 
                 echo '<ul id="' . esc_attr( $this->field['id'] ) . '-ul" class="redux-slides-list">';
-                $placeholder = (isset($this->field['placeholder']['title'])) ? esc_attr($this->field['placeholder']['title']) : __( 'Title', 'forclient' );
+                $placeholder = (isset($this->field['placeholder']['title'])) ? esc_attr($this->field['placeholder']['title']) : __( 'Title', 'seafood' );
                 echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text slide-title" /></li>';
                 if ( $this->field[ 'show' ][ 'description' ] ) {
-                    $placeholder = (isset($this->field['placeholder']['description'])) ? esc_attr($this->field['placeholder']['description']) : __( 'Description', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['description'])) ? esc_attr($this->field['placeholder']['description']) : __( 'Description', 'seafood' );
                     echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][description]" id="' . esc_attr( $this->field['id'] ) . '-description_' . esc_attr( $x ) . '" placeholder="'.esc_attr( $placeholder ).'" class="large-text" rows="6"></textarea></li>';
                 }
                 if ( $this->field[ 'show' ][ 'address' ] ) {
-                    $placeholder = (isset($this->field['placeholder']['address'])) ? esc_attr($this->field['placeholder']['address']) : __( 'Address', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['address'])) ? esc_attr($this->field['placeholder']['address']) : __( 'Address', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-address_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][address]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text slide-address" /></li>';   
                 }
                 if ( $this->field[ 'show' ][ 'organization' ] ) {
-                    $placeholder = (isset($this->field['placeholder']['organization'])) ? esc_attr($this->field['placeholder']['organization']) : __( 'Organization', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['organization'])) ? esc_attr($this->field['placeholder']['organization']) : __( 'Organization', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-organization_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][organization]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text slide-organization" /></li>';   
                 }
                 if ( $this->field[ 'show' ][ 'phone' ] ) {
-                    $placeholder = (isset($this->field['placeholder']['phone'])) ? esc_attr($this->field['placeholder']['phone']) : __( 'Phone', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['phone'])) ? esc_attr($this->field['placeholder']['phone']) : __( 'Phone', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-phone_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][phone]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text slide-phone" /></li>';   
                 }
                 if ( $this->field[ 'show' ][ 'email' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['email'])) ? esc_attr($this->field['placeholder']['email']) : __( 'Email', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['email'])) ? esc_attr($this->field['placeholder']['email']) : __( 'Email', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-email_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][email]" value="" class="full-text slide-email" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
                 if ( $this->field[ 'show' ][ 'facebook' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['facebook'])) ? esc_attr($this->field['placeholder']['facebook']) : __( 'Facebook', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['facebook'])) ? esc_attr($this->field['placeholder']['facebook']) : __( 'Facebook', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-facebook_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][facebook]" value="" class="full-text slide-facebook" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
                 if ( $this->field[ 'show' ][ 'twitter' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['twitter'])) ? esc_attr($this->field['placeholder']['twitter']) : __( 'Twitter', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['twitter'])) ? esc_attr($this->field['placeholder']['twitter']) : __( 'Twitter', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-twitter_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][twitter]" value="" class="full-text slide-twitter" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
                 if ( $this->field[ 'show' ][ 'linkedin' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['linkedin'])) ? esc_attr($this->field['placeholder']['linkedin']) : __( 'LinkedIn', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['linkedin'])) ? esc_attr($this->field['placeholder']['linkedin']) : __( 'LinkedIn', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-linkedin_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][linkedin]" value="" class="full-text slide-linkedin" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
                 if ( $this->field[ 'show' ][ 'google-plus' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['google-plus'])) ? esc_attr($this->field['placeholder']['google-plus']) : __( 'Google Plus', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['google-plus'])) ? esc_attr($this->field['placeholder']['google-plus']) : __( 'Google Plus', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-google-plus_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][google-plus]" value="" class="full-text slide-google-plus" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
                 if ( $this->field[ 'show' ][ 'instagram' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['instagram'])) ? esc_attr($this->field['placeholder']['instagram']) : __( 'Instagram', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['instagram'])) ? esc_attr($this->field['placeholder']['instagram']) : __( 'Instagram', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-instagram_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][instagram]" value="" class="full-text slide-instagram" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
                 if ( $this->field[ 'show' ][ 'youtube' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['youtube'])) ? esc_attr($this->field['placeholder']['youtube']) : __( 'Youtube', 'forclient' );
+                    $placeholder = (isset($this->field['placeholder']['youtube'])) ? esc_attr($this->field['placeholder']['youtube']) : __( 'Youtube', 'seafood' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-youtube' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][youtube]" value="" class="full-text slide-youtube" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
 
@@ -258,11 +258,11 @@ if (!class_exists('ReduxFramework_mos_person')) {
                 echo '<input type="hidden" class="upload-height" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][height]" id="' . esc_attr( $this->field['id'] ) . '-image_height_' . esc_attr( $x ) . '" value="" />';
                 echo '<input type="hidden" class="upload-width" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][width]" id="' . esc_attr( $this->field['id'] ) . '-image_width_' . esc_attr( $x ) . '" value="" /></li>';
 
-                echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Person', 'forclient') . '</a></li>';
+                echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Person', 'seafood') . '</a></li>';
                 echo '</ul></div></fieldset></div>';
             }
             /* translators: %s: slide */
-            echo '</div><a href="javascript:void(0);" class="button redux-slides-add2 mos_redux-slides-add button-primary" rel-id="' . esc_attr( $this->field[ 'id' ] ) . '-ul" rel-name="' . esc_attr( $this->field[ 'name' ] ) . '[title][]">' . sprintf ( esc_html__( 'Add %s', 'forclient' ), esc_attr( $this->field[ 'content_title' ] ) ) . '</a><br/>';
+            echo '</div><a href="javascript:void(0);" class="button redux-slides-add2 mos_redux-slides-add button-primary" rel-id="' . esc_attr( $this->field[ 'id' ] ) . '-ul" rel-name="' . esc_attr( $this->field[ 'name' ] ) . '[title][]">' . sprintf ( esc_html__( 'Add %s', 'seafood' ), esc_attr( $this->field[ 'content_title' ] ) ) . '</a><br/>';
         }
         public function enqueue () {
             if ( function_exists( 'wp_enqueue_media' ) ) {

@@ -1,6 +1,6 @@
 <?php
-function forclient_metaboxes() {
-    $prefix = '_forclient_';
+function seafood_metaboxes() {
+    $prefix = '_seafood_';
 
 	$post_gallery_details = new_cmb2_box(array(
         'id' => $prefix . 'post_gallery_details',
@@ -181,4 +181,4 @@ function forclient_metaboxes() {
     ));
 
 }
-add_action('cmb2_admin_init', 'forclient_metaboxes');
+add_action('cmb2_admin_init', 'seafood_metaboxes');

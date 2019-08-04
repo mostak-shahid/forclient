@@ -1,7 +1,7 @@
 <?php
 
-function forclient_enqueue_scripts() {
-	global $forclient_options;
+function seafood_enqueue_scripts() {
+	global $seafood_options;
 	wp_enqueue_script( 'jquery' );	
 	wp_register_style( 'google-font', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Oxygen:300,400,700' );
 	wp_enqueue_style( 'google-font' );
@@ -51,14 +51,14 @@ function forclient_enqueue_scripts() {
 		
 	wp_register_script('main.min', get_template_directory_uri() . '/js/main.js', 'jquery');
 	wp_enqueue_script( 'main.min' );
-	if ($forclient_options['basic-styling-stylesheet']) {
-		wp_register_style( $forclient_options['basic-styling-stylesheet'], get_template_directory_uri() .  '/css/'.$forclient_options['basic-styling-stylesheet'].'.css', array('main.min'));
-		wp_enqueue_style( $forclient_options['basic-styling-stylesheet'] );		
+	if ($seafood_options['basic-styling-stylesheet']) {
+		wp_register_style( $seafood_options['basic-styling-stylesheet'], get_template_directory_uri() .  '/css/'.$seafood_options['basic-styling-stylesheet'].'.css', array('main.min'));
+		wp_enqueue_style( $seafood_options['basic-styling-stylesheet'] );		
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'forclient_enqueue_scripts' );
-function forclient_admin_enqueue_scripts(){
+add_action( 'wp_enqueue_scripts', 'seafood_enqueue_scripts' );
+function seafood_admin_enqueue_scripts(){
 	wp_register_style( 'font-awesome.min', get_template_directory_uri() . '/fonts/font-awesome-4.7.0/css/font-awesome.min.css' );
 	wp_register_style( 'custom-admin', get_template_directory_uri() . '/css/custom-admin.css' );
 	wp_enqueue_style( 'font-awesome.min' );
@@ -70,5 +70,5 @@ function forclient_admin_enqueue_scripts(){
 
 
 }
-add_action( 'admin_enqueue_scripts', 'forclient_admin_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'seafood_admin_enqueue_scripts' );
 

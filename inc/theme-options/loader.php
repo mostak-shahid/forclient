@@ -26,5 +26,5 @@ if(!function_exists('mos_custom_extension_loader')) :
             }
     }
     // Modify {$redux_opt_name} to match your opt_name
-    add_action("redux/extensions/forclient_options/before", 'mos_custom_extension_loader', 0);
+    add_action("redux/extensions/seafood_options/before", 'mos_custom_extension_loader', 0);
 endif;

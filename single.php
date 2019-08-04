@@ -1,9 +1,9 @@
 <?php 
-global $forclient_options;
-$sections = $forclient_options['archive-page-sections']['Enabled'];
-$layout = $forclient_options['archive-page-layout'];
+global $seafood_options;
+$sections = $seafood_options['archive-page-sections']['Enabled'];
+$layout = $seafood_options['archive-page-layout'];
 ?><?php get_header() ?>
-<section id="blogs" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
+<section id="blogs" class="page-content <?php if(@$seafood_options['sections-content-background-type'] == 1) echo @$seafood_options['sections-content-background'];?>">
 	<div class="content-wrap">
 		<div class="container-fluid">
 		<?php if ($layout != 'ns') : ?>

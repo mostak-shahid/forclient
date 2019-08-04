@@ -12,8 +12,8 @@ add_filter( 'body_class', 'add_slug_body_class' );
 
 add_action( 'action_below_footer', 'back_to_top_fnc', 10, 1 );
 function back_to_top_fnc () {
-    global $forclient_options;
-    if ($forclient_options['misc-back-top']) :
+    global $seafood_options;
+    if ($seafood_options['misc-back-top']) :
     ?>
     <a href="javascript:void(0)" class="scrollup" style="display: none;"><img width="40" height="40" src="<?php echo get_template_directory_uri() ?>/images/icon_top.png" alt="Back To Top"></a>
     <?php 
