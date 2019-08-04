@@ -23,6 +23,7 @@ require_once('inc/theme-options/loader.php');
 require_once('inc/metabox/init.php'); 
 require_once('inc/metabox/custom-cmb2-fields.php'); 
 require_once('functions/metaboxes.php'); 
+require_once('inc/TGM-Plugin-Activation-develop/plugin-management.php');
 
 require_once('functions/aq_resizer.php');
 require_once('functions/Mobile_Detect.php');
