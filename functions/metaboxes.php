@@ -1,6 +1,52 @@
 <?php
 function seafood_metaboxes() {
     $prefix = '_seafood_';
+    
+    $banner_details = new_cmb2_box(array(
+        'id' => $prefix . 'banner_details',
+        'title' => __('Banner Details', 'cmb2'),
+        'object_types' => array('page'),
+        //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-template/lightbox-gallery-page.php' ),
+    )); 
+    $banner_details->add_field( array(
+        'name'    => 'Banner Cover',
+        'desc'    => 'Upload an image or enter an URL.',
+        'id'      => $prefix . 'banner_cover',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Add Image' // Change upload button text. Default: "Add or Upload File"
+        ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            // 'type' => 'application/pdf', // Make library only display PDFs.
+            // Or only allow gif, jpg, or png images
+            'type' => array(
+             'image/gif',
+             'image/jpeg',
+             'image/png',
+            ),
+        ),
+        // 'preview_size' => 'large', // Image size to use when previewing in the admin.
+    ));
+    $banner_details->add_field( array(
+        'name' => __( 'MP4 Video', 'cmb2' ),
+        'id'   => $prefix . 'banner_mp4',
+        'type' => 'text_url',
+    ));
+    $banner_details->add_field( array(
+        'name' => __( 'WEBM Video', 'cmb2' ),
+        'id'   => $prefix . 'banner_webm',
+        'type' => 'text_url',
+    ));
+    $banner_details->add_field( array(
+        'name' => __( 'Short Code', 'cmb2' ),
+        'id'   => $prefix . 'banner_shortcode',
+        'type' => 'text',
+    ));  
 
 	$post_gallery_details = new_cmb2_box(array(
         'id' => $prefix . 'post_gallery_details',
@@ -54,7 +100,6 @@ function seafood_metaboxes() {
         'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
         'query_args' => array( 'type' => 'image' ), // Only images attachment
     ));
-
 
 	$gallery_details = new_cmb2_box(array(
         'id' => $prefix . 'gallery_details',
@@ -143,24 +188,20 @@ function seafood_metaboxes() {
         'id'   => $prefix . 'link_image_per_page',
         'type' => 'text_number',
     )); 
-
     $link_gallery_details_id = $link_gallery_details->add_field( array(
         'id'   => $prefix . 'link_gallery_details_group',
         'type' => 'group',
     ));
-
     $link_gallery_details->add_group_field( $link_gallery_details_id, array(
         'name' => 'Gallery Image Text',
         'id'   => $prefix . 'link_gallery_details_text',
         'type' => 'text',
     ));
-
     $link_gallery_details->add_group_field( $link_gallery_details_id, array(
         'name' => 'Gallery Image URL',
         'id'   => $prefix . 'link_gallery_details_url',
         'type' => 'text_url',
     ));
-
     $link_gallery_details->add_group_field( $link_gallery_details_id, array(
         'name'    => 'Gallery Image',
         'desc'    => 'Upload an image or enter an URL.',
@@ -179,6 +220,5 @@ function seafood_metaboxes() {
         // ),
         'preview_size' => 'large', // Image size to use when previewing in the admin.
     ));
-
 }
 add_action('cmb2_admin_init', 'seafood_metaboxes');
