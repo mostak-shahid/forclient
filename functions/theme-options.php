@@ -561,7 +561,7 @@
             array(
                 'id'       => 'misc-page-loader-background-rgba',
                 'type'     => 'color_rgba',
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'title'    => __( 'Page Loader Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
                 'output'   => array( '.se-pre-con' ),
@@ -721,7 +721,7 @@
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-header-background-type', '=', '2' ),
                 'output'         => array( '#header' ),
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'validate' => 'colorrgba',
             ),
 
@@ -800,7 +800,7 @@
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-title-background-type', '=', '2' ),
                 'output'         => array( '#page-title' ),
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'validate' => 'colorrgba',
             ),
         )
@@ -924,7 +924,7 @@
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-breadcrumbs-background-type', '=', '2' ),
                 'output'         => array( '#section-breadcrumbs' ),
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'validate' => 'colorrgba',
             ),
         )
@@ -1055,7 +1055,7 @@
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-content-background-type', '=', '2' ),
                 'output'         => array( '.page-content' ),
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'validate' => 'colorrgba',
             ),
         )
@@ -1232,7 +1232,7 @@
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-blank-background-type', '=', '2' ),
                 'output'         => array( '#section-blank' ),
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'validate' => 'colorrgba',
             ),
         )
@@ -1365,7 +1365,7 @@
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-widgets-background-type', '=', '2' ),
                 'output'         => array( '#section-widgets' ),
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'validate' => 'colorrgba',
             ),
         )
@@ -1467,7 +1467,7 @@
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-footer-background-type', '=', '2' ),
                 'output'         => array( '#footer' ),
-                'mode'     => 'background',
+                'mode'     => 'background-color',
                 'validate' => 'colorrgba',
             ),
         )
