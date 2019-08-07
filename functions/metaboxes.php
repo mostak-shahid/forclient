@@ -1,6 +1,6 @@
 <?php
 function seafood_metaboxes() {
-    $prefix = '_seafood_';
+    $prefix = '_forclient_';
     
     $banner_details = new_cmb2_box(array(
         'id' => $prefix . 'banner_details',
