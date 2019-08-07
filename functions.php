@@ -3,9 +3,9 @@ show_admin_bar( false );
 
 require_once('functions/theme-init/plugin-update-checker.php');
 $themeInit = Puc_v4_Factory::buildUpdateChecker(
-	'https://raw.githubusercontent.com/mostak-shahid/update/master/seafood.json',
+	'https://raw.githubusercontent.com/mostak-shahid/update/master/forclient.json',
 	__FILE__,
-	'seafood'
+	'forclient'
 );
 require_once('functions/theme-functions.php');
 require_once('functions/scripts.php');
