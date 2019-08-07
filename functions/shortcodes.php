@@ -30,9 +30,9 @@ function shortcodes_page(){
 	<?php
 }
 function site_identity_func( $atts = array(), $content = null ) {
-	global $seafood_options;
-	$logo_url = ($seafood_options['logo']['url']) ? $seafood_options['logo']['url'] : get_template_directory_uri(). '/images/logo.png';
-	$logo_option = $seafood_options['logo-option'];
+	global $forclient_options;
+	$logo_url = ($forclient_options['logo']['url']) ? $forclient_options['logo']['url'] : get_template_directory_uri(). '/images/logo.png';
+	$logo_option = $forclient_options['logo-option'];
 	$html = '';
 	$atts = shortcode_atts( array(
 		'class' => '',
@@ -78,8 +78,8 @@ function this_year_func() {
 }
 add_shortcode( 'this-year', 'this_year_func' );
 function email_func( $atts = array(), $content = '' ) {	
-	global $seafood_options;
-	$contact_email = $seafood_options['contact-email'];
+	global $forclient_options;
+	$contact_email = $forclient_options['contact-email'];
 	$html = '';	
 	$atts = shortcode_atts( array(
 		'offset' => 0,
@@ -113,7 +113,7 @@ function email_func( $atts = array(), $content = '' ) {
 add_shortcode( 'email', 'email_func' );
 
 function phone_func( $atts = array(), $content = '' ) {
-    global $seafood_options;
+    global $forclient_options;
     $html = '';
 	$atts = shortcode_atts( array(
 		'offset' => 0,
@@ -127,13 +127,13 @@ function phone_func( $atts = array(), $content = '' ) {
 		$i = $atts['index'] - 1;
 	    $html .= '<span class="phone-number">';
 	    $html .= '<a class="phoneToShow" href="tel:';
-	    $html .= preg_replace('/[^0-9]/', '', $seafood_options['contact-phone'][$i]);
+	    $html .= preg_replace('/[^0-9]/', '', $forclient_options['contact-phone'][$i]);
 	    $html .= '" >';
-	    $html .= $seafood_options['contact-phone'][$i];  
+	    $html .= $forclient_options['contact-phone'][$i];  
 	    $html .= '</a>';
 	    $html .= '</span>';		
 	else :
-		foreach ($seafood_options['contact-phone'] as $phone) :
+		foreach ($forclient_options['contact-phone'] as $phone) :
 			if ($n > $atts['offset']) :
 			    $html .= '<span class="phone-number">';
 			    $html .= '<a class="phoneToShow" href="tel:';
@@ -154,7 +154,7 @@ function phone_func( $atts = array(), $content = '' ) {
 add_shortcode( 'phone', 'phone_func' );
 
 function fax_func( $atts = array(), $content = '' ) {
-    global $seafood_options;
+    global $forclient_options;
     $html = '';
 	$atts = shortcode_atts( array(
 		'offset' => 0,
@@ -168,13 +168,13 @@ function fax_func( $atts = array(), $content = '' ) {
 		$i = $atts['index'] - 1;
 	    $html .= '<span class="fax-number">';
 	    $html .= '<a class="faxToShow" href="tel:';
-	    $html .= preg_replace('/[^0-9]/', '', $seafood_options['contact-fax'][$i]);
+	    $html .= preg_replace('/[^0-9]/', '', $forclient_options['contact-fax'][$i]);
 	    $html .= '" >';
-	    $html .= $seafood_options['contact-fax'][$i];  
+	    $html .= $forclient_options['contact-fax'][$i];  
 	    $html .= '</a>';
 	    $html .= '</span>';		
 	else :
-		foreach ($seafood_options['contact-fax'] as $fax) :
+		foreach ($forclient_options['contact-fax'] as $fax) :
 			if ($n > $atts['offset']) :
 			    $html .= '<span class="fax-number">';
 			    $html .= '<a class="faxToShow" href="tel:';
@@ -194,38 +194,47 @@ function fax_func( $atts = array(), $content = '' ) {
 }
 add_shortcode( 'fax', 'fax_func' );
 function address_func( $atts = array(), $content = '' ) {
-	global $seafood_options;
-	$contact_address = $seafood_options['contact-address'];
-	$html = '';
+    global $forclient_options;
+    $html = '';
 	$atts = shortcode_atts( array(
 		'offset' => 0,
-		'map' => 0,
-		'address' => 1
+		'index' => 0,
+		'all' => 1,
+		'seperator' => ', '
 	), $atts, 'address' );
-	$n = 1;
-	$html .= '<span class="address-wrap">'; 
-	foreach ($contact_address as $address) :
-	$html .= '<span class="address">';
-		if ($n > $atts['offset']) :
-			if ($address[map_link]) $html .= '<a target="_blank" href="'.$address[map_link].'">';
-			if ($atts['map']) :		
-				$html .= '<span class="img-part">';
-					$html .= '<img class="img-fluid img-map" src="'.$address[image].'" alt="">';
-				$html .= '</span>';
-			endif;
-			if ($atts['address']) :	
-				$html .= '<span class="text-part">';
-					$html .= $address['description'];
-				$html .= '</span>';
-			endif;
-			if ($address[map_link]) $html .= '</a>';	
-
+	$n = 1; 
+	$html .= '<span class="address-wrap">';	
+	if ($atts['index']) :
+		$i = $atts['index'] - 1;
+	    $html .= '<span class="address address-'.$n.'">';
+	    $html .= '<span class="address-title">'.$forclient_options['contact-address'][$i]['title'].'</span>';
+		if ($forclient_options['contact-address'][$i]['map_link']) :
+			$html .= '<a class="address-details" href="'.$forclient_options['contact-address'][$i]['map_link'].'" target="_blank">'.$forclient_options['contact-address'][$i]['description'].'</a>';
+		else :
+			$html .= '<span  class="address-details">'.$forclient_options['contact-address'][$i]['description'].'</span>';
 		endif;
-		$n++;		
-	$html .= '</span>';
-	endforeach;
-	$html .= '</span>';
-	return $html;
+	    $html .= '</span>';
+	else :
+		foreach ($forclient_options['contact-address'] as $address) :
+			if ($n > $atts['offset']) :
+			    $html .= '<span class="address address-'.$n.'">';
+				$html .= '<span class="address-title">'.$address['title'].'</span>';
+				if ($address['map_link']) :
+					$html .= '<a class="address-details" href="'.$address['map_link'].'" target="_blank">'.$address['description'].'</a>';
+				else :
+					$html .= '<span  class="address-details">'.$address['description'].'</span>';
+				endif;
+			    $html .= '</span>';
+			    $html .= $atts['seperator'];
+			endif;
+			$n++;
+		endforeach;
+	endif;	    
+	$output = rtrim(  $html, $atts['seperator']);
+	$output .= '</span>';
+	return $output;
+
+	// do shortcode actions here
 }
 add_shortcode( 'address', 'address_func' );
 function social_menu_fnc( $atts = array(), $content = '' ) {
@@ -233,10 +242,10 @@ function social_menu_fnc( $atts = array(), $content = '' ) {
 	if ( is_plugin_active( 'mos-image-alt/mos-image-alt.php' ) ) {
 		$alt_tag = mos_alt_generator(get_the_ID());
 	} 
-	global $seafood_options;
+	global $forclient_options;
 	$html = '';
-	$contact_social = $seafood_options['contact-social'];
-	$contact_address = $seafood_options['contact-address'];
+	$contact_social = $forclient_options['contact-social'];
+	$contact_address = $forclient_options['contact-address'];
 	$atts = shortcode_atts( array(
 		'display' => 'inline',
 		'title' => 0,
