@@ -1,4 +1,34 @@
 <?php
+function admin_shortcodes_page(){
+	//add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '', $position = null )
+    add_menu_page( 
+        __( 'Theme Short Codes', 'textdomain' ),
+        'Short Codes',
+        'manage_options',
+        'shortcodes',
+        'shortcodes_page',
+        'dashicons-book-alt',
+        3
+    ); 
+}
+add_action( 'admin_menu', 'admin_shortcodes_page' );
+function shortcodes_page(){
+	?>
+	<div class="wrap">
+		<h1>Theme Short Codes</h1>
+		<ol>
+			<li>[site-identity class='' container_class=''] <span class="sdetagils">displays site identity according to theme option</span></li>
+			<li>[site-name link='0'] <span class="sdetagils">displays site name with/without site url</span></li>
+			<li>[copyright-symbol] <span class="sdetagils">displays copyright symbol</span></li>
+			<li>[this-year] <span class="sdetagils">displays 4 digit current year</span></li>
+			<li>[email offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays email from theme option</span></li>
+			<li>[phone offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays phone from theme option</span></li>
+			<li>[fax offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays fax from theme option</span></li>
+			<li>[social_menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
+		</ol>
+	</div>
+	<?php
+}
 function site_identity_func( $atts = array(), $content = null ) {
 	global $seafood_options;
 	$logo_url = ($seafood_options['logo']['url']) ? $seafood_options['logo']['url'] : get_template_directory_uri(). '/images/logo.png';
