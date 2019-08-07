@@ -12,12 +12,12 @@
 					<div class="container">
 						<?php get_template_part( 'content', 'page' ) ?>
 						<?php 
-						$image_per_page =  get_post_meta( get_the_ID(), '_seafood_link_image_per_page', true );
-						$gallery_images = get_post_meta( get_the_ID(), '_seafood_link_gallery_details_group', true );
-						$layout = ( get_post_meta( get_the_ID(), '_seafood_link_gallery_layout', true ) ) ? get_post_meta( get_the_ID(), '_seafood_link_gallery_layout', true ) : '6';
+						$image_per_page =  get_post_meta( get_the_ID(), '_forclient_link_image_per_page', true );
+						$gallery_images = get_post_meta( get_the_ID(), '_forclient_link_gallery_details_group', true );
+						$layout = ( get_post_meta( get_the_ID(), '_forclient_link_gallery_layout', true ) ) ? get_post_meta( get_the_ID(), '_forclient_link_gallery_layout', true ) : '6';
 						
-						$image_width =  get_post_meta( get_the_ID(), '_seafood_link_image_width', true );
-						$image_height =  get_post_meta( get_the_ID(), '_seafood_link_image_height', true );
+						$image_width =  get_post_meta( get_the_ID(), '_forclient_link_image_width', true );
+						$image_height =  get_post_meta( get_the_ID(), '_forclient_link_image_height', true );
 						?>
 						<?php if($gallery_images) : ?>
 							<div id="gallery" class="row">
@@ -25,15 +25,15 @@
 									<div class="col-md-6 col-lg-<?php echo $layout ?> text-center">
 										<div class="img-container">
 											<?php
-											$attachment_id = $gallery_image['_seafood_link_gallery_details_image_id'];
+											$attachment_id = $gallery_image['_forclient_link_gallery_details_image_id'];
 											$attachment_url = wp_get_attachment_url( $attachment_id ); 
 											$attachment_alt = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
 											if ($image_width OR $image_height ) $img_url = aq_resize($attachment_url, $image_width, $image_height, true);
 											else $img_url = $attachment_url;
 										?>
 										<img class="img-fluid img-gallery" src="<?php echo $img_url; ?>" alt="<?php echo  $attachment_alt; ?>">
-										<span class="text"><?php echo $gallery_image['_seafood_link_gallery_details_text'] ?></span>
-										<a class="hidden-link" href="<?php echo do_shortcode( $gallery_image['_seafood_link_gallery_details_url'] ) ?>">View Details</a>
+										<span class="text"><?php echo $gallery_image['_forclient_link_gallery_details_text'] ?></span>
+										<a class="hidden-link" href="<?php echo do_shortcode( $gallery_image['_forclient_link_gallery_details_url'] ) ?>">View Details</a>
 										</div>
 									</div>
 								<?php endforeach;?>

@@ -1,8 +1,8 @@
 <?php 
-global $seafood_options; 
-$select = $seafood_options['sections-banner-select'];
-$slides = $seafood_options['sections-banner-details'];
-$shortcode = $seafood_options['sections-banner-shortcode'];
+global $forclient_options; 
+$select = $forclient_options['sections-banner-select'];
+$slides = $forclient_options['sections-banner-details'];
+$shortcode = $forclient_options['sections-banner-shortcode'];
 $n = 1;
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 do_action( 'action_before_banner', $page_details );

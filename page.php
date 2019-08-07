@@ -1,9 +1,9 @@
 <?php 
-global $seafood_options;
-$sections = $seafood_options['general-page-sections']['Enabled'];
-$layout = $seafood_options['general-page-layout'];
+global $forclient_options;
+$sections = $forclient_options['general-page-sections']['Enabled'];
+$layout = $forclient_options['general-page-layout'];
 ?><?php get_header() ?>
-<section id="page" class="page-content <?php if(@$seafood_options['sections-content-background-type'] == 1) echo @$seafood_options['sections-content-background'];?>">
+<section id="page" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
 	<div class="content-wrap">
 		<div class="container">
 		<?php if ($layout != 'ns') : ?>

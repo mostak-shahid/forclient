@@ -1,5 +1,5 @@
 <?php
-function seafood_metaboxes() {
+function forclient_metaboxes() {
     $prefix = '_forclient_';
     
     $banner_details = new_cmb2_box(array(
@@ -221,4 +221,4 @@ function seafood_metaboxes() {
         'preview_size' => 'large', // Image size to use when previewing in the admin.
     ));
 }
-add_action('cmb2_admin_init', 'seafood_metaboxes');
+add_action('cmb2_admin_init', 'forclient_metaboxes');

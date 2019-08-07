@@ -1,11 +1,11 @@
 <?php 
-global $seafood_options;
-$title = $seafood_options['sections-blank-title'];
-$content = $seafood_options['sections-blank-content'];
+global $forclient_options;
+$title = $forclient_options['sections-blank-title'];
+$content = $forclient_options['sections-blank-content'];
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 do_action( 'action_avobe_blank', $page_details ); 
 ?>
-<section id="section-blank" class="<?php if(@$seafood_options['sections-blank-background-type'] == 1) echo @$seafood_options['sections-blank-background'] . ' ';?><?php if(@$seafood_options['sections-blank-color-type'] == 1) echo @$seafood_options['sections-blank-color'];?>">
+<section id="section-blank" class="<?php if(@$forclient_options['sections-blank-background-type'] == 1) echo @$forclient_options['sections-blank-background'] . ' ';?><?php if(@$forclient_options['sections-blank-color-type'] == 1) echo @$forclient_options['sections-blank-color'];?>">
 	<div class="content-wrap">
 		
 		<?php 

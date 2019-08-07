@@ -101,8 +101,8 @@ if (!function_exists('bootstrapBasicComment')) {
 	}// bootstrapBasicComment
 }
 
-add_filter('comment_form_defaults', 'seafood_comment_defaults');
-function seafood_comment_defaults($defaults) {
+add_filter('comment_form_defaults', 'forclient_comment_defaults');
+function forclient_comment_defaults($defaults) {
 	$defaults['comment_notes_before'] = '';
 	$defaults['title_reply'] = 'Leave a comment';
 	$defaults['title_reply_to'] = 'Leave a comment %s';

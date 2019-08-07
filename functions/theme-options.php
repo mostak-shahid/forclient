@@ -7,7 +7,7 @@
 
 
     // This is your option name where all the Redux data is stored.
-    $opt_name = "seafood_options";
+    $opt_name = "forclient_options";
 
     // This line is only for altering the demo. Can be easily removed.
     $opt_name = apply_filters( 'redux_demo/opt_name', $opt_name );
@@ -518,7 +518,7 @@
                 'subtitle' => __( 'Paste your CSS code here.', 'redux-framework-demo' ),
                 'mode'     => 'css',
                 'theme'    => 'monokai',
-                //'desc'     => 'Possible modes can be found at <a href="' . 'http://' . 'ace.c9.io" target="_seafood">' . 'http://' . 'ace.c9.io/</a>.',
+                //'desc'     => 'Possible modes can be found at <a href="' . 'http://' . 'ace.c9.io" target="_forclient">' . 'http://' . 'ace.c9.io/</a>.',
                 //'default'  => "body{\n   margin: 0 auto;\n}"
             ),
             array(
@@ -528,7 +528,7 @@
                 'subtitle' => __( 'Paste your JS code here.', 'redux-framework-demo' ),
                 'mode'     => 'javascript',
                 'theme'    => 'chrome',
-                //'desc'     => 'Possible modes can be found at <a href="' . 'http://' . 'ace.c9.io" target="_seafood">' . 'http://' . 'ace.c9.io/</a>.',
+                //'desc'     => 'Possible modes can be found at <a href="' . 'http://' . 'ace.c9.io" target="_forclient">' . 'http://' . 'ace.c9.io/</a>.',
                 //'default'  => "jQuery(document).ready(function(){\n\n});"
             ),
         )
@@ -1596,7 +1596,7 @@
                 'title'  => __( 'Section via hook', 'redux-framework-demo' ),
                 'desc'   => __( '<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', 'redux-framework-demo' ),
                 'icon'   => 'el el-paper-clip',
-                // Leave this as a seafood section, no options just some intro text set above.
+                // Leave this as a forclient section, no options just some intro text set above.
                 'fields' => array()
             );
 

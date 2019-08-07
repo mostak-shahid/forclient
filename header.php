@@ -1,4 +1,4 @@
-<?php global $seafood_options; ?><!DOCTYPE html>
+<?php global $forclient_options; ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -14,11 +14,11 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<input id="loader-status" type="hidden" value="<?php echo $seafood_options['misc-page-loader'] ?>">
-<?php if ($seafood_options['misc-page-loader']) : ?>
+	<input id="loader-status" type="hidden" value="<?php echo $forclient_options['misc-page-loader'] ?>">
+<?php if ($forclient_options['misc-page-loader']) : ?>
     <div class="se-pre-con">
-    <?php if ($seafood_options['misc-page-loader-image']['url']) : ?>
-        <img class="img-responsive animation <?php echo $seafood_options['misc-page-loader-image-animation'] ?>" src="<?php echo do_shortcode( $seafood_options['misc-page-loader-image']['url'] ); ?>">
+    <?php if ($forclient_options['misc-page-loader-image']['url']) : ?>
+        <img class="img-responsive animation <?php echo $forclient_options['misc-page-loader-image-animation'] ?>" src="<?php echo do_shortcode( $forclient_options['misc-page-loader-image']['url'] ); ?>">
     <?php else : ?>
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
     <?php endif; ?>
@@ -53,7 +53,7 @@
 		</nav>
 	</header>
 	<?php if (!is_front_page()) : ?>
-		<section id="page-title" <?php if(@$seafood_options['sections-title-background-type'] == 1) echo 'class="'.@$seafood_options['sections-title-background'].'"';?>>
+		<section id="page-title" <?php if(@$forclient_options['sections-title-background-type'] == 1) echo 'class="'.@$forclient_options['sections-title-background'].'"';?>>
 			<div class="content-wrap">
 				<div class="container">
 					<?php 
@@ -70,8 +70,8 @@
 				</div>
 			</div>
 		</section>
-		<?php if (@$seafood_options['sections-breadcrumbs-option']) : ?>
-		<section id="section-breadcrumbs" <?php if(@$seafood_options['sections-breadcrumbs-background-type'] == 1) echo 'class="'.@$seafood_options['sections-breadcrumbs-background'].'"';?>>
+		<?php if (@$forclient_options['sections-breadcrumbs-option']) : ?>
+		<section id="section-breadcrumbs" <?php if(@$forclient_options['sections-breadcrumbs-background-type'] == 1) echo 'class="'.@$forclient_options['sections-breadcrumbs-background'].'"';?>>
 			<div class="content-wrap">
 				<div class="container">
 					<?php mos_breadcrumbs(); ?>

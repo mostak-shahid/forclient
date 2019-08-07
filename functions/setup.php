@@ -1,7 +1,7 @@
 <?php
 //Add theme setup
-if ( ! function_exists( 'seafood_setup' ) ) :
-	function seafood_setup() {
+if ( ! function_exists( 'forclient_setup' ) ) :
+	function forclient_setup() {
 		add_theme_support('title-tag'); 	
 		add_theme_support('post-thumbnails');
 		add_theme_support( 'woocommerce' );
@@ -17,8 +17,8 @@ if ( ! function_exists( 'seafood_setup' ) ) :
 
 		load_theme_textdomain( 'theme', get_template_directory() . '/languages' );
 		register_nav_menus( array(
-			'mainmenu' => __('Main Menu', 'seafood'),
-			'mobilemenu' => __('Mobile Menu', 'seafood'),
+			'mainmenu' => __('Main Menu', 'forclient'),
+			'mobilemenu' => __('Mobile Menu', 'forclient'),
 		));
 		add_theme_support( 'html5', array(
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
@@ -28,4 +28,4 @@ if ( ! function_exists( 'seafood_setup' ) ) :
 		));
 	}
 endif;
-add_action( 'after_setup_theme', 'seafood_setup' );
+add_action( 'after_setup_theme', 'forclient_setup' );

@@ -56,14 +56,14 @@ jQuery(document).ready(function($) {
 
     function show_meta_boxes(page_template) {
         if(page_template == 'page-template/lightbox-page.php') {
-            $('#_seafood_gallery_details').show();
+            $('#_forclient_gallery_details').show();
         } else {
-           $('#_seafood_gallery_details').hide(); 
+           $('#_forclient_gallery_details').hide(); 
         }
         if(page_template == 'page-template/gallery-page.php') {
-            $('#_seafood_link_gallery_details').show();
+            $('#_forclient_link_gallery_details').show();
         } else {
-           $('#_seafood_link_gallery_details').hide();
+           $('#_forclient_link_gallery_details').hide();
         }
     }
 
