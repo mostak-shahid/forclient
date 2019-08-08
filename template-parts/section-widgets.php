@@ -10,7 +10,7 @@ else { $colsize = 12; }
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 do_action( 'action_avobe_widgets', $page_details ); 
 ?>
-<section id="section-widgets" <?php if(@$forclient_options['sections-widgets-background-type'] == 1) echo 'class="'.@$forclient_options['sections-widgets-background'].'"';?>>
+<section id="section-widgets" class="<?php if(@$forclient_options['sections-widgets-background-type'] == 1) echo @$forclient_options['sections-widgets-background'] . ' ';?><?php if(@$forclient_options['sections-widgets-color-type'] == 1) echo @$forclient_options['sections-widgets-color'];?>">
 	<div class="content-wrap">
 		
 		<?php do_action( 'action_before_widgets', $page_details ); ?>
