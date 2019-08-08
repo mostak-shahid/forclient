@@ -1478,7 +1478,56 @@
                     //'quicktags'     => false,
                 )
             ),
-            
+
+            array(
+                'id'       => 'sections-footer-color-type',
+                'type'     => 'button_set',
+                'title'    => __( 'Section text color', 'redux-framework-demo' ),
+                'options'  => array(
+                    '1' => 'Default Colors',
+                    '2' => 'Custom Colors'
+                ),
+                'default'  => '1',
+            ),
+            array(
+                'id'       => 'sections-footer-color',
+                'type'     => 'select',
+                'title'    => __( 'Select Color', 'redux-framework-demo' ),
+                //Must provide key => value pairs for select options
+                'options'  => array(
+                    "text-primary" => 'Text primary',
+                    "text-secondary" => 'Text secondary',
+                    "text-success" => 'Text success',
+                    "text-danger" => 'Text danger',
+                    "text-warning" => 'Text warning',
+                    "text-info" => 'Text info',
+                    "text-light" => 'Text light',
+                    "text-dark" => 'Text dark',
+                    "text-body" => 'Text body',
+                    "text-muted" => 'Text muted',
+                    "text-white" => 'Text white',
+                    "text-black-50" => 'Text black-50',
+                    "text-white-50" => 'Text white-50',
+                ),
+                'required' => array( 'sections-footer-color-type', '=', '1' ),
+            ),
+            array(
+                'id'       => 'sections-footer-color-rgba',
+                'type'     => 'color_rgba',
+                'title'    => __( 'Select Color', 'redux-framework-demo' ),
+                'validate' => 'colorrgba',
+                'required' => array( 'sections-footer-color-type', '=', '2' ),
+                'output'         => array( '#footer' ),
+                'mode'     => 'color',
+                'validate' => 'colorrgba',
+            ),
+            array(
+                'id'       => 'sections-footer-link-color',
+                'type'     => 'link_color',
+                'title'    => __('Links Color Option', 'redux-framework-demo'),
+                'validate' => 'color',
+                'output'         => array( '#footer a' ),
+            ),
             array(
                 'id'       => 'sections-footer-background-type',
                 'type'     => 'button_set',
@@ -1495,18 +1544,17 @@
                 'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 //Must provide key => value pairs for select options
                 'options'  => array(
-                    'bg-primary text-white' => 'Primary Background',
-                    'bg-secondary text-white' => 'Secondary Background',
-                    'bg-success text-white' => 'Success Background',
-                    'bg-danger text-white' => 'Danger Background',
-                    'bg-warning text-white' => 'Warning Background',
-                    'bg-info text-white' => 'Info Background',
-                    'bg-light text-dark' => 'Light Background',
-                    'bg-dark text-white' => 'Dark Background',
-                    'bg-white text-dark' => 'White Background',
-                    'bg-transparent text-dark' => 'Transparent Background',
+                    'bg-primary' => 'Primary Background',
+                    'bg-secondary' => 'Secondary Background',
+                    'bg-success' => 'Success Background',
+                    'bg-danger' => 'Danger Background',
+                    'bg-warning' => 'Warning Background',
+                    'bg-info' => 'Info Background',
+                    'bg-light' => 'Light Background',
+                    'bg-dark' => 'Dark Background',
+                    'bg-white' => 'White Background',
+                    'bg-transparent' => 'Transparent Background',
                 ),
-                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-footer-background-type', '=', '1' ),
             ),
             array(

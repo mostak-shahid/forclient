@@ -3,7 +3,7 @@ global $forclient_options;
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 ?>
   <?php get_template_part( 'template-parts/section', 'widgets' ); ?>
-  <footer id="footer" <?php if(@$forclient_options['sections-footer-background-type'] == 1) echo 'class="'.@$forclient_options['sections-footer-background'].'"';?>>
+  <footer id="footer" class="<?php if(@$forclient_options['sections-footer-background-type'] == 1) echo @$forclient_options['sections-footer-background'] . ' ';?><?php if(@$forclient_options['sections-footer-color-type'] == 1) echo @$forclient_options['sections-footer-color'];?>">
     <div class="content-wrap">
       <div class="container">
         <?php echo do_shortcode( $forclient_options['sections-footer-content'] ); ?>
