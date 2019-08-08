@@ -3,7 +3,7 @@ global $forclient_options;
 $sections = $forclient_options['archive-page-sections']['Enabled'];
 $layout = $forclient_options['archive-page-layout'];
 ?><?php get_header() ?>
-<section id="archive" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
+<section id="archive" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'] . ' ';?><?php if(@$forclient_options['sections-content-color-type'] == 1) echo @$forclient_options['sections-content-color'];?>">
 	<div class="content-wrap">
 		<div class="container-fluid">
 		<?php if ($layout != 'ns') : ?>

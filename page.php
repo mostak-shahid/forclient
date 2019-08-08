@@ -3,7 +3,7 @@ global $forclient_options;
 $sections = $forclient_options['general-page-sections']['Enabled'];
 $layout = $forclient_options['general-page-layout'];
 ?><?php get_header() ?>
-<section id="page" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
+<section id="page" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'] . ' ';?><?php if(@$forclient_options['sections-content-color-type'] == 1) echo @$forclient_options['sections-content-color'];?>">
 	<div class="content-wrap">
 		<div class="container">
 		<?php if ($layout != 'ns') : ?>
