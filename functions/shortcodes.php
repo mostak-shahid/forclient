@@ -97,7 +97,7 @@ function email_func( $atts = array(), $content = '' ) {
 		$html .= '</span>';	
 	else :
 		foreach ($contact_email as $email) :
-			if ($atts['offset'] AND $n > $atts['offset']) :
+			if ($n > $atts['offset']) :
 				$html .= '<span class="email">';
 					$html .= '<a class="mailToShow" href="mailto:'.$email.'">'.$email.'</a>';
 				$html .= '</span>';
