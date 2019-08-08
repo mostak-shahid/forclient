@@ -16,6 +16,7 @@ a:visited,a:hover,a:active,a:focus{text-decoration:none}
 #main-header,header,section,footer,#footer{position:relative}
 #section-banner .wrapper img{width:100%;height:auto}
 #page-title {background-position:center center; background-repeat:no-repeat; background-size:cover;overflow:hidden;text-align:center}
+#page-title .content-wrap{position: relative;}
 #page-title .shortcode-output,#page-title .video-output {position:absolute;left:0;top:0;width:100%;height:100%}
 #page-title .video-output video {width:100%}
 .page-content .card img{max-width:100%;height:auto}
