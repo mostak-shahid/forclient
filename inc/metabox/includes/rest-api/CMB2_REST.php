@@ -411,6 +411,11 @@ class CMB2_REST extends CMB2_Hookup_Base {
 					$field->object_type( $main_object_type );
 
 					$values[ $cmb_id ][ $field->id( true ) ] = $field->get_rest_value();
+
+					if ( $field->args( 'has_supporting_data' ) ) {
+						$field = $field->get_supporting_field();
+						$values[ $cmb_id ][ $field->id( true ) ] = $field->get_rest_value();
+					}
 				}
 			}
 		}
@@ -607,7 +612,7 @@ class CMB2_REST extends CMB2_Hookup_Base {
 			return;
 		}
 
-		$this->cmb->data_to_save[ $field->_id() ] = $values[ $this->cmb->cmb_id ][ $field->_id() ];
+		$this->cmb->data_to_save[ $field->_id( '', false ) ] = $values[ $this->cmb->cmb_id ][ $field->_id( '', false ) ];
 
 		return $this->cmb->save_group_field( $field );
 	}
