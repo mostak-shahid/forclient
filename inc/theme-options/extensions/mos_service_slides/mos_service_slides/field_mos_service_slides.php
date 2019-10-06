@@ -42,6 +42,7 @@ if (!class_exists('ReduxFramework_mos_service_slides')) {
              $defaults = array(
                 'show' => array(
                     'title' => true,
+                    'svg' => false,
                     'description' => true,
                     'link_title' => false,
                     'link_url' => false,
@@ -146,6 +147,9 @@ if (!class_exists('ReduxFramework_mos_service_slides')) {
                     echo '<ul id="' . esc_attr( $this->field[ 'id' ] ) . '-ul" class="redux-slides-list">';
 
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="' . esc_attr($slide['title']) . '" placeholder="'.esc_html__('Title', 'virtue').'" class="full-text slide-title" /></li>';
+                    if ( $this->field[ 'show' ][ 'svg' ] ) {
+                        echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][svg]" id="' . esc_attr( $this->field['id'] ) . '-svg_' . esc_attr( $x ) . '" placeholder="'.esc_attr__('SVG', 'virtue').'" class="large-text" rows="6">' . esc_attr($slide['svg']) . '</textarea></li>';
+                    }
                     if ( $this->field[ 'show' ][ 'description' ] ) {
                         echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][description]" id="' . esc_attr( $this->field['id'] ) . '-description_' . esc_attr( $x ) . '" placeholder="'.esc_attr__('Description', 'virtue').'" class="large-text" rows="6">' . esc_attr($slide['description']) . '</textarea></li>';
                     }
@@ -220,6 +224,10 @@ if (!class_exists('ReduxFramework_mos_service_slides')) {
                 $placeholder = (isset($this->field['placeholder']['title'])) ? esc_attr($this->field['placeholder']['title']) : __( 'Title', 'virtue' );
                 echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text slide-title" /></li>';
                 
+                if ( $this->field[ 'show' ][ 'svg' ] ) {
+                $placeholder = (isset($this->field['placeholder']['svg'])) ? esc_attr($this->field['placeholder']['svg']) : __( 'Description', 'virtue' );
+                    echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][svg]" id="' . esc_attr( $this->field['id'] ) . '-svg_' . esc_attr( $x ) . '" placeholder="'.esc_attr( $placeholder ).'" class="large-text" rows="6"></textarea></li>';
+                }                
                 if ( $this->field[ 'show' ][ 'description' ] ) {
                 $placeholder = (isset($this->field['placeholder']['description'])) ? esc_attr($this->field['placeholder']['description']) : __( 'Description', 'virtue' );
                     echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][description]" id="' . esc_attr( $this->field['id'] ) . '-description_' . esc_attr( $x ) . '" placeholder="'.esc_attr( $placeholder ).'" class="large-text" rows="6"></textarea></li>';
