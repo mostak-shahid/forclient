@@ -1,39 +1,19 @@
 <?php 
 global $forclient_options;
-$sections = $forclient_options['general-page-sections']['Enabled'];
-$layout = $forclient_options['general-page-layout'];
+$from_theme_option = $forclient_options['general-page-sections'];
+$from_page_option = get_post_meta( get_the_ID(), '_forclient_page_section_layout', true );
+$sections = ($from_page_option['Enabled'])?$from_page_option['Enabled']:$from_theme_option['Enabled'];
 ?><?php get_header() ?>
 <section id="page" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'] . ' ';?><?php if(@$forclient_options['sections-content-color-type'] == 1) echo @$forclient_options['sections-content-color'];?>">
 	<div class="content-wrap">
 		<div class="container">
-		<?php if ($layout != 'ns') : ?>
-			<div class="row">
-				<div class="col-lg-8 <?php if ($layout == 'ls') echo 'order-lg-last'?>">
-		<?php endif; ?>
 					<?php if ( have_posts() ) :?>
 						<?php while ( have_posts() ) : the_post(); ?>
-							<?php if (has_post_thumbnail()):?>
-								<div class="page-img-container">
-									<?php the_post_thumbnail('blog-image-full', array('class' => 'img-fluid img-blog img-centered'))?>
-								</div>
-							<?php endif;?>						
-							<div class="content">
-								<?php get_template_part( 'content', 'page' ) ?>
-							</div>
+							<?php get_template_part( 'content', 'page' ) ?>
 						<?php endwhile;?>	
-
-
 					<?php else : ?>
 						<?php get_template_part( 'content', 'none' ); ?>
-					<?php endif;?>		
-
-		<?php if ($layout != 'ns') : ?>		
-				</div>
-				<div class="col-lg-4 <?php if ($layout == 'ls') echo 'order-lg-first'?>">
-					<?php get_sidebar('page');?>
-				</div>
-			</div>
-			<?php endif; ?>
+					<?php endif;?>
 		</div>	
 	</div>
 </section>

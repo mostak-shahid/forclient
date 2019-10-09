@@ -4,3 +4,12 @@ function mos_home_url_replace($data) {
     $replace_br = str_replace('{{home_url}}', home_url(), $replace_fnc);
     return $replace_br;
 }
+/*Variables*/
+$template_parts = array(
+    'Enabled'  => array(),
+    'Disabled' => array(
+        'banner' => 'Home Banner',
+        'welcome' => 'Welcome',
+    ),
+);
+/*Variables*/

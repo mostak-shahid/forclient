@@ -1,15 +1,12 @@
 <?php 
 global $forclient_options;
-$sections = $forclient_options['archive-page-sections']['Enabled'];
-$layout = $forclient_options['archive-page-layout'];
+$from_theme_option = $forclient_options['general-page-sections'];
+$from_page_option = get_post_meta( get_the_ID(), '_forclient_page_section_layout', true );
+$sections = ($from_page_option['Enabled'])?$from_page_option['Enabled']:$from_theme_option['Enabled'];
 ?><?php get_header() ?>
 <section id="archive" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'] . ' ';?><?php if(@$forclient_options['sections-content-color-type'] == 1) echo @$forclient_options['sections-content-color'];?>">
 	<div class="content-wrap">
-		<div class="container-fluid">
-		<?php if ($layout != 'ns') : ?>
-			<div class="row">
-				<div class="col-lg-8 <?php if ($layout == 'ls') echo 'order-lg-last'?>">
-		<?php endif; ?>
+		<div class="container">
 			<?php if ( have_posts() ) :?>
 				<div id="blogs" class="row">
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -31,14 +28,8 @@ $layout = $forclient_options['archive-page-layout'];
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>
 			<?php endif;?>			
-		<?php if ($layout != 'ns') : ?>		
-				</div>
-				<div class="col-lg-4 <?php if ($layout == 'ls') echo 'order-lg-first'?>">
-					<?php get_sidebar();?>
-				</div>
-			</div>
-			<?php endif; ?>
 		</div>	
 	</div>
 </section>
+<?php if($sections ) { foreach ($sections as $key => $value) { get_template_part( 'template-parts/section', $key );}}?>
 <?php get_footer() ?>

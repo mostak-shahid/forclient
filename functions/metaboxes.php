@@ -1,7 +1,23 @@
 <?php
 function forclient_metaboxes() {
     $prefix = '_forclient_';
-    
+    global $forclient,$template_parts;
+
+    $page_settings = new_cmb2_box(array(
+        'id' => $prefix . 'page_settings',
+        'title' => __('Page Settings', 'cmb2'),
+        'object_types' => array('page', 'post'),
+    )); 
+    $page_settings->add_field(array(
+        'name'    => 'Page Row Layout',
+        'id'      => $prefix . 'page_section_layout',
+        'type'    => 'tb_sorter',
+        'desc'      => '<a href="'.admin_url( 'admin-ajax.php' ).'?action=reset_prl&post_id='.$_GET['post'].'">Click here</a> to reset "Page Row Layout"',
+        'options' => array(
+            'Enabled'  => $template_parts['Enabled'],
+            'Disabled' => $template_parts['Disabled'], 
+        ),
+    ));    
     $banner_details = new_cmb2_box(array(
         'id' => $prefix . 'banner_details',
         'title' => __('Banner Details', 'cmb2'),
