@@ -5,7 +5,8 @@
 		<?php the_content()?>
 	<?php else : ?>
 		<?php the_excerpt(); ?>	
-		<a href="btn btn-readmore" href="<?php echo get_the_permalink(); ?>">Read More</a>						
+		<a href="btn btn-readmore" href="<?php echo get_the_permalink(); ?>">Read More</a>
+	<?php endif; ?>						
 	</div>						
 </div>
 
