@@ -26,13 +26,13 @@
 <?php endif; ?>
 	<header id="main-header">
 		<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
-			<a class="navbar-brand d-md-none d-lg-none" href="#">
+			<a class="navbar-brand d-lg-none d-xl-none" href="<?php echo home_url(); ?>">
 				<?php if (has_site_icon()) : ?>
 					<img class="img-responsive img-fluid" src="<?php echo get_site_icon_url(32)?>" alt="Logo">
 				<?php else : ?>
 					<?php echo bloginfo( 'name' ); ?>
 				<?php endif; ?>
-			</a>
+			</a>	
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
