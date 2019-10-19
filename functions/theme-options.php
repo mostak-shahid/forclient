@@ -1,5 +1,5 @@
 <?php
-
+    global $template_parts;
 
     if ( ! class_exists( 'Redux' ) ) {
         return;
@@ -399,13 +399,10 @@
                 'type'     => 'sorter',
                 'title'    => 'Home Page Sections',
                 'subtitle' => 'You can add multiple drop areas or columns.',
-                'compiler' => 'true',
+                'compiler' => 'true',                
                 'options'  => array(
-                    'Enabled'  => array(
-                    ),
-                    'Disabled' => array(
-                        'banner' => 'Banner',
-                    )
+                    'Enabled'  => $template_parts['Enabled'],
+                    'Disabled' => $template_parts['Disabled'],
                 ),
             ),
 
