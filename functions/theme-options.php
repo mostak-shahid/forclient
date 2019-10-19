@@ -385,8 +385,7 @@
             ),
         )
     ) );
-    //Archive Page 
-    
+    //Archive Page    
     //Home Section
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Home Page', 'redux-framework-demo' ),
@@ -411,10 +410,7 @@
             ),
 
         )
-    ) );   
-
-    
-    
+    ) );      
     //Contact Info   
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Contact Info', 'redux-framework-demo' ),
@@ -489,10 +485,6 @@
         )
     ) );
     //Contact Section
-
-
-
-
     //Misc Settings
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Misc Settings', 'redux-framework-demo' ),
@@ -589,7 +581,6 @@
         )
     ) );
 	//MISC
-
     //Page Sections
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Page Sections', 'redux-framework-demo' ),
@@ -1109,7 +1100,6 @@
             ),
         )
     ) ); 
-
     //Blank
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Blank', 'redux-framework-demo' ),
