@@ -59,7 +59,7 @@
 		$banner_webm = get_post_meta( get_the_ID(), '_forclient_banner_webm', true ); 
 		$banner_shortcode = get_post_meta( get_the_ID(), '_forclient_banner_shortcode', true ); 
 		?>
-		<section id="page-title" <?php if(@$forclient_options['sections-title-background-type'] == 1) echo 'class="'.@$forclient_options['sections-title-background'].'"';?> <?php if ($banner_img) : ?>style="background-image:url(<?php echo $banner_img ?>)"<?php endif; ?>>
+		<section id="page-title" class="<?php if(@$forclient_options['sections-title-background-type'] == 1) echo @$forclient_options['sections-title-background'] . ' ';?><?php if(@$forclient_options['sections-title-color-type'] == 1) echo @$forclient_options['sections-title-color'];?>">
 			<?php if ($banner_shortcode) : ?>
 				<div class="shortcode-output"><?php echo do_shortcode( $banner_shortcode ); ?></div>
 			<?php elseif ($banner_mp4 OR $banner_webm) : ?>
