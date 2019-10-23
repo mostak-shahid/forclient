@@ -24,7 +24,10 @@ function shortcodes_page(){
 			<li>[email offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays email from theme option</span></li>
 			<li>[phone offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays phone from theme option</span></li>
 			<li>[fax offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays fax from theme option</span></li>
-			<li>[social_menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
+			<li>[address offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays address from theme option</span></li>
+			<li>[social-menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
+			<li>[theme-credit name='' url='0/1'] <span class="sdetagils">displays theme credit</span></li>		
+			<li>[home-url slug=''] <span class="sdetagils">displays home url</span></li>		
 		</ol>
 	</div>
 	<?php
@@ -249,7 +252,7 @@ function social_menu_fnc( $atts = array(), $content = '' ) {
 	$atts = shortcode_atts( array(
 		'display' => 'inline',
 		'title' => 0,
-	), $atts, 'social_menu' );
+	), $atts, 'social-menu' );
 	if ($atts['display'] == 'inline') $display = 'list-inline';
 	else  $display = 'list-unstyled';
 	$html .= '<ul class="'.$display.' social-menu">';
@@ -288,7 +291,7 @@ function social_menu_fnc( $atts = array(), $content = '' ) {
 	$html .= '</ul>';
 	return $html;
 }
-add_shortcode( 'social_menu', 'social_menu_fnc' );
+add_shortcode( 'social-menu', 'social_menu_fnc' );
 function theme_credit_func( $atts = array(), $content = '' ) {
 	$html = "";
 	$atts = shortcode_atts( array(
