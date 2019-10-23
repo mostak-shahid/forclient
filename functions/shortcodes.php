@@ -25,6 +25,7 @@ function shortcodes_page(){
 			<li>[phone offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays phone from theme option</span></li>
 			<li>[fax offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays fax from theme option</span></li>
 			<li>[address offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays address from theme option</span></li>
+			<li>[business-hours] <span class="sdetagils">displays business hours from theme option</span></li>
 			<li>[social-menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
 			<li>[theme-credit name='' url='0/1'] <span class="sdetagils">displays theme credit</span></li>		
 			<li>[home-url slug=''] <span class="sdetagils">displays home url</span></li>		
@@ -240,6 +241,20 @@ function address_func( $atts = array(), $content = '' ) {
 	// do shortcode actions here
 }
 add_shortcode( 'address', 'address_func' );
+function business_hours_func( $atts = array(), $content = '' ) {
+    global $forclient_options;
+    $html = '';
+    $html .= '<div class="business-hour-wrapper">'; 
+    $html .= '<ul class="business-hour">'; 
+	foreach ($forclient_options['contact-hour'] as $hour) :
+    $html .= '<li>' . $hour . '</li>';
+	endforeach;
+    $html .= '</ul>'; 
+    $html .= '</div>'; 
+
+    return $html;
+}
+add_shortcode( 'business-hours', 'business_hours_func' );
 function social_menu_fnc( $atts = array(), $content = '' ) {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	if ( is_plugin_active( 'mos-image-alt/mos-image-alt.php' ) ) {
@@ -302,3 +317,14 @@ function theme_credit_func( $atts = array(), $content = '' ) {
 	return $html = '<a href="'.$atts["url"].'" target="_blank" class="theme-credit">'.$atts["name"].'</a>';
 }
 add_shortcode( 'theme-credit', 'theme_credit_func' );
+
+function home_url_func( $atts = array(), $content = '' ) {
+	$atts = shortcode_atts( array(
+		'slug' => '',
+	), $atts, 'home-url' );
+	if ($atts['slug'])
+		return home_url("/".$atts['slug']."/");
+	else 
+		return home_url();
+}
+add_shortcode( 'home-url', 'home_url_func' );
