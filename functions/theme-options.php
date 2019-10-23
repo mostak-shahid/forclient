@@ -661,7 +661,7 @@
                 'title'    => __( 'Select Color', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-header-color-type', '=', '2' ),
-                'output'         => array( '#header' ),
+                'output'         => array( '#main-header' ),
                 'mode'     => 'color',
                 'validate' => 'colorrgba',
             ),
@@ -670,7 +670,7 @@
                 'type'     => 'link_color',
                 'title'    => __('Links Color Option', 'redux-framework-demo'),
                 'validate' => 'color',
-                'output'         => array( '#header a' ),
+                'output'         => array( '#main-header a' ),
             ),
             array(
                 'id'       => 'sections-header-background-type',
@@ -708,9 +708,17 @@
                 'title'    => __( 'Section Background', 'redux-framework-demo' ),
                 'validate' => 'colorrgba',
                 'required' => array( 'sections-header-background-type', '=', '2' ),
-                'output'         => array( '#header' ),
+                'output'         => array( '#main-header' ),
                 'mode'     => 'background-color',
                 'validate' => 'colorrgba',
+            ),
+            array(
+                'id'       => 'sections-header-background-image',
+                'type'     => 'background',
+                'output'   => array( '#main-header' ),
+                'title'    => __( 'Section Background Image', 'redux-framework-demo' ),
+                //'default'   => '#FFFFFF',
+                'background-color' => false,
             ),
 
         )

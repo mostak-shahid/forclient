@@ -24,7 +24,7 @@
     <?php endif; ?>
     </div>
 <?php endif; ?>
-	<header id="main-header">
+	<header id="main-header" class="<?php if(@$aiscript_options['sections-header-background-type'] == 1) echo @$aiscript_options['sections-header-background'] . ' ';?><?php if(@$aiscript_options['sections-header-color-type'] == 1) echo @$aiscript_options['sections-header-color'];?>">
 		<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
 			<a class="navbar-brand d-lg-none d-xl-none" href="<?php echo home_url(); ?>">
 				<?php if (has_site_icon()) : ?>
