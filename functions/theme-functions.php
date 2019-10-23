@@ -9,7 +9,6 @@ $template_parts = array(
     'Enabled'  => array(),
     'Disabled' => array(
         'banner' => 'Home Banner',
-        'welcome' => 'Welcome',
     ),
 );
 /*Variables*/
