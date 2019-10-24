@@ -29,7 +29,8 @@ function shortcodes_page(){
 			<li>[social-menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
 			<li>[theme-credit name='' url='0/1'] <span class="sdetagils">displays theme credit</span></li>		
 			<li>[home-url slug=''] <span class="sdetagils">displays home url</span></li>	
-			<li>[company-icon width='' height='' name=''] <span class="sdetagils">Company Icon</span></li>		
+			<li>[company-icon width='' height='' name=''] <span class="sdetagils">Company Icon</span></li>
+			<li>[feature-image height='' width=''] <span class="sdetagils">displays feature image of post</span></li>		
 		</ol>
 	</div>
 	<?php
@@ -331,6 +332,36 @@ function home_url_func( $atts = array(), $content = '' ) {
 		return home_url();
 }
 add_shortcode( 'home-url', 'home_url_func' );
+function feature_image_func( $atts = array(), $content = '' ) {
+	global $mosacademy_options;
+	$html = '';
+	$img = '';
+	$atts = shortcode_atts( array(
+		'height' => '',
+		'width' => '',
+	), $atts, 'feature-image' );
+
+	if (has_post_thumbnail()) $img = get_the_post_thumbnail_url();	
+	elseif(@$mosacademy_options['blog-archive-default']['id']) $img = wp_get_attachment_url( $mosacademy_options['blog-archive-default']['id'] ); 
+	if ($img){
+		if ($atts['wrapper_element']) $html .= '>';
+		list($width, $height) = getimagesize($img);
+		if ($atts['width'] AND $atts['height']) :
+			if ($width > $atts['width'] AND $height > $atts['height']) $img_url = aq_resize($img, $atts['width'], $atts['height'], true);
+			else $img_url = $img;
+		elseif ($atts['width']) :
+			if ($width > $atts['width']) $img_url = aq_resize($img, $atts['width']);
+			else $img_url = $img;
+		else : 
+			$img_url = $img;
+		endif;
+		list($fwidth, $fheight) = getimagesize($img_url);
+		$html .= '<img class="img-responsive img-fluid img-featured" src="'.$img_url.'" alt="'.get_the_title().'" width="'.$fwidth.'" height="'.$fheight.'" />';
+		
+	}
+	return $html;
+}
+add_shortcode( 'feature-image', 'feature_image_func' );
 function company_icon_func( $atts = array(), $content = '' ) {
 	$output = '';
 	$atts = shortcode_atts( array(
