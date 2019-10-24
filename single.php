@@ -32,4 +32,5 @@ $sections = ($from_page_option['Enabled'])?$from_page_option['Enabled']:$from_th
 		</div>	
 	</div>
 </section>
+<?php if($sections ) { foreach ($sections as $key => $value) { get_template_part( 'template-parts/section', $key );}}?>
 <?php get_footer() ?>
