@@ -1,5 +1,10 @@
 <?php /*Template Name: Gallery Page Template*/ ?>
-<?php get_header() ?>
+<?php 
+global $forclient_options;
+$from_theme_option = $forclient_options['general-page-sections'];
+$from_page_option = get_post_meta( get_the_ID(), '_aiscript_page_section_layout', true );
+$sections = ($from_page_option['Enabled'])?$from_page_option['Enabled']:$from_theme_option['Enabled'];
+?><?php get_header() ?>
 <section id="page" class="page-content">
 	<div class="content-wrap">
 			<?php if ( have_posts() ) :?>
@@ -49,6 +54,7 @@
 			<?php endif;?>			
 	</div>
 </section>
+<?php if($sections ) { foreach ($sections as $key => $value) { get_template_part( 'template-parts/section', $key );}}?>
 <?php get_footer() ?>
 <?php if($gallery_images) : ?>
 <script>
