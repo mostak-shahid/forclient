@@ -1,4 +1,8 @@
 <?php
+/*for more details
+https://kb.wpbakery.com/docs/inner-api/vc_map/
+https://github.com/proteusthemes/visual-composer-elements
+*/
 function bartag_func( $atts = array(), $content = '' ) {
 	$atts = shortcode_atts( array(
 		'foo' => 'something',
