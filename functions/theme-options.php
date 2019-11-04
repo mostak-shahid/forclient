@@ -309,7 +309,7 @@
         'customizer_width' => '400px',
         'icon'             => 'dashicons dashicons-admin-page',
         'fields'     => array(
-            array(
+            /*array(
                 'id'       => 'general-page-layout',
                 'type'     => 'image_select',
                 'title'    => __( 'General Page Layout', 'redux-framework-demo' ),
@@ -328,16 +328,16 @@
                     )
                 ),
                 'default'  => 'ns'
-            ),
+            ),*/
             array(
                 'id'       => 'general-page-sections',
                 'type'     => 'sorter',
                 'title'    => 'General Page Sections',
                 'subtitle' => 'You can add multiple drop areas or columns.',
-                'compiler' => 'true',
+                'compiler' => 'true',        
                 'options'  => array(
-                    'Enabled'  => array(),
-                    'Disabled' => array(),
+                    'Enabled'  => $template_parts['Enabled'],
+                    'Disabled' => $template_parts['Disabled'],
                 ),
             ),
         )
@@ -352,7 +352,7 @@
         'customizer_width' => '400px',
         'icon'             => 'dashicons dashicons-admin-page',
         'fields'     => array(
-            array(
+            /*array(
                 'id'       => 'archive-page-layout',
                 'type'     => 'image_select',
                 'title'    => __( 'Archive Page Layout', 'redux-framework-demo' ),
@@ -371,43 +371,21 @@
                     )
                 ),
                 'default'  => 'ns'
-            ),
+            ),*/
             array(
                 'id'       => 'archive-page-sections',
                 'type'     => 'sorter',
                 'title'    => 'Archive Page Sections',
                 'subtitle' => 'You can add multiple drop areas or columns.',
-                'compiler' => 'true',
-                'options'  => array(
-                    'Enabled'  => array(),
-                    'Disabled' => array(),
-                ),
-            ),
-        )
-    ) );
-    //Archive Page    
-    //Home Section
-    Redux::setSection( $opt_name, array(
-        'title'            => __( 'Home Page', 'redux-framework-demo' ),
-        'id'               => 'home',
-        'desc'             => '',
-        'customizer_width' => '400px',
-        'icon'             => 'el el-home',
-        'fields'     => array(
-            array(
-                'id'       => 'home-layout-sections',
-                'type'     => 'sorter',
-                'title'    => 'Home Page Sections',
-                'subtitle' => 'You can add multiple drop areas or columns.',
-                'compiler' => 'true',                
+                'compiler' => 'true',        
                 'options'  => array(
                     'Enabled'  => $template_parts['Enabled'],
                     'Disabled' => $template_parts['Disabled'],
                 ),
             ),
-
         )
-    ) );      
+    ) );
+    //Archive Page         
     //Contact Info   
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Contact Info', 'redux-framework-demo' ),
