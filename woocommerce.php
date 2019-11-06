@@ -8,9 +8,7 @@ $sections = (@$from_page_option['Enabled'])?$from_page_option['Enabled']:$from_t
 	<div class="content-wrap">
 		<div class="container">
 					<?php if ( have_posts() ) :?>
-						<?php while ( have_posts() ) : the_post(); ?>
-							<?php get_template_part( 'content', 'page' ) ?>
-						<?php endwhile;?>	
+						<?php woocommerce_content(); ?>	
 					<?php else : ?>
 						<?php get_template_part( 'content', 'none' ); ?>
 					<?php endif;?>
