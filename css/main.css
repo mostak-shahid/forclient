@@ -1,5 +1,4 @@
-a{text-decoration:none}
-a, .smooth{-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out;}
+a{-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out;text-decoration:none}
 a:visited,a:hover,a:active,a:focus{text-decoration:none}
 .alignleft {float: left; margin: 0.5em 1em 0.5em 0; }
 .alignright {float: right; margin: 0.5em 0 0.5em 1em; }
@@ -14,7 +13,7 @@ a:visited,a:hover,a:active,a:focus{text-decoration:none}
 .pagination .page-numbers{color:#000000;display:inline-block;text-align:center;padding:5px;min-width:42px;line-height:30px;border:1px solid #000000;text-decoration:none}
 .pagination .page-numbers.dots{border-color:transparent}
 .navbar .navbar-nav .menu-item{position:relative}
-.navbar .navbar-nav .menu-item a{display:inline-block;padding:.5rem;color:#000000;white-space: nowrap;}
+.navbar .navbar-nav .menu-item a{display:inline-block;padding:.5rem;color:#000000}
 .navbar .navbar-nav .menu-item.menu-item-has-children .drop_down_icon{float:right;cursor:pointer}
 .sub-menu{top:100%;left:0;z-index:1000;display:none;float:left;min-width:10rem;padding:0;margin:.125rem 0 0;font-size:1rem;color:#212529;text-align:left;list-style:none;background-color:#fff;background-clip:padding-box;border:1px solid rgba(0,0,0,.15);border-radius:.25rem} 
 #main-header,header,section,footer,#footer{position:relative}

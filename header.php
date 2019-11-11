@@ -24,16 +24,15 @@
     <?php endif; ?>
     </div>
 <?php endif; ?>
-	<header id="main-header" class="<?php if(@$forclient_options['sections-header-background-type'] == 1) echo @$forclient_options['sections-header-background'] . ' ';?><?php if(@$forclient_options['sections-header-color-type'] == 1) echo @$forclient_options['sections-header-color'];?>">
-	<div class="content-wrap">
+	<header id="main-header">
 		<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
-			<a class="navbar-brand d-lg-none d-xl-none" href="<?php echo home_url(); ?>">
+			<a class="navbar-brand d-md-none d-lg-none" href="#">
 				<?php if (has_site_icon()) : ?>
 					<img class="img-responsive img-fluid" src="<?php echo get_site_icon_url(32)?>" alt="Logo">
 				<?php else : ?>
 					<?php echo bloginfo( 'name' ); ?>
 				<?php endif; ?>
-			</a>	
+			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -52,7 +51,6 @@
 				]);
 			?>
 		</nav>
-	</div>
 	</header>
 	<?php if (!is_front_page()) : ?>
 		<?php 
@@ -61,7 +59,7 @@
 		$banner_webm = get_post_meta( get_the_ID(), '_forclient_banner_webm', true ); 
 		$banner_shortcode = get_post_meta( get_the_ID(), '_forclient_banner_shortcode', true ); 
 		?>
-		<section id="page-title" class="<?php if(@$forclient_options['sections-title-background-type'] == 1) echo @$forclient_options['sections-title-background'] . ' ';?><?php if(@$forclient_options['sections-title-color-type'] == 1) echo @$forclient_options['sections-title-color'];?>">
+		<section id="page-title" <?php if(@$forclient_options['sections-title-background-type'] == 1) echo 'class="'.@$forclient_options['sections-title-background'].'"';?> <?php if ($banner_img) : ?>style="background-image:url(<?php echo $banner_img ?>)"<?php endif; ?>>
 			<?php if ($banner_shortcode) : ?>
 				<div class="shortcode-output"><?php echo do_shortcode( $banner_shortcode ); ?></div>
 			<?php elseif ($banner_mp4 OR $banner_webm) : ?>

@@ -44,16 +44,15 @@ if (!class_exists('ReduxFramework_mos_social')) {
                     'title' => true,
                     'basic_icon' => true,
                     'hover_icon' => true,
-                    'svg_icon' => true,
                     'link_url' => true,
                     'target' => true,
                 ),
-                'content_title' => __ ( 'Social Media', 'aiscript' )
+                'content_title' => __ ( 'Social Media', 'forclient' )
             );
 
              $this->field = wp_parse_args ( $this->field, $defaults );
 			/* translators: %s: slide */
-           	echo '<div class="redux-slides-accordion" data-new-content-title="' . esc_attr ( sprintf ( __ ( 'New %s', 'aiscript' ), $this->field[ 'content_title' ] ) ) . '">';
+           	echo '<div class="redux-slides-accordion" data-new-content-title="' . esc_attr ( sprintf ( __ ( 'New %s', 'forclient' ), $this->field[ 'content_title' ] ) ) . '">';
 
             $x = 0;
 
@@ -108,14 +107,14 @@ if (!class_exists('ReduxFramework_mos_social')) {
 
                    //  echo '<div class="redux_slides_add_remove">';
 
-                   //  echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'aiscript' ) . '</span>';
+                   //  echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'forclient' ) . '</span>';
 
                    //  $hide = '';
                    //  if ( empty ( $slide[ 'image' ] ) || $slide[ 'image' ] == '' ) {
                    //      $hide = ' hide';
                    //  }
 
-                   //  echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $slide[ 'attachment_id' ] ) . '">' . esc_html__( 'Remove', 'aiscript' ) . '</span>';
+                   //  echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $slide[ 'attachment_id' ] ) . '">' . esc_html__( 'Remove', 'forclient' ) . '</span>';
 
                    //  echo '</div>' . "\n";               
                     
@@ -123,24 +122,21 @@ if (!class_exists('ReduxFramework_mos_social')) {
 
                     echo '<ul id="' . esc_attr( $this->field[ 'id' ] ) . '-ul" class="redux-slides-list">';
 
-                    echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="' . esc_attr($slide['title']) . '" placeholder="'.esc_html__('Title', 'aiscript').'" class="full-text slide-title" /></li>';
+                    echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="' . esc_attr($slide['title']) . '" placeholder="'.esc_html__('Title', 'forclient').'" class="full-text slide-title" /></li>';
 
                     if ( $this->field[ 'show' ][ 'basic_icon' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-basic_icon_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][basic_icon]" value="' . esc_attr($slide['basic_icon']) . '" placeholder="'.esc_attr__('Basic Icon/Image', 'aiscript').'" class="full-text iconlist" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-basic_icon_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][basic_icon]" value="' . esc_attr($slide['basic_icon']) . '" placeholder="'.esc_attr__('Basic Icon/Image', 'forclient').'" class="full-text iconlist" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'hover_icon' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-hover_icon_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][hover_icon]" value="' . esc_attr($slide['hover_icon']) . '" placeholder="'.esc_attr__('Hover Icon/Image', 'aiscript').'" class="full-text" /></li>';
-                    }
-                    if ( $this->field[ 'show' ][ 'svg_icon' ] ) {
-                        echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][svg_icon]" id="' . esc_attr( $this->field['id'] ) . '-svg_icon_' . esc_attr( $x ) . '" placeholder="'.esc_attr__('SVG Icon', 'virtue').'" class="large-text" rows="6">' . esc_attr($slide['svg_icon']) . '</textarea></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-hover_icon_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][hover_icon]" value="' . esc_attr($slide['hover_icon']) . '" placeholder="'.esc_attr__('Hover Icon/Image', 'forclient').'" class="full-text" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'link_url' ] ) {
-                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-link_url_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][link_url]" value="' . esc_attr($slide['link_url']) . '" class="full-text upload" placeholder="'.esc_html__('URL', 'aiscript').'" /></li>';
+                        echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-link_url_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][link_url]" value="' . esc_attr($slide['link_url']) . '" class="full-text upload" placeholder="'.esc_html__('URL', 'forclient').'" /></li>';
                     }
                     if ( $this->field[ 'show' ][ 'target' ] ) {
                         echo '<li><label for="'. esc_attr( $this->field['id'] ) .  '-target_' . esc_attr( $x ) . '" class="icon-link_title-target">';
                         echo '<input type="checkbox" class="checkbox-slide-target" id="' . esc_attr( $this->field['id'] ) . '-target_' . esc_attr( $x ) . '" value="1" ' . checked(  $slide['target'], '1', false ) . ' name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][target]" />';
-                        echo ' '.esc_html__('Open Link in New Tab/Window', 'aiscript'). '</label></li>';
+                        echo ' '.esc_html__('Open Link in New Tab/Window', 'forclient'). '</label></li>';
                     }
 
                     echo '<li><input type="hidden" class="slide-sort" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][sort]" id="' . esc_attr( $this->field['id'] ) . '-sort_' . esc_attr( $x ) . '" value="' . esc_attr( $slide['sort'] ) . '" />';
@@ -150,7 +146,7 @@ if (!class_exists('ReduxFramework_mos_social')) {
                     echo '<input type="hidden" class="upload-height" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][height]" id="' . esc_attr( $this->field['id'] ) . '-image_height_' . esc_attr( $x ) . '" value="' . esc_attr( $slide['height'] ) . '" />';
                     echo '<input type="hidden" class="upload-width" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][width]" id="' . esc_attr( $this->field['id'] ) . '-image_width_' . esc_attr( $x ) . '" value="' . esc_attr( $slide['width'] ) . '" /></li>';
                     
-                    echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Slide', 'aiscript') . '</a></li>';
+                    echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Slide', 'forclient') . '</a></li>';
                     echo '</ul></div></fieldset></div>';
                     $x++;
                 
@@ -172,42 +168,32 @@ if (!class_exists('ReduxFramework_mos_social')) {
                 // echo '<div class="upload_button_div">';
 
                 // //If the user has WP3.5+ show upload/remove button
-                // echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'aiscript' ) . '</span>';
+                // echo '<span class="button media_upload_button" id="add_' . esc_attr( $x ) . '">' . esc_html__( 'Upload', 'forclient' ) . '</span>';
 
-                // echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $this->parent->args[ 'opt_name' ] ) . '[' . esc_attr( $this->field[ 'id' ] ) . '][attachment_id]">' . esc_html__( 'Remove', 'aiscript' ) . '</span>';
+                // echo '<span class="button remove-image' . esc_attr( $hide ) . '" id="reset_' . esc_attr( $x ) . '" rel="' . esc_attr( $this->parent->args[ 'opt_name' ] ) . '[' . esc_attr( $this->field[ 'id' ] ) . '][attachment_id]">' . esc_html__( 'Remove', 'forclient' ) . '</span>';
 
                 // echo '</div>' . "\n";
 
                 echo '<ul id="' . esc_attr( $this->field['id'] ) . '-ul" class="redux-slides-list">';
-                $placeholder = (isset($this->field['placeholder']['title'])) ? esc_attr($this->field['placeholder']['title']) : __( 'Title', 'aiscript' );
+                $placeholder = (isset($this->field['placeholder']['title'])) ? esc_attr($this->field['placeholder']['title']) : __( 'Title', 'forclient' );
                 echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text slide-title" /></li>';
 
                 if ( $this->field[ 'show' ][ 'basic_icon' ] ) {
-                    $placeholder = (isset($this->field['placeholder']['basic_icon'])) ? esc_attr($this->field['placeholder']['basic_icon']) : __( 'Basic Icon/Image', 'aiscript' );
+                    $placeholder = (isset($this->field['placeholder']['basic_icon'])) ? esc_attr($this->field['placeholder']['basic_icon']) : __( 'Basic Icon/Image', 'forclient' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-basic_icon_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][basic_icon]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text iconlist" /></li>';   
                 }
                 if ( $this->field[ 'show' ][ 'hover_icon' ] ) {
-                    $placeholder = (isset($this->field['placeholder']['hover_icon'])) ? esc_attr($this->field['placeholder']['hover_icon']) : __( 'Hover Icon/Image', 'aiscript' );
+                    $placeholder = (isset($this->field['placeholder']['hover_icon'])) ? esc_attr($this->field['placeholder']['hover_icon']) : __( 'Hover Icon/Image', 'forclient' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-hover_icon_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][hover_icon]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text" /></li>';   
                 }
-                if ( $this->field[ 'show' ][ 'svg_icon' ] ) {
-                    $placeholder = (isset($this->field['placeholder']['svg_icon'])) ? esc_attr($this->field['placeholder']['svg_icon']) : __( 'SVG Icon', 'aiscript' );
-                    echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-svg_icon_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][svg_icon]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text" /></li>';   
-                }
-
-                if ( $this->field[ 'show' ][ 'svg_icon' ] ) {
-                $placeholder = (isset($this->field['placeholder']['svg_icon'])) ? esc_attr($this->field['placeholder']['svg_icon']) : __( 'SVG Icon', 'virtue' );
-                    echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][svg_icon]" id="' . esc_attr( $this->field['id'] ) . '-svg_icon_' . esc_attr( $x ) . '" placeholder="'.esc_attr( $placeholder ).'" class="large-text" rows="6"></textarea></li>';
-                } 
-
                 if ( $this->field[ 'show' ][ 'link_url' ] ) {             
-                    $placeholder = (isset($this->field['placeholder']['link_url'])) ? esc_attr($this->field['placeholder']['link_url']) : __( 'URL', 'aiscript' );
+                    $placeholder = (isset($this->field['placeholder']['link_url'])) ? esc_attr($this->field['placeholder']['link_url']) : __( 'URL', 'forclient' );
                     echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-link_url_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][link_url]" value="" class="full-text upload" placeholder="'.esc_attr( $placeholder ).'" /></li>';
                 }
                 if ( $this->field[ 'show' ][ 'target' ] ) {
                     echo '<li><label for="'. esc_attr( $this->field['id'] ) .  '-target_' . esc_attr( $x ) . '">';
                     echo '<input type="checkbox" class="checkbox-slide-target" id="' . esc_attr( $this->field['id'] ) . '-target_' . esc_attr( $x ) . '" value="" ' . checked(  '', '1', false ) . ' name="' . esc_attr( $this->args['opt_name'] ) . '[' . esc_attr( $this->field['id'] ) . '][' . esc_attr( $x ) . '][target]" />';
-                    echo ' '.esc_html__('Open Link in New Tab/Window', 'aiscript'). '</label></li>';
+                    echo ' '.esc_html__('Open Link in New Tab/Window', 'forclient'). '</label></li>';
                 }
 
                 echo '<li><input type="hidden" class="slide-sort" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][sort]" id="' . esc_attr( $this->field['id'] ) . '-sort_' . esc_attr( $x ) . '" value="' . esc_attr( $x ) . '" />';
@@ -216,11 +202,11 @@ if (!class_exists('ReduxFramework_mos_social')) {
                 echo '<input type="hidden" class="upload-height" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][height]" id="' . esc_attr( $this->field['id'] ) . '-image_height_' . esc_attr( $x ) . '" value="" />';
                 echo '<input type="hidden" class="upload-width" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][width]" id="' . esc_attr( $this->field['id'] ) . '-image_width_' . esc_attr( $x ) . '" value="" /></li>';
 
-                echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Slide', 'aiscript') . '</a></li>';
+                echo '<li><a href="javascript:void(0);" class="button deletion redux-slides-remove">' . esc_html__('Delete Slide', 'forclient') . '</a></li>';
                 echo '</ul></div></fieldset></div>';
             }
             /* translators: %s: slide */
-            echo '</div><a href="javascript:void(0);" class="button redux-slides-add2 mos_redux-slides-add button-primary" rel-id="' . esc_attr( $this->field[ 'id' ] ) . '-ul" rel-name="' . esc_attr( $this->field[ 'name' ] ) . '[title][]">' . sprintf ( esc_html__( 'Add %s', 'aiscript' ), esc_attr( $this->field[ 'content_title' ] ) ) . '</a><br/>';
+            echo '</div><a href="javascript:void(0);" class="button redux-slides-add2 mos_redux-slides-add button-primary" rel-id="' . esc_attr( $this->field[ 'id' ] ) . '-ul" rel-name="' . esc_attr( $this->field[ 'name' ] ) . '[title][]">' . sprintf ( esc_html__( 'Add %s', 'forclient' ), esc_attr( $this->field[ 'content_title' ] ) ) . '</a><br/>';
         }
         public function enqueue () {
             if ( function_exists( 'wp_enqueue_media' ) ) {

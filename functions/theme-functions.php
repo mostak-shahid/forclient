@@ -6,11 +6,10 @@ function mos_home_url_replace($data) {
 }
 /*Variables*/
 $template_parts = array(
-    'Enabled'  => array(
-        'content' => 'Content Section',
-    ),
+    'Enabled'  => array(),
     'Disabled' => array(
         'banner' => 'Home Banner',
+        'welcome' => 'Welcome',
     ),
 );
 /*Variables*/

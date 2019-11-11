@@ -225,7 +225,7 @@ if (!class_exists('ReduxFramework_mos_service_slides')) {
                 echo '<li><input type="text" id="' . esc_attr( $this->field['id'] ) . '-title_' . esc_attr( $x ) . '" name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][title]" value="" placeholder="'.esc_attr( $placeholder ).'" class="full-text slide-title" /></li>';
                 
                 if ( $this->field[ 'show' ][ 'svg' ] ) {
-                $placeholder = (isset($this->field['placeholder']['svg'])) ? esc_attr($this->field['placeholder']['svg']) : __( 'SVG', 'virtue' );
+                $placeholder = (isset($this->field['placeholder']['svg'])) ? esc_attr($this->field['placeholder']['svg']) : __( 'Description', 'virtue' );
                     echo '<li><textarea name="' . esc_attr( $this->field['name'] ) . '[' . esc_attr( $x ) . '][svg]" id="' . esc_attr( $this->field['id'] ) . '-svg_' . esc_attr( $x ) . '" placeholder="'.esc_attr( $placeholder ).'" class="large-text" rows="6"></textarea></li>';
                 }                
                 if ( $this->field[ 'show' ][ 'description' ] ) {
