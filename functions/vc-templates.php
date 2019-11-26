@@ -51,7 +51,95 @@ function your_name_integrateWithVC() {
 			)
 		)
 	));
-}*/
+}
+
+function mos_accordion_shortcode($atts){
+	// extract(shortcode_atts(array(
+	// 	'title' => '',
+	// 	'values' => '',
+	// ), $atts));
+	$atts = shortcode_atts( array(
+		'title' => '',
+		'values' => '',
+	), $atts, 'mos-accordion' );	
+
+	$list = '<h4>'.$atts['title'].'</h4>';
+	$values = vc_param_group_parse_atts($atts['values']);
+
+	$new_accordion_value = array();
+	foreach($values as $data){
+		$new_line = $data;
+		$new_line['label'] = isset($new_line['label']) ? $new_line['label'] : '';
+		$new_line['excerpt'] = isset($new_line['excerpt']) ? $new_line['excerpt'] : '';
+
+		$new_accordion_value[] = $new_line;
+
+	}
+
+	$idd = 0;
+	foreach($new_accordion_value as $accordion):
+		$idd++;
+		$list .=
+		'<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$idd.'">
+						'.$accordion['label'].'
+						<span class="fa fa-plus"></span>
+					</a>
+				</h4>
+			</div>
+			<div id="collapse'.$idd.'" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>'.$accordion['excerpt'].'</p>
+				</div>
+			</div>
+		</div>';
+	endforeach;
+	return $list;
+	wp_reset_query();
+}
+add_shortcode('mos-accordion', 'mos_accordion_shortcode');
+
+add_action( 'vc_before_init', 'mos_accordion_vc' );
+function mos_accordion_vc() {
+	vc_map(array(
+		'name' => 'Mos Accordions',
+		'base' => 'mos-accordion',
+		"category" => __( "Mos Elements", "my-text-domain"),
+		'icon'     => get_template_directory_uri() . '/images/mos-vc.png',
+		'params' => array(
+			array(
+				'type' => 'textfield',
+				'name' => __('Title', 'rrf-mos'),
+				'holder' => 'div',
+				'heading' => __('Title', 'rrf-mos'),
+				'param_name' => 'title',
+			),
+			array(
+				'type' => 'param_group',
+				'param_name' => 'values',
+				'params' => array(
+					array(
+						'type' => 'textfield',
+						'name' => 'label',
+						'heading' => __('Heading', 'rrf-mos'),
+						'param_name' => 'label',
+						),
+					array(
+						'type' => 'textarea',
+						'name' => 'Content',
+						'heading' => __('Content', 'rrf-mos'),
+						'param_name' => 'excerpt',
+					)
+				)
+
+			),
+		),
+
+	));
+}
+*/
 
 
 function mos_product_carousel_func( $atts = array(), $content = '' ) {
