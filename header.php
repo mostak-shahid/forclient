@@ -25,32 +25,43 @@
     </div>
 <?php endif; ?>
 	<header id="main-header">
-		<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
-			<a class="navbar-brand d-md-none d-lg-none" href="#">
-				<?php if (has_site_icon()) : ?>
-					<img class="img-responsive img-fluid" src="<?php echo get_site_icon_url(32)?>" alt="Logo">
-				<?php else : ?>
-					<?php echo bloginfo( 'name' ); ?>
-				<?php endif; ?>
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<?php
-			wp_nav_menu([
-				'menu'            => 'mainmenu',
-				'theme_location'  => 'mainmenu',
-				'container'       => 'div',
-				'container_id'    => 'collapsibleNavbar',
-				'container_class' => 'collapse navbar-collapse',
-				'menu_id'         => false,
-				'menu_class'      => 'navbar-nav ml-auto',
-				'depth'           => 2,
-				'fallback_cb'     => 'bs4navwalker::fallback',
-				//'walker'          => new bs4navwalker()
-				]);
-			?>
-		</nav>
+		<div class="content-wrap">
+			<div class="container">
+				<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
+					<a class="navbar-brand" href="<?php echo home_url(); ?>">
+						<span class="<?php if($forclient_options['logo']['id']) echo 'd-md-none';?>">
+						<?php if (has_site_icon()) : ?>
+							<img class="img-responsive img-fluid" src="<?php echo get_site_icon_url(32)?>" width="32" height="32" alt="<?php echo bloginfo( 'name' ); ?> - Logo">
+						<?php else : ?>
+							<?php echo bloginfo( 'name' ); ?>
+						<?php endif; ?>
+						</span>
+						<?php if($forclient_options['logo']['id']) : ?>
+							<span class="d-none d-md-inline-block">
+								<img class="img-responsive img-fluid" src="<?php echo $forclient_options['logo']['url']?>" width="<?php echo $forclient_options['logo']['width']?>" height="<?php echo $forclient_options['logo']['height']?>" alt="<?php echo bloginfo( 'name' ); ?> - Logo">
+							</span>
+						<?php endif ?>
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<?php
+					wp_nav_menu([
+						'menu'            => 'mainmenu',
+						'theme_location'  => 'mainmenu',
+						'container'       => 'div',
+						'container_id'    => 'collapsibleNavbar',
+						'container_class' => 'collapse navbar-collapse',
+						'menu_id'         => false,
+						'menu_class'      => 'navbar-nav ml-auto',
+						'depth'           => 2,
+						'fallback_cb'     => 'bs4navwalker::fallback',
+						//'walker'          => new bs4navwalker()
+						]);
+					?>
+				</nav>				
+			</div>
+		</div>
 	</header>
 	<?php if (!is_front_page()) : ?>
 		<?php 
