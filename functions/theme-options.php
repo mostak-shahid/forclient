@@ -1234,15 +1234,15 @@
                 'title'       => __( 'Section Details', 'redux-framework-demo' ),              
                 'show' => array(
                     'title' => true,
-                    'description' => false,
+                    'description' => true,
                     'link_title' => true,
                     'link_url' => true,
-                    'target' => true,
+                    'target' => false,
                 ),
                 'placeholder' => array(
                     'title'       => __( 'This is a title', 'redux-framework-demo' ),
                     'description' => __( 'Description Here', 'redux-framework-demo' ),
-                    'link_title'         => __( 'Date', 'redux-framework-demo' ),
+                    'link_title'         => __( 'Link Title', 'redux-framework-demo' ),
                     'link_url'         => __( 'Give us a link!', 'redux-framework-demo' ),
                 )
             ),
