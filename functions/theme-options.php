@@ -871,13 +871,13 @@
                 )
             ),
             
-            array(
+            /*array(
                 'id'       => 'sections-breadcrumbs-option',
                 'type'     => 'switch',
                 'title'    => __( 'Breadcrumbs', 'redux-framework-demo' ),
                 //'options' => array('on', 'off'),
                 'default'  => false,
-            ),
+            ),*/
 
             array(
                 'id'       => 'sections-breadcrumbs-color-type',
