@@ -63,7 +63,7 @@
 			</div>
 		</div>
 	</header>
-	<?php if (!is_front_page()) : ?>
+	<?php if (get_post_meta(get_the_ID(), '_forclient_banner_cover', true )) : ?>
 		<?php 
 		$banner_img = get_post_meta( get_the_ID(), '_forclient_banner_cover', true ); 
 		$banner_mp4 = get_post_meta( get_the_ID(), '_forclient_banner_mp4', true ); 
@@ -101,7 +101,8 @@
 				</div>
 			</div>
 		</section>
-		<?php if (@$forclient_options['sections-breadcrumbs-option']) : ?>
+	<?php endif ?>
+	<?php if (get_post_meta(get_the_ID(), '_forclient_breadcrumb_cover', true )) : ?>
 		<section id="section-breadcrumbs" <?php if(@$forclient_options['sections-breadcrumbs-background-type'] == 1) echo 'class="'.@$forclient_options['sections-breadcrumbs-background'].'"';?>>
 			<div class="content-wrap">
 				<div class="container">
@@ -109,5 +110,4 @@
 				</div>
 			</div>
 		</section>
-		<?php endif; ?>
-	<?php endif ?>
+	<?php endif; ?>

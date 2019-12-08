@@ -32,4 +32,4 @@ function custom_admin_script(){
     }
         
 }
-add_action('admin_head', 'custom_admin_script');
+// add_action('admin_head', 'custom_admin_script');

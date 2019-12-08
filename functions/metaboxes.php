@@ -25,6 +25,12 @@ function forclient_metaboxes() {
         //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-template/lightbox-gallery-page.php' ),
     )); 
     $banner_details->add_field( array(
+        'name' => 'Enable Banner',
+        'desc' => 'Yes',
+        'id'   => $prefix . 'banner_enable',
+        'type' => 'checkbox',
+    ));
+    $banner_details->add_field( array(
         'name'    => 'Banner Cover',
         'desc'    => 'Upload an image or enter an URL.',
         'id'      => $prefix . 'banner_cover',
@@ -62,7 +68,13 @@ function forclient_metaboxes() {
         'name' => __( 'Short Code', 'cmb2' ),
         'id'   => $prefix . 'banner_shortcode',
         'type' => 'text',
-    ));  
+    )); 
+    $banner_details->add_field( array(
+        'name' => 'Enable Breadcrumb',
+        'desc' => 'Yes',
+        'id'   => $prefix . 'breadcrumb_enable',
+        'type' => 'checkbox',
+    )); 
 
 	$post_gallery_details = new_cmb2_box(array(
         'id' => $prefix . 'post_gallery_details',
