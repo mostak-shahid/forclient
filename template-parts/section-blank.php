@@ -16,12 +16,12 @@ do_action( 'action_avobe_blank', $page_details );
 		do_action( 'action_before_blank', $page_details ); 
 		?>
 				<?php if ($title) : ?>				
-					<div class="title-wrapper">
+					<div class="title-wrapper wow fadeInDown">
 						<h2 class="title"><?php echo do_shortcode( $title ); ?></h2>				
 					</div>
 				<?php endif; ?>
 				<?php if ($content) : ?>				
-					<div class="content-wrapper"><?php echo do_shortcode( $content ) ?></div>
+					<div class="content-wrapper wow fadeInUp"><?php echo do_shortcode( $content ) ?></div>
 				<?php endif; ?>
 		<?php 
 		/*

@@ -29,6 +29,7 @@ jQuery(document).ready(function($){
     $(".drop_down_icon").click(function() {
         $(this).siblings("ul").slideToggle();
     }); 
+    new WOW().init();
     $('#section-banner-owl').owlCarousel({
         loop: true,
         nav: true,
