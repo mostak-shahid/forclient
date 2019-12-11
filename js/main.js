@@ -64,3 +64,19 @@ jQuery(document).ready(function($){
     $('#section-feature .slider-part .owl-prev').html('<i class="fa fa-arrow-circle-left"></i>');
     $('#section-feature .slider-part .owl-next').html('<i class="fa fa-arrow-circle-right"></i>');
 });
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
