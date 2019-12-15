@@ -148,6 +148,12 @@ function forclient_plugins_management() {
 			'required'			=> false,
 			'force_activation'	=> false, 
 		),
+		array(
+			'name'				=> 'Contact Form 7 Database Addon – CFDB7', 
+			'slug'				=> 'contact-form-cfdb7',  
+			'required'			=> false,
+			'force_activation'	=> false, 
+		),
 
 		// This is an example of how to include a plugin from a GitHub repository in your theme.
 		// This presumes that the plugin code is based in the root of the GitHub repository
