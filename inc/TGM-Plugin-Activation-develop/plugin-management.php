@@ -80,13 +80,27 @@ function forclient_plugins_management() {
 			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
 			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
 		),*/
-		/*/*array(
-			'name'				=> 'Formidable Forms', 
-			'slug'				=> 'formidable', 
-			'source'			=> get_template_directory_uri() . '/plugins/formidable.zip', 
-			'required'			=> true,
+		array(
+			'name'				=> 'WPBakery Page Builder', 
+			'slug'				=> 'js_composer', 
+			'source'			=> get_template_directory_uri() . '/plugins/js_composer.zip', 
+			'required'			=> false,
 			'force_activation'	=> false, 
-		),*/
+		),
+		array(
+			'name'				=> 'Slider Revolution', 
+			'slug'				=> 'revslider', 
+			'source'			=> get_template_directory_uri() . '/plugins/revslider.zip', 
+			'required'			=> false,
+			'force_activation'	=> false, 
+		),
+		array(
+			'name'				=> 'Unite Gallery Lite', 
+			'slug'				=> 'unite-gallery-lite', 
+			'source'			=> get_template_directory_uri() . '/plugins/unite-gallery-lite.zip', 
+			'required'			=> false,
+			'force_activation'	=> false, 
+		),
 		array(
 			'name'				=> 'Mos Image Alter tag management', 
 			'slug'				=> 'mos-image-alt', 
