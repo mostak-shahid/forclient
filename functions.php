@@ -1,6 +1,6 @@
 <?php
-// show_admin_bar( false );
-add_filter('show_admin_bar', false, PHP_INT_MAX);
+show_admin_bar( false );
+// add_filter('show_admin_bar', false, PHP_INT_MAX);
 function disable_mytheme_action() {
 	define('DISALLOW_FILE_EDIT', TRUE);
 	define('DISALLOW_FILE_MODS',true);
