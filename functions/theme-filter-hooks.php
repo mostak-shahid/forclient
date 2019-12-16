@@ -8,7 +8,7 @@ function add_slug_body_class( $classes ) {
     }
     return $classes;
 }
-add_filter( 'body_class', 'add_slug_body_class' );
+// add_filter( 'body_class', 'add_slug_body_class' );
 
 add_action( 'action_below_footer', 'back_to_top_fnc', 10, 1 );
 function back_to_top_fnc () {
