@@ -563,6 +563,13 @@
                 'all'      => false,
             ),
             array(
+                'id'       => 'sections-header-class',
+                'type'     => 'text',
+                'title'    => __( 'Section CSS Class', 'redux-framework-demo' ),
+                'desc'     => 'You can add additional css class here.',
+                'validate'     => 'no_html',
+            ),
+            array(
                 'id'       => 'sections-header-color-type',
                 'type'     => 'button_set',
                 'title'    => __( 'Section text color', 'redux-framework-demo' ),
@@ -592,7 +599,6 @@
                     "text-black-50" => 'Text black-50',
                     "text-white-50" => 'Text white-50',
                 ),
-                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-header-color-type', '=', '1' ),
             ),
             array(
@@ -698,6 +704,13 @@
                 'all'      => false,
             ), 
             array(
+                'id'       => 'sections-title-class',
+                'type'     => 'text',
+                'title'    => __( 'Section CSS Class', 'redux-framework-demo' ),
+                'desc'     => 'You can add additional css class here.',
+                'validate'     => 'no_html',
+            ),
+            array(
                 'id'       => 'sections-title-color-type',
                 'type'     => 'button_set',
                 'title'    => __( 'Section text color', 'redux-framework-demo' ),
@@ -727,7 +740,6 @@
                     "text-black-50" => 'Text black-50',
                     "text-white-50" => 'Text white-50',
                 ),
-                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-title-color-type', '=', '1' ),
             ),
             array(
@@ -839,6 +851,13 @@
                 'all'      => false,
             ),
             array(
+                'id'       => 'sections-breadcrumbs-class',
+                'type'     => 'text',
+                'title'    => __( 'Section CSS Class', 'redux-framework-demo' ),
+                'desc'     => 'You can add additional css class here.',
+                'validate'     => 'no_html',
+            ),
+            array(
                 'id'       => 'sections-breadcrumbs-title',
                 'type'     => 'text',
                 'title'    => __( 'Section Title', 'redux-framework-demo' ),
@@ -909,7 +928,6 @@
                     "text-black-50" => 'Text black-50',
                     "text-white-50" => 'Text white-50',
                 ),
-                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-breadcrumbs-color-type', '=', '1' ),
             ),
             array(
@@ -949,7 +967,6 @@
                     'bg-white text-dark' => 'White Background',
                     'bg-transparent text-dark' => 'Transparent Background',
                 ),
-                'default'  => 'bg-dark text-white',
                 'required' => array( 'sections-breadcrumbs-background-type', '=', '1' ),
             ),
             array(
@@ -1060,6 +1077,13 @@
                 'output'   => array( '.page-content .content-wrap' ),
                 'all'      => false,
             ), 
+            array(
+                'id'       => 'sections-content-class',
+                'type'     => 'text',
+                'title'    => __( 'Section CSS Class', 'redux-framework-demo' ),
+                'desc'     => 'You can add additional css class here.',
+                'validate'     => 'no_html',
+            ),
 
             array(
                 'id'       => 'sections-content-color-type',
@@ -1387,6 +1411,13 @@
                 'all'      => false,
             ),
             array(
+                'id'       => 'sections-widgets-class',
+                'type'     => 'text',
+                'title'    => __( 'Section CSS Class', 'redux-framework-demo' ),
+                'desc'     => 'You can add additional css class here.',
+                'validate'     => 'no_html',
+            ),
+            array(
                 'id'       => 'sections-widgets-title',
                 'type'     => 'text',
                 'title'    => __( 'Section Title', 'redux-framework-demo' ),
@@ -1574,6 +1605,13 @@
                 'title'    => __( 'Section Border', 'redux-framework-demo' ),
                 'output'   => array( '#footer .content-wrap' ),
                 'all'      => false,
+            ),
+            array(
+                'id'       => 'sections-footer-class',
+                'type'     => 'text',
+                'title'    => __( 'Section CSS Class', 'redux-framework-demo' ),
+                'desc'     => 'You can add additional css class here.',
+                'validate'     => 'no_html',
             ), 
             array(
                 'id'       => 'sections-footer-title',

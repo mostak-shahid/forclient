@@ -24,7 +24,12 @@
     <?php endif; ?>
     </div>
 <?php endif; ?>
-	<header id="main-header">
+	<?php 
+	$header_class=$forclient_options['sections-header-class']; 
+	$title_class=$forclient_options['sections-title-class']; 
+	$breadcrumbs_class=$forclient_options['sections-breadcrumbs-class']; 
+	?>
+	<header id="main-header" class="<?php echo $header_class?>">
 		<div class="content-wrap">
 			<div class="container">
 				<nav class="navbar navbar-expand-md navbar-light navbar-custom-bg">			
@@ -70,7 +75,7 @@
 		$banner_webm = get_post_meta( get_the_ID(), '_forclient_banner_webm', true ); 
 		$banner_shortcode = get_post_meta( get_the_ID(), '_forclient_banner_shortcode', true ); 
 		?>
-		<section id="page-title" <?php if(@$forclient_options['sections-title-background-type'] == 1) echo 'class="'.@$forclient_options['sections-title-background'].'"';?> <?php if ($banner_img) : ?>style="background-image:url(<?php echo $banner_img ?>)"<?php endif; ?>>
+		<section id="page-title" class="<?php if(@$forclient_options['sections-title-background-type'] == 1) echo @$forclient_options['sections-title-background'] . ' ';?><?php if(@$forclient_options['sections-title-color-type'] == 1) echo @$forclient_options['sections-title-color'];?> <?php echo $title_class ?>">
 			<?php if ($banner_shortcode) : ?>
 				<div class="shortcode-output"><?php echo do_shortcode( $banner_shortcode ); ?></div>
 			<?php elseif ($banner_mp4 OR $banner_webm) : ?>
@@ -103,7 +108,7 @@
 		</section>
 	<?php endif ?>
 	<?php if (get_post_meta(get_the_ID(), '_forclient_breadcrumb_enable', true )) : ?>
-		<section id="section-breadcrumbs" <?php if(@$forclient_options['sections-breadcrumbs-background-type'] == 1) echo 'class="'.@$forclient_options['sections-breadcrumbs-background'].'"';?>>
+		<section id="section-breadcrumbs" class="<?php if(@$forclient_options['sections-breadcrumbs-background-type'] == 1) echo @$forclient_options['sections-breadcrumbs-background'] . ' ';?><?php if(@$forclient_options['sections-breadcrumbs-color-type'] == 1) echo @$forclient_options['sections-breadcrumbs-color'];?> <?php echo $breadcrumbs_class ?>">
 			<div class="content-wrap">
 				<div class="container">
 					<?php mos_breadcrumbs(); ?>

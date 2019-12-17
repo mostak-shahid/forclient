@@ -1,5 +1,6 @@
 <?php 
 global $forclient_options;
+$class = $forclient_options['sections-widgets-class'];
 $title = $forclient_options['sections-widgets-title'];
 $content = $forclient_options['sections-widgets-content'];
 $widget_layout = $forclient_options['sections-widgets-layout'];
@@ -10,7 +11,7 @@ else { $colsize = 12; }
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 do_action( 'action_avobe_widgets', $page_details ); 
 ?>
-<section id="section-widgets" class="<?php if(@$forclient_options['sections-widgets-background-type'] == 1) echo @$forclient_options['sections-widgets-background'] . ' ';?><?php if(@$forclient_options['sections-widgets-color-type'] == 1) echo @$forclient_options['sections-widgets-color'];?>">
+<section id="section-widgets" class="<?php if(@$forclient_options['sections-widgets-background-type'] == 1) echo @$forclient_options['sections-widgets-background'] . ' ';?><?php if(@$forclient_options['sections-widgets-color-type'] == 1) echo @$forclient_options['sections-widgets-color'];?> <?php echo $class ?>">
 	<div class="content-wrap">
 		
 		<?php do_action( 'action_before_widgets', $page_details ); ?>

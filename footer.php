@@ -1,9 +1,10 @@
 <?php 
 global $forclient_options;
+$class = $forclient_options['sections-footer-class'];
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 ?>
   <?php get_template_part( 'template-parts/section', 'widgets' ); ?>
-  <footer id="footer" class="<?php if(@$forclient_options['sections-footer-background-type'] == 1) echo @$forclient_options['sections-footer-background'] . ' ';?><?php if(@$forclient_options['sections-footer-color-type'] == 1) echo @$forclient_options['sections-footer-color'];?>">
+  <footer id="footer" class="<?php if(@$forclient_options['sections-footer-background-type'] == 1) echo @$forclient_options['sections-footer-background'] . ' ';?><?php if(@$forclient_options['sections-footer-color-type'] == 1) echo @$forclient_options['sections-footer-color'];?> <?php echo $class ?>">
     <div class="content-wrap">
       <div class="container">
         <?php echo do_shortcode( $forclient_options['sections-footer-content'] ); ?>
