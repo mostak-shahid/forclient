@@ -1197,6 +1197,13 @@
                 'all'      => false,
             ),
             array(
+                'id'       => 'sections-blank-class',
+                'type'     => 'text',
+                'title'    => __( 'Section CSS Class', 'redux-framework-demo' ),
+                'desc'     => 'You can add additional css class here.',
+                'validate'     => 'no_html',
+            ),
+            array(
                 'id'       => 'sections-blank-title',
                 'type'     => 'text',
                 'title'    => __( 'Section Title', 'redux-framework-demo' ),

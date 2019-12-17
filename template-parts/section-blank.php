@@ -1,11 +1,12 @@
 <?php 
 global $forclient_options;
+$class = $forclient_options['sections-blank-class'];
 $title = $forclient_options['sections-blank-title'];
 $content = $forclient_options['sections-blank-content'];
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 do_action( 'action_avobe_blank', $page_details ); 
 ?>
-<section id="section-blank" class="<?php if(@$forclient_options['sections-blank-background-type'] == 1) echo @$forclient_options['sections-blank-background'] . ' ';?><?php if(@$forclient_options['sections-blank-color-type'] == 1) echo @$forclient_options['sections-blank-color'];?>">
+<section id="section-blank" class="<?php if(@$forclient_options['sections-blank-background-type'] == 1) echo @$forclient_options['sections-blank-background'] . ' ';?><?php if(@$forclient_options['sections-blank-color-type'] == 1) echo @$forclient_options['sections-blank-color'];?><?php echo $class ?>">
 	<div class="content-wrap">
 		
 		<?php 
