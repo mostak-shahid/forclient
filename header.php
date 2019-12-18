@@ -1,4 +1,9 @@
-<?php global $forclient_options; ?><!DOCTYPE html>
+<?php 
+global $forclient_options;
+if (is_home()) $page_id = get_option( 'page_for_posts' );
+elseif (is_front_page()) $page_id = get_option('page_on_front');
+else $page_id = get_the_ID();
+?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -68,7 +73,7 @@
 			</div>
 		</div>
 	</header>
-	<?php if (get_post_meta(get_the_ID(), '_forclient_banner_enable', true )) : ?>
+	<?php if (get_post_meta($page_id, '_forclient_banner_enable', true )) : ?>
 		<?php 
 		$banner_img = get_post_meta( get_the_ID(), '_forclient_banner_cover', true ); 
 		$banner_mp4 = get_post_meta( get_the_ID(), '_forclient_banner_mp4', true ); 
@@ -107,7 +112,7 @@
 			</div>
 		</section>
 	<?php endif ?>
-	<?php if (get_post_meta(get_the_ID(), '_forclient_breadcrumb_enable', true )) : ?>
+	<?php if (get_post_meta($page_id, '_forclient_breadcrumb_enable', true )) : ?>
 		<section id="section-breadcrumbs" class="<?php if(@$forclient_options['sections-breadcrumbs-background-type'] == 1) echo @$forclient_options['sections-breadcrumbs-background'] . ' ';?><?php if(@$forclient_options['sections-breadcrumbs-color-type'] == 1) echo @$forclient_options['sections-breadcrumbs-color'];?> <?php echo $breadcrumbs_class ?>">
 			<div class="content-wrap">
 				<div class="container">
