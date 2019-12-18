@@ -2,6 +2,15 @@
 function forclient_metaboxes() {
     $prefix = '_forclient_';
     global $forclient_options,$template_parts;
+    $blog_id = get_option( 'page_for_posts' );
+    if ($_GET['post'] == $blog_id){
+        $enabled = ($forclient_options['archive-page-sections']['Enabled']) ? $forclient_options['archive-page-sections']['Enabled'] : $template_parts['Enabled'];
+        $disabled = ($forclient_options['archive-page-sections']['Disabled']) ? $forclient_options['archive-page-sections']['Disabled'] : $template_parts['Disabled'];
+    }
+    else{
+        $enabled = ($forclient_options['general-page-sections']['Enabled']) ? $forclient_options['general-page-sections']['Enabled'] : $template_parts['Enabled'];
+        $disabled = ($forclient_options['general-page-sections']['Disabled']) ? $forclient_options['general-page-sections']['Disabled'] : $template_parts['Disabled'];
+    }
 
     $page_settings = new_cmb2_box(array(
         'id' => $prefix . 'page_settings',
@@ -14,8 +23,8 @@ function forclient_metaboxes() {
         'type'    => 'tb_sorter',
         'desc'      => '<a href="'.admin_url( 'admin-ajax.php' ).'?action=reset_prl&post_id='.$_GET['post'].'">Click here</a> to reset "Page Row Layout"',
         'options' => array(
-            'Enabled'  => ($forclient_options['general-page-sections']['Enabled']) ? $forclient_options['general-page-sections']['Enabled'] : $template_parts['Enabled'],
-            'Disabled' => ($forclient_options['general-page-sections']['Disabled']) ? $forclient_options['general-page-sections']['Disabled'] : $template_parts['Disabled'], 
+            'Enabled'  => $enabled,
+            'Disabled' => $disabled, 
         ),
     ));    
     $banner_details = new_cmb2_box(array(
