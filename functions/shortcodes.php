@@ -24,7 +24,8 @@ function shortcodes_page(){
 			<li>[email offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays email from theme option</span></li>
 			<li>[phone offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays phone from theme option</span></li>
 			<li>[fax offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays fax from theme option</span></li>
-			<li>[social_menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
+			<li>[social-menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
+			<li>[feature-image wrapper_element='div' wrapper_atts='' height='' width=''] <span class="sdetagils">displays feature image</span></li>		
 		</ol>
 	</div>
 	<?php
@@ -249,7 +250,7 @@ function social_menu_fnc( $atts = array(), $content = '' ) {
 	$atts = shortcode_atts( array(
 		'display' => 'inline',
 		'title' => 0,
-	), $atts, 'social_menu' );
+	), $atts, 'social-menu' );
 	if ($atts['display'] == 'inline') $display = 'list-inline';
 	else  $display = 'list-unstyled';
 	$html .= '<ul class="'.$display.' social-menu">';
@@ -288,7 +289,43 @@ function social_menu_fnc( $atts = array(), $content = '' ) {
 	$html .= '</ul>';
 	return $html;
 }
-add_shortcode( 'social_menu', 'social_menu_fnc' );
+add_shortcode( 'social-menu', 'social_menu_fnc' );
+
+function feature_image_func( $atts = array(), $content = '' ) {
+	global $mosacademy_options;
+	$html = '';
+	$img = '';
+	$atts = shortcode_atts( array(
+		'wrapper_element' => 'div',
+		'wrapper_atts' => '',
+		'height' => '',
+		'width' => '',
+	), $atts, 'feature-image' );
+
+	if (has_post_thumbnail()) $img = get_the_post_thumbnail_url();	
+	elseif(@$mosacademy_options['blog-archive-default']['id']) $img = wp_get_attachment_url( $mosacademy_options['blog-archive-default']['id'] ); 
+	if ($img){
+		if ($atts['wrapper_element']) $html .= '<'. $atts['wrapper_element'];
+		if ($atts['wrapper_atts']) $html .= ' ' . $atts['wrapper_atts'];
+		if ($atts['wrapper_element']) $html .= '>';
+		list($width, $height) = getimagesize($img);
+		if ($atts['width'] AND $atts['height']) :
+			if ($width > $atts['width'] AND $height > $atts['height']) $img_url = aq_resize($img, $atts['width'], $atts['height'], true);
+			else $img_url = $img;
+		elseif ($atts['width']) :
+			if ($width > $atts['width']) $img_url = aq_resize($img, $atts['width']);
+			else $img_url = $img;
+		else : 
+			$img_url = $img;
+		endif;
+		list($fwidth, $fheight) = getimagesize($img_url);
+		$html .= '<img class="img-responsive img-fluid img-featured" src="'.$img_url.'" alt="'.get_the_title().'" width="'.$fwidth.'" height="'.$fheight.'" />';
+		if ($atts['wrapper_element']) $html .= '</'. $atts['wrapper_element'] . '>';
+	}
+	return $html;
+}
+add_shortcode( 'feature-image', 'feature_image_func' );
+
 function theme_credit_func( $atts = array(), $content = '' ) {
 	$html = "";
 	$atts = shortcode_atts( array(
