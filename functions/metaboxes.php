@@ -29,6 +29,7 @@ function forclient_metaboxes() {
         'desc' => 'Yes',
         'id'   => $prefix . 'banner_enable',
         'type' => 'checkbox',
+        'default' => true
     ));
     $banner_details->add_field( array(
         'name'    => 'Banner Cover',
@@ -74,6 +75,7 @@ function forclient_metaboxes() {
         'desc' => 'Yes',
         'id'   => $prefix . 'breadcrumb_enable',
         'type' => 'checkbox',
+        'default' => true
     )); 
 
 	$post_gallery_details = new_cmb2_box(array(
