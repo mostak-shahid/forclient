@@ -1,7 +1,7 @@
 <?php
 function forclient_metaboxes() {
     $prefix = '_forclient_';
-    global $forclient,$template_parts;
+    global $forclient_options,$template_parts;
 
     $page_settings = new_cmb2_box(array(
         'id' => $prefix . 'page_settings',
@@ -14,8 +14,8 @@ function forclient_metaboxes() {
         'type'    => 'tb_sorter',
         'desc'      => '<a href="'.admin_url( 'admin-ajax.php' ).'?action=reset_prl&post_id='.$_GET['post'].'">Click here</a> to reset "Page Row Layout"',
         'options' => array(
-            'Enabled'  => $template_parts['Enabled'],
-            'Disabled' => $template_parts['Disabled'], 
+            'Enabled'  => ($forclient_options['general-page-sections']['Enabled']) ? $forclient_options['general-page-sections']['Enabled'] : $template_parts['Enabled'],
+            'Disabled' => ($forclient_options['general-page-sections']['Disabled']) ? $forclient_options['general-page-sections']['Disabled'] : $template_parts['Disabled'], 
         ),
     ));    
     $banner_details = new_cmb2_box(array(
