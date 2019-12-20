@@ -12,7 +12,7 @@ https://github.com/proteusthemes/visual-composer-elements
 		$data = explode('{', $atts['css']);	
 		$css_class = str_replace(".", "", $data[0]);
 	}
-	return '<div class="'.$css_class.'" data-foo="'.$atts['foo'].'">'.$content.'</div>';
+	return '<div class="element-wrapper '.$css_class.'" data-foo="'.$atts['foo'].'">'.$content.'</div>';
 }
 add_shortcode( 'bartag', 'bartag_func' );
 add_action( 'vc_before_init', 'your_name_integrateWithVC' );
