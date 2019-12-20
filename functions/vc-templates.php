@@ -6,9 +6,13 @@ https://github.com/proteusthemes/visual-composer-elements
 /*function bartag_func( $atts = array(), $content = '' ) {
 	$atts = shortcode_atts( array(
 		'foo' => 'something',
-		'color' => '#FFF'
+		'css' => '',
 	), $atts, 'bartag' );	
-	return '<div style="color:'.$atts['color'].'" data-foo="'.$atts['foo'].'">'.$content.'</div>';
+	if ($atts['css']){
+		$data = explode('{', $atts['css']);	
+		$css_class = str_replace(".", "", $data[0]);
+	}
+	return '<div class="'.$css_class.'" data-foo="'.$atts['foo'].'">'.$content.'</div>';
 }
 add_shortcode( 'bartag', 'bartag_func' );
 add_action( 'vc_before_init', 'your_name_integrateWithVC' );
@@ -20,7 +24,7 @@ function your_name_integrateWithVC() {
 		"category" => __( "Content", "my-text-domain"),
 		// 'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
 		// 'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
-		//'icon'     => get_template_directory_uri() . '/vendor/proteusthemes/visual-composer-elements/assets/images/pt.svg',
+		'icon'     => get_template_directory_uri() . '/images/mos-vc.png',
 				
 		"params" => array(
 			array(
@@ -31,14 +35,6 @@ function your_name_integrateWithVC() {
 				"param_name" => "foo",
 				"value" => __( "Default param value", "my-text-domain" ),
 				"description" => __( "Description for foo param.", "my-text-domain" )
-				),
-			array(
-				"type" => "colorpicker",
-				"class" => "",
-				"heading" => __( "Text color", "my-text-domain" ),
-				"param_name" => "color",
-				"value" => '#FF0000', //Default Red color
-				"description" => __( "Choose text color", "my-text-domain" )
 			),
 			array(
 				"type" => "textarea_html",
@@ -48,7 +44,14 @@ function your_name_integrateWithVC() {
 				"param_name" => "content", // Important: Only one textarea_html param per content element allowed and it should have "content" as a "param_name"
 				"value" => __( "<p>I am test text block. Click edit button to change this text.</p>", "my-text-domain" ),
 				"description" => __( "Enter your content.", "my-text-domain" )
-			)
+			), 
+            // Design Options
+            array(
+	            'type' => 'css_editor',
+	            'heading' => __( 'Css' ),
+	            'param_name' => 'css',
+	            'group' => __( 'Design Options' ),
+            )
 		)
 	));
 }
