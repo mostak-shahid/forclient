@@ -81,6 +81,13 @@ function forclient_plugins_management() {
 			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
 		),*/
 		array(
+			'name'				=> 'Captcha by BestWebSoft', 
+			'slug'				=> 'captcha', 
+			'source'			=> get_template_directory_uri() . '/plugins/captcha.zip', 
+			'required'			=> false,
+			'force_activation'	=> false, 
+		),
+		array(
 			'name'				=> 'WPBakery Page Builder', 
 			'slug'				=> 'js_composer', 
 			'source'			=> get_template_directory_uri() . '/plugins/js_composer.zip', 
