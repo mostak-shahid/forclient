@@ -416,7 +416,7 @@
                     'basic_icon' => true,
                     'hover_icon' => true,
                     'link_url' => true,
-                    'target' => true,
+                    'embeded_link' => true,
                 )
             ),
         )
