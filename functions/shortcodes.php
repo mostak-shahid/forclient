@@ -17,6 +17,7 @@ function shortcodes_page(){
 	<div class="wrap">
 		<h1>Theme Short Codes</h1>
 		<ol>
+			<li>[home-url slug''] <span class="sdetagils">displays home url</span></li>
 			<li>[site-identity class='' container_class=''] <span class="sdetagils">displays site identity according to theme option</span></li>
 			<li>[site-name link='0'] <span class="sdetagils">displays site name with/without site url</span></li>
 			<li>[copyright-symbol] <span class="sdetagils">displays copyright symbol</span></li>
@@ -30,6 +31,14 @@ function shortcodes_page(){
 	</div>
 	<?php
 }
+function home_url_func( $atts = array(), $content = '' ) {
+	$atts = shortcode_atts( array(
+		'slug' => '',
+	), $atts, 'home-url' );
+
+	return home_url( $atts['slug'] );
+}
+add_shortcode( 'home-url', 'home_url_func' );
 function site_identity_func( $atts = array(), $content = null ) {
 	global $forclient_options;
 	$logo_url = ($forclient_options['logo']['url']) ? $forclient_options['logo']['url'] : get_template_directory_uri(). '/images/logo.png';
