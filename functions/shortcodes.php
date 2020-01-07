@@ -212,7 +212,7 @@ function business_hour_func( $atts = array(), $content = '' ) {
 	if ($contact_hours){
 		$html .= '<ul class="business-houes">';
 		foreach ($contact_hours as $contact_hour) {
-			echo '<li>' . $contact_hour . '</li>';
+			$html .= '<li>' . $contact_hour . '</li>';
 		}
 		$html .= '</ul>';
 	}
