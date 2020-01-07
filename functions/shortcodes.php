@@ -22,9 +22,10 @@ function shortcodes_page(){
 			<li>[site-name link='0'] <span class="sdetagils">displays site name with/without site url</span></li>
 			<li>[copyright-symbol] <span class="sdetagils">displays copyright symbol</span></li>
 			<li>[this-year] <span class="sdetagils">displays 4 digit current year</span></li>
-			<li>[email offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays email from theme option</span></li>
 			<li>[phone offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays phone from theme option</span></li>
 			<li>[fax offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays fax from theme option</span></li>
+			<li>[email offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays email from theme option</span></li>
+			<li>[buseness-hour] <span class="sdetagils">displays Business Hours from theme option</span></li>
 			<li>[address offset=0 index=0 all=1 seperator=', '] <span class="sdetagils">displays address from theme option</span></li>
 			<li>[social-menu display='inline/block' title='0/1'] <span class="sdetagils">displays social media from theme option</span></li>		
 			<li>[feature-image wrapper_element='div' wrapper_atts='' height='' width=''] <span class="sdetagils">displays feature image</span></li>		
@@ -204,6 +205,19 @@ function fax_func( $atts = array(), $content = '' ) {
 	return $output;
 }
 add_shortcode( 'fax', 'fax_func' );
+function business_hour_func( $atts = array(), $content = '' ) {
+	$html = '';
+	global $forclient_options;
+	$contact_hours = $forclient_options['contact-hour'];
+	if ($contact_hours){
+		$html .= '<ul class="business-houes">';
+		foreach ($contact_hours as $contact_hour) {
+			echo '<li>' . $contact_hour . '</li>';
+		}
+		$html .= '</ul>';
+	}
+	return $html;
+}
 function address_func( $atts = array(), $content = '' ) {
     global $forclient_options;
     $html = '';
