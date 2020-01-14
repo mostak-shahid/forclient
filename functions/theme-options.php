@@ -400,6 +400,7 @@
                     'title' => true,
                     'description' => true,
                     'map_link' => true,
+                    'embeded_link' => true,
                     'review_link' => false,
                     'review_link_img' => false,
                     'review_link_img_h' => false,
