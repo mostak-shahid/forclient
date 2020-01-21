@@ -68,7 +68,7 @@ if (!function_exists('bootstrapBasicComment')) {
 								'add_below' => 'div-comment',
 								'depth'     => $depth,
 								'max_depth' => $args['max_depth'],
-								// 'reply_text' => '<span class="fa fa-reply"></span> ' . __('<i class="icon-repeat"></i> Reply', 'forclient'),
+								'reply_text' => '' . __('', 'forclient'),
 								'login_text' => '<span class="fa fa-reply"></span> ' . __('Log in to Reply', 'forclient')
 							)));
 							// end reply link
