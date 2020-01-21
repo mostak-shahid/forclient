@@ -34,9 +34,9 @@ function forclient_metaboxes() {
         //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-template/lightbox-gallery-page.php' ),
     )); 
     $banner_details->add_field( array(
-        'name' => 'Enable Banner',
+        'name' => 'Disable Banner',
         'desc' => 'Yes',
-        'id'   => $prefix . 'banner_enable',
+        'id'   => $prefix . 'banner_disable',
         'type' => 'checkbox',
         // 'default' => true
     ));
