@@ -1,8 +1,7 @@
 <?php 
 global $forclient_options;
 $from_theme_option = $forclient_options['archive-page-sections'];
-$from_page_option = get_post_meta( get_the_ID(), '_forclient_page_section_layout', true );
-$sections = (@$from_page_option['Enabled'])?$from_page_option['Enabled']:$from_theme_option['Enabled'];
+$sections = $from_theme_option['Enabled'];
 ?><?php get_header() ?>
 <section id="blogs" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
 	<div class="content-wrap">
@@ -32,4 +31,5 @@ $sections = (@$from_page_option['Enabled'])?$from_page_option['Enabled']:$from_t
 		</div>	
 	</div>
 </section>
+<?php if($sections ) { foreach ($sections as $key => $value) { get_template_part( 'template-parts/section', $key );}}?>
 <?php get_footer() ?>

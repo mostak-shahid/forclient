@@ -20,9 +20,9 @@ if (!function_exists('bootstrapBasicComment')) {
 			echo '>';
 			echo '<div class="media comment_section">';
 				echo '<div class="media-body">';
-					_e('Pingback:', 'corlate');
+					_e('Pingback:', 'forclient');
 					comment_author_link(); 
-					edit_comment_link(__('Edit', 'corlate'), '<span class="edit-link">', '</span>');
+					edit_comment_link(__('Edit', 'forclient'), '<span class="edit-link">', '</span>');
 				echo '</div>';
 			echo '</div>';
 		} else {
@@ -51,7 +51,7 @@ if (!function_exists('bootstrapBasicComment')) {
 						echo '<div class="comment-author vcard">';
 							echo '<div class="comment-metadata">';
 							// comment author says
-							printf(/*__('%s <span class="says">says:</span>', 'corlate'),*/ sprintf('<strong>%s</strong>&nbsp; ', get_comment_author_link()));
+							printf(/*__('%s <span class="says">says:</span>', 'forclient'),*/ sprintf('<strong>%s</strong>&nbsp; ', get_comment_author_link()));
 							// date-time
 							/*echo '<a href="';
 								echo esc_url(get_comment_link($comment->comment_ID));
@@ -68,21 +68,21 @@ if (!function_exists('bootstrapBasicComment')) {
 								'add_below' => 'div-comment',
 								'depth'     => $depth,
 								'max_depth' => $args['max_depth'],
-								'reply_text' => '<span class="fa fa-reply"></span> ' . __('<i class="icon-repeat"></i> Reply', 'corlate'),
-								'login_text' => '<span class="fa fa-reply"></span> ' . __('Log in to Reply', 'corlate')
+								// 'reply_text' => '<span class="fa fa-reply"></span> ' . __('<i class="icon-repeat"></i> Reply', 'forclient'),
+								'login_text' => '<span class="fa fa-reply"></span> ' . __('Log in to Reply', 'forclient')
 							)));
 							// end reply link
 	
 							echo ' ';
 	
-							edit_comment_link('<span class="fa fa-pencil-square-o "></span>' . __('Edit Comment', 'corlate'), '<span class="edit-link">', '</span>');
+							edit_comment_link('<span class="fa fa-pencil-square-o "></span>' . __('Edit Comment', 'forclient'), '<span class="edit-link">', '</span>');
 	
 							echo '</div><!-- .comment-metadata -->';
 	
 							// if comment was not approved
 							if ('0' == $comment->comment_approved) {
 								echo '<div class="comment-awaiting-moderation text-warning"> <span class="glyphicon glyphicon-info-sign"></span> ';
-									_e('Your comment is awaiting moderation.', 'corlate');
+									_e('Your comment is awaiting moderation.', 'forclient');
 								echo '</div>';
 							} //endif;
 						echo '</div><!-- .comment-author vcard -->';
@@ -106,7 +106,7 @@ function forclient_comment_defaults($defaults) {
 	$defaults['comment_notes_before'] = '';
 	$defaults['title_reply'] = 'Leave a comment';
 	$defaults['title_reply_to'] = 'Leave a comment %s';
-	$defaults['label_submit']  = __( 'Submit Comment', 'corlate' );
+	$defaults['label_submit']  = __( 'Submit Comment', 'forclient' );
 	return $defaults;
 }
 add_filter('get_avatar', 'remove_photo_class');
