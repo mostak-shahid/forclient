@@ -32,6 +32,10 @@ a:visited,a:hover,a:active,a:focus{text-decoration:none}
 #page-title .shortcode-output,#page-title .video-output {position:absolute;left:0;top:0;width:100%;height:100%}
 #page-title .video-output video {width:100%}
 
+#comments-list .media-list{padding-left: 0;}
+#comments-list .media-list .comment{list-style: none;}
+#comments-list .media-list .comment .comment-content {padding-left: 15px;}
+
 .widget ul{list-style:none;padding-left:0}
 .widget ul li{}
 .widget ul li a{}
