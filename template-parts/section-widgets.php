@@ -1,5 +1,5 @@
 <?php 
-global $forclient_options;
+global $forclient_options; 
 $class = $forclient_options['sections-widgets-class'];
 $title = $forclient_options['sections-widgets-title'];
 $content = $forclient_options['sections-widgets-content'];
