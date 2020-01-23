@@ -190,7 +190,7 @@ function fax_func( $atts = array(), $content = '' ) {
 	    $html .= '</a>';
 	    $html .= '</span>';		
 	else :
-		if (@foreach ($forclient_options['contact-fax']) :
+		if (@$forclient_options['contact-fax']) :
 			foreach ($forclient_options['contact-fax'] as $fax) :
 				if ($n > $atts['offset']) :
 				    $html .= '<span class="fax-number">';
@@ -246,7 +246,7 @@ function address_func( $atts = array(), $content = '' ) {
 		endif;
 	    $html .= '</span>';
 	else :
-		if(@foreach ($forclient_options['contact-address']) :
+		if(@$forclient_options['contact-address']) :
 			foreach ($forclient_options['contact-address'] as $address) :
 				if ($n > $atts['offset']) :
 				    $html .= '<span class="address address-'.$n.'">';
