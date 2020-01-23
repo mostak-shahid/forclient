@@ -108,15 +108,17 @@ function email_func( $atts = array(), $content = '' ) {
 			$html .= '<a class="mailToShow" href="mailto:'.$contact_email[$i].'">'.$contact_email[$i].'</a>';
 		$html .= '</span>';	
 	else :
-		foreach ($contact_email as $email) :
-			if ($n > $atts['offset']) :
-				$html .= '<span class="email">';
-					$html .= '<a class="mailToShow" href="mailto:'.$email.'">'.$email.'</a>';
-				$html .= '</span>';
-				$html .= $atts['seperator'];
-			endif;
-			$n++;
-		endforeach;
+		if(@$contact_email) :
+			foreach ($contact_email as $email) :
+				if ($n > $atts['offset']) :
+					$html .= '<span class="email">';
+						$html .= '<a class="mailToShow" href="mailto:'.$email.'">'.$email.'</a>';
+					$html .= '</span>';
+					$html .= $atts['seperator'];
+				endif;
+				$n++;
+			endforeach;
+		endif;
 	endif;
 	$output = rtrim(  $html, $atts['seperator']);
 	$output .= '</span>';
@@ -145,19 +147,21 @@ function phone_func( $atts = array(), $content = '' ) {
 	    $html .= '</a>';
 	    $html .= '</span>';		
 	else :
-		foreach ($forclient_options['contact-phone'] as $phone) :
-			if ($n > $atts['offset']) :
-			    $html .= '<span class="phone-number">';
-			    $html .= '<a class="phoneToShow" href="tel:';
-			    $html .= preg_replace('/[^0-9]/', '', $phone);
-			    $html .= '" >';
-			    $html .= $phone;  
-			    $html .= '</a>';
-			    $html .= '</span>';
-			    $html .= $atts['seperator'];
-			endif;
-			$n++;
-		endforeach;
+		if (@$forclient_options['contact-phone']) :
+			foreach ($forclient_options['contact-phone'] as $phone) :
+				if ($n > $atts['offset']) :
+				    $html .= '<span class="phone-number">';
+				    $html .= '<a class="phoneToShow" href="tel:';
+				    $html .= preg_replace('/[^0-9]/', '', $phone);
+				    $html .= '" >';
+				    $html .= $phone;  
+				    $html .= '</a>';
+				    $html .= '</span>';
+				    $html .= $atts['seperator'];
+				endif;
+				$n++;
+			endforeach;
+		endif;
 	endif;
 	$output = rtrim(  $html, $atts['seperator']);
 	$output .= '</span>';
@@ -186,19 +190,21 @@ function fax_func( $atts = array(), $content = '' ) {
 	    $html .= '</a>';
 	    $html .= '</span>';		
 	else :
-		foreach ($forclient_options['contact-fax'] as $fax) :
-			if ($n > $atts['offset']) :
-			    $html .= '<span class="fax-number">';
-			    $html .= '<a class="faxToShow" href="tel:';
-			    $html .= preg_replace('/[^0-9]/', '', $fax);
-			    $html .= '" >';
-			    $html .= $fax;  
-			    $html .= '</a>';
-			    $html .= '</span>';
-			    $html .= $atts['seperator'];
-			endif;
-			$n++;
-		endforeach;
+		if (@foreach ($forclient_options['contact-fax']) :
+			foreach ($forclient_options['contact-fax'] as $fax) :
+				if ($n > $atts['offset']) :
+				    $html .= '<span class="fax-number">';
+				    $html .= '<a class="faxToShow" href="tel:';
+				    $html .= preg_replace('/[^0-9]/', '', $fax);
+				    $html .= '" >';
+				    $html .= $fax;  
+				    $html .= '</a>';
+				    $html .= '</span>';
+				    $html .= $atts['seperator'];
+				endif;
+				$n++;
+			endforeach;
+		endif;
 	endif;
 	$output = rtrim(  $html, $atts['seperator']);
 	$output .= '</span>';
@@ -240,20 +246,22 @@ function address_func( $atts = array(), $content = '' ) {
 		endif;
 	    $html .= '</span>';
 	else :
-		foreach ($forclient_options['contact-address'] as $address) :
-			if ($n > $atts['offset']) :
-			    $html .= '<span class="address address-'.$n.'">';
-				$html .= '<span class="address-title">'.$address['title'].'</span>';
-				if ($address['map_link']) :
-					$html .= '<a class="address-details" href="'.$address['map_link'].'" target="_blank">'.$address['description'].'</a>';
-				else :
-					$html .= '<span  class="address-details">'.$address['description'].'</span>';
+		if(@foreach ($forclient_options['contact-address']) :
+			foreach ($forclient_options['contact-address'] as $address) :
+				if ($n > $atts['offset']) :
+				    $html .= '<span class="address address-'.$n.'">';
+					$html .= '<span class="address-title">'.$address['title'].'</span>';
+					if ($address['map_link']) :
+						$html .= '<a class="address-details" href="'.$address['map_link'].'" target="_blank">'.$address['description'].'</a>';
+					else :
+						$html .= '<span  class="address-details">'.$address['description'].'</span>';
+					endif;
+				    $html .= '</span>';
+				    $html .= $atts['seperator'];
 				endif;
-			    $html .= '</span>';
-			    $html .= $atts['seperator'];
-			endif;
-			$n++;
-		endforeach;
+				$n++;
+			endforeach;
+		endif;
 	endif;	    
 	$output = rtrim(  $html, $atts['seperator']);
 	$output .= '</span>';
