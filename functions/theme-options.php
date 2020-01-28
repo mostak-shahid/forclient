@@ -1279,6 +1279,26 @@
                 )
             ),
             array(
+                'id'       => 'sections-blank-media',
+                'type'     => 'media',
+                'url'      => true,
+                'title'    => __( 'Section Image', 'redux-framework-demo' ),
+                'compiler' => 'true',
+            ),
+            array(
+                'id'       => 'sections-blank-link',
+                'type'     => 'mos_group',                
+                'title'    => 'Section Link',
+                'show' => array (
+                    'text_field_1' => true,
+                    'text_field_2' => true,
+                ),
+                'placeholder' => array(
+                   'text_field_1' => 'Link Title',
+                   'text_field_2' => 'Link URL',
+                )
+            ),
+            array(
                 'id'       => 'sections-blank-color-type',
                 'type'     => 'button_set',
                 'title'    => __( 'Section text color', 'redux-framework-demo' ),
