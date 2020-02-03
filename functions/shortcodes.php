@@ -17,7 +17,7 @@ function shortcodes_page(){
 	<div class="wrap">
 		<h1>Theme Short Codes</h1>
 		<ol>
-			<li>[home-url slug''] <span class="sdetagils">displays home url</span></li>
+			<li>[home-url slug=''] <span class="sdetagils">displays home url</span></li>
 			<li>[site-identity class='' container_class=''] <span class="sdetagils">displays site identity according to theme option</span></li>
 			<li>[site-name link='0'] <span class="sdetagils">displays site name with/without site url</span></li>
 			<li>[copyright-symbol] <span class="sdetagils">displays copyright symbol</span></li>
