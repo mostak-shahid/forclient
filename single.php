@@ -2,6 +2,7 @@
 global $forclient_options;
 $from_theme_option = $forclient_options['archive-page-sections'];
 $sections = $from_theme_option['Enabled'];
+unset($sections['content']);
 ?><?php get_header() ?>
 <section id="blogs" class="page-content <?php if(@$forclient_options['sections-content-background-type'] == 1) echo @$forclient_options['sections-content-background'];?>">
 	<div class="content-wrap">
