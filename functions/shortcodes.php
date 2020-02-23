@@ -224,6 +224,7 @@ function business_hour_func( $atts = array(), $content = '' ) {
 	}
 	return $html;
 }
+add_shortcode( 'business-hour', 'business_hour_func' );
 function address_func( $atts = array(), $content = '' ) {
     global $forclient_options;
     $html = '';
