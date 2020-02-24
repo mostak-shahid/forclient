@@ -80,13 +80,14 @@ a:visited,a:hover,a:active,a:focus{text-decoration:none}
 }
 /* Medium devices (tablets,768px and up) */
 @media (min-width:768px){
+}
+
+/* Large devices (desktops,992px and up) */
+@media (min-width:992px){    
     .sub-menu{position:absolute}
     .navbar-nav.ml-auto .sub-menu{left:auto;right:0}
     .navbar-nav .menu-item-has-children:hover > .sub-menu{display:block} 
 }
-
-/* Large devices (desktops,992px and up) */
-@media (min-width:992px){}
 
 /* Extra large devices (large desktops,1200px and up) */
 @media (min-width:1200px){}
@@ -98,14 +99,13 @@ a:visited,a:hover,a:active,a:focus{text-decoration:none}
 /* Medium devices (tablets,less than 992px) */
 @media (max-width:991.98px){
 	.aligncenter,.alignleft,.alignright {display: block; margin-left: auto; margin-right: auto;float: none;}
-}
-
-/* Small devices (landscape phones,less than 768px) */
-@media (max-width:767.98px){
     .sub-menu{position:relative;width:100%}
     .navbar .navbar-nav .menu-item a{display:block}    
     .navbar .navbar-nav .menu-item.menu-item-has-children .drop_down_icon{border:1px solid #000;width:24px;text-align:center;padding:0}
 }
+
+/* Small devices (landscape phones,less than 768px) */
+@media (max-width:767.98px){}
 
 /* Extra small devices (portrait phones,less than 576px) */
 @media (max-width:575.98px){}
