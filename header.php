@@ -103,6 +103,12 @@ else $page_id = get_the_ID();
 					$title = get_the_title($page_for_posts);
 					elseif (is_404()) :
 						$title = '404 Page';
+					elseif(is_tax()) :
+						$title = single_term_title( '', false );
+					elseif(is_plugin_active('woocommerce/woocommerce.php')) :
+						if (is_shop()) :
+							$title = get_the_title(get_option('woocommerce_shop_page_id'));
+						endif;
 					else :
 						$title = get_the_title();
 					endif; 
