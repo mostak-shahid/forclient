@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
         show_meta_boxes(page_template);
     });
 
-    $("span.photo_upload_button").live("click", function(add){
+    $("span.photo_upload_button").on("click", function(add){
         add.preventDefault();
         var imageUploader = wp.media({
             // 'title'     : 'Upload Image',
@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
             button.siblings('div.screenshot-photo').find('img').attr('src', thum_link);
         })
     });
-    $("span.remove-photo").live("click", function(del){
+    $("span.remove-photo").on("click", function(del){
         del.preventDefault();
         $(this).addClass('hide');
 
