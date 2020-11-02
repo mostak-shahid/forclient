@@ -3,7 +3,7 @@ function forclient_metaboxes() {
     $prefix = '_forclient_';
     global $forclient_options,$template_parts;
     $blog_id = get_option( 'page_for_posts' );
-    if ($_GET['post'] == $blog_id){
+    if (@$_GET['post'] == $blog_id){
         $enabled = ($forclient_options['archive-page-sections']['Enabled']) ? $forclient_options['archive-page-sections']['Enabled'] : $template_parts['Enabled'];
         $disabled = ($forclient_options['archive-page-sections']['Disabled']) ? $forclient_options['archive-page-sections']['Disabled'] : $template_parts['Disabled'];
     }
@@ -21,7 +21,7 @@ function forclient_metaboxes() {
         'name'    => 'Page Row Layout',
         'id'      => $prefix . 'page_section_layout',
         'type'    => 'tb_sorter',
-        'desc'      => '<a href="'.admin_url( 'admin-ajax.php' ).'?action=reset_prl&post_id='.$_GET['post'].'">Click here</a> to reset "Page Row Layout"',
+        'desc'      => '<a href="'.admin_url( 'admin-ajax.php' ).'?action=reset_prl&post_id='.@$_GET['post'].'">Click here</a> to reset "Page Row Layout"',
         'options' => array(
             'Enabled'  => $enabled,
             'Disabled' => $disabled, 
