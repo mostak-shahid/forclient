@@ -30,9 +30,9 @@ else $page_id = get_the_ID();
     </div>
 <?php endif; ?>
 	<?php 
-	$header_class=$forclient_options['sections-header-class']; 
-	$title_class=$forclient_options['sections-title-class']; 
-	$breadcrumbs_class=$forclient_options['sections-breadcrumbs-class']; 
+	$header_class=@$forclient_options['sections-header-class']; 
+	$title_class=@$forclient_options['sections-title-class']; 
+	$breadcrumbs_class=@$forclient_options['sections-breadcrumbs-class']; 
 	?>
 	<header id="main-header" class="<?php if(@$forclient_options['sections-header-background-type'] == 1) echo @$forclient_options['sections-header-background'] . ' ';?><?php if(@$forclient_options['sections-header-color-type'] == 1) echo @$forclient_options['sections-header-color'];?> <?php echo $header_class?>">
 		<div class="content-wrap">
@@ -46,7 +46,7 @@ else $page_id = get_the_ID();
 							<?php echo bloginfo( 'name' ); ?>
 						<?php endif; ?>
 						</span>
-						<?php if($forclient_options['logo']['id']) : ?>
+						<?php if(@$forclient_options['logo']['id']) : ?>
 							<span class="d-none d-md-inline-block">
 								<img class="img-responsive img-fluid" src="<?php echo $forclient_options['logo']['url']?>" width="<?php echo $forclient_options['logo']['width']?>" height="<?php echo $forclient_options['logo']['height']?>" alt="<?php echo bloginfo( 'name' ); ?> - Logo">
 							</span>

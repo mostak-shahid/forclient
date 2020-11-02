@@ -1,8 +1,8 @@
 <?php 
 global $forclient_options; 
-$class = $forclient_options['sections-widgets-class'];
-$title = $forclient_options['sections-widgets-title'];
-$content = $forclient_options['sections-widgets-content'];
+$class = @$forclient_options['sections-widgets-class'];
+$title = @$forclient_options['sections-widgets-title'];
+$content = @$forclient_options['sections-widgets-content'];
 $widget_layout = $forclient_options['sections-widgets-layout'];
 if($widget_layout == '3') { $colsize = 4; }
 elseif($widget_layout == '4') { $colsize = 3; }

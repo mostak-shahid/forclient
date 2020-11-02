@@ -1,13 +1,13 @@
 <?php 
 global $forclient_options;
-$class = $forclient_options['sections-footer-class'];
+$class = @$forclient_options['sections-footer-class'];
 $page_details = array( 'id' => get_the_ID(), 'template_file' => basename( get_page_template() ));
 ?>
   <?php get_template_part( 'template-parts/section', 'widgets' ); ?>
   <footer id="footer" class="<?php if(@$forclient_options['sections-footer-background-type'] == 1) echo @$forclient_options['sections-footer-background'] . ' ';?><?php if(@$forclient_options['sections-footer-color-type'] == 1) echo @$forclient_options['sections-footer-color'];?> <?php echo $class ?>">
     <div class="content-wrap">
       <div class="container">
-        <?php echo do_shortcode( $forclient_options['sections-footer-content'] ); ?>
+        <?php echo do_shortcode( @$forclient_options['sections-footer-content'] ); ?>
       </div>
     </div>
   </footer>
@@ -19,12 +19,12 @@ if ($forclient_options['misc-back-top']) :
     endif;
 ?>
 <?php wp_footer(); ?> 
-<?php if ($forclient_options['misc-settings-css']) : ?>
+<?php if (@$forclient_options['misc-settings-css']) : ?>
   <style>
     <?php echo $forclient_options['misc-settings-css'] ?>    
   </style>
 <?php endif; ?>
-<?php if ($forclient_options['misc-settings-js']) : ?>
+<?php if (@$forclient_options['misc-settings-js']) : ?>
   <script>
     <?php echo $forclient_options['misc-settings-js'] ?> 
   </script>
