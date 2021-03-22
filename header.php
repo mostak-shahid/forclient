@@ -37,6 +37,7 @@ else $page_id = get_the_ID();
 	<header id="main-header" class="<?php if(@$forclient_options['sections-header-background-type'] == 1) echo @$forclient_options['sections-header-background'] . ' ';?><?php if(@$forclient_options['sections-header-color-type'] == 1) echo @$forclient_options['sections-header-color'];?> <?php echo $header_class?>">
 		<div class="content-wrap">
 			<div class="container">
+			<?php echo do_shortcode('[site-identity]') ?>
 				<nav class="navbar navbar-expand-lg navbar-dark navbar-custom-bg">			
 					<a class="navbar-brand" href="<?php echo home_url(); ?>">
 						<span class="<?php if($forclient_options['logo']['id']) echo 'd-md-none';?>">
